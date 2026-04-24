@@ -1,0 +1,18 @@
+dataset/*
+logs/*
+output/*
+*.pyc
+logs.txt
+sel4_prover.egg-info/*
+.idea/*
+.vscode/
+/tmp/
+/saves/
+.env
+/build
+# Large data files (users download FVELer.zip themselves — see README)
+datasets/FVELer.zip
+FVELer_data/dataset_lemma_split.json
+FVELer_data/sel4_thy_info.json
+__pycache__/
+

@@ -1,0 +1,27 @@
+[project]
+name = "sel4-prover"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+    "dotenv",
+    "openai",
+    "pandas",
+    "psutil",
+    "py4j",
+    "pydantic",
+    "pygments",
+    "requests",
+    "rustworkx",
+    "tqdm",
+    "ray",
+    "py4j",
+    "dotenv",
+    "treelib",
+]
+
+# [build-system]
+# requires = ["hatchling"]
+# build-backend = "hatchling.build"
+
+# [tool.setuptools.packages.find]
+# where = ["."]

@@ -1,0 +1,834 @@
+{
+    "test": [
+        {
+            "session": "Word_Lib",
+            "dependency": [],
+            "context": "lemma \"f (-2) = f (0xFFFFFFFE :: 32 word)\" by simp",
+            "proof": [
+                "lemma \"f (-2) = f (0xFFFFFFFE :: 32 word)\"",
+                "by simp"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. f (- 2) = f 4294967294",
+                ""
+            ],
+            "statement": "lemma \"f (-2) = f (0xFFFFFFFE :: 32 word)\"",
+            "name": "unnamed_thy_1522",
+            "theory_name": "Norm_Words",
+            "num_steps": 1
+        },
+        {
+            "session": "Word_Lib",
+            "dependency": [],
+            "context": "lemma toEnum_of_ucast:\n  \"LENGTH('b) \\<le> LENGTH('a) \\<Longrightarrow>\n   (toEnum (unat (b::'b :: len word))::'a :: len word) = of_nat (unat b)\" by (simp add: unat_pow_le_intro)",
+            "proof": [
+                "lemma toEnum_of_ucast:\n  \"LENGTH('b) \\<le> LENGTH('a) \\<Longrightarrow>\n   (toEnum (unat (b::'b :: len word))::'a :: len word) = of_nat (unat b)\"",
+                "by (simp add: unat_pow_le_intro)"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. LENGTH('b) \\<le> LENGTH('a) \\<Longrightarrow> toEnum (unat b) = word_of_nat (unat b)",
+                ""
+            ],
+            "statement": "lemma toEnum_of_ucast:\n  \"LENGTH('b) \\<le> LENGTH('a) \\<Longrightarrow>\n   (toEnum (unat (b::'b :: len word))::'a :: len word) = of_nat (unat b)\"",
+            "name": "unnamed_thy_1802",
+            "theory_name": "Word_Lemmas",
+            "num_steps": 1
+        },
+        {
+            "session": "Lib",
+            "dependency": [],
+            "context": "lemma ran_option_map:\n  \"ran (map_option f o m) = f ` ran m\" by (auto simp add: ran_def)",
+            "proof": [
+                "lemma ran_option_map:\n  \"ran (map_option f o m) = f ` ran m\"",
+                "by (auto simp add: ran_def)"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. ran (map_option f \\<circ> m) = f ` ran m",
+                ""
+            ],
+            "statement": "lemma ran_option_map:\n  \"ran (map_option f o m) = f ` ran m\"",
+            "name": "unnamed_thy_3369",
+            "theory_name": "Lib",
+            "num_steps": 1
+        },
+        {
+            "session": "AInvs",
+            "dependency": [],
+            "context": "lemma table_cap_ref_vs_cap_ref_eq:\n  \"table_cap_ref cap = Some ref \\<Longrightarrow> table_cap_ref cap' = Some ref \\<Longrightarrow>\n   vs_cap_ref cap = vs_cap_ref cap'\" by (auto simp: table_cap_ref_def vs_cap_ref_simps\n          split: cap.splits arch_cap.splits option.splits)",
+            "proof": [
+                "lemma table_cap_ref_vs_cap_ref_eq:\n  \"table_cap_ref cap = Some ref \\<Longrightarrow> table_cap_ref cap' = Some ref \\<Longrightarrow>\n   vs_cap_ref cap = vs_cap_ref cap'\"",
+                "by (auto simp: table_cap_ref_def vs_cap_ref_simps split: cap.splits arch_cap.splits option.splits)"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<lbrakk>table_cap_ref cap = Some ref; table_cap_ref cap' = Some ref\\<rbrakk> \\<Longrightarrow> vs_cap_ref cap = vs_cap_ref cap'",
+                ""
+            ],
+            "statement": "lemma table_cap_ref_vs_cap_ref_eq:\n  \"table_cap_ref cap = Some ref \\<Longrightarrow> table_cap_ref cap' = Some ref \\<Longrightarrow>\n   vs_cap_ref cap = vs_cap_ref cap'\"",
+            "name": "unnamed_thy_6817",
+            "theory_name": "ArchInvariants_AI",
+            "num_steps": 1
+        },
+        {
+            "session": "AInvs",
+            "dependency": [],
+            "context": "lemma in_dxo_interruptD:\n  \"((), s') \\<in> fst (do_extended_op f s) \\<Longrightarrow> interrupt_states s' = interrupt_states s\" by (clarsimp simp: do_extended_op_def select_f_def in_monad)",
+            "proof": [
+                "lemma in_dxo_interruptD:\n  \"((), s') \\<in> fst (do_extended_op f s) \\<Longrightarrow> interrupt_states s' = interrupt_states s\"",
+                "by (clarsimp simp: do_extended_op_def select_f_def in_monad)"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. ((), s') \\<in> fst (do_extended_op f s) \\<Longrightarrow> interrupt_states s' = interrupt_states s",
+                ""
+            ],
+            "statement": "lemma in_dxo_interruptD:\n  \"((), s') \\<in> fst (do_extended_op f s) \\<Longrightarrow> interrupt_states s' = interrupt_states s\"",
+            "name": "unnamed_thy_7257",
+            "theory_name": "Invariants_AI",
+            "num_steps": 1
+        },
+        {
+            "session": "AInvs",
+            "dependency": [],
+            "context": "lemma pred_tcb_at_conj_strg:\n  \"pred_tcb_at proj P t s \\<and> pred_tcb_at proj Q t s \\<longrightarrow> pred_tcb_at proj (\\<lambda>a. P a \\<and> Q a) t s\" by (clarsimp simp: pred_tcb_at_def obj_at_def)",
+            "proof": [
+                "lemma pred_tcb_at_conj_strg:\n  \"pred_tcb_at proj P t s \\<and> pred_tcb_at proj Q t s \\<longrightarrow> pred_tcb_at proj (\\<lambda>a. P a \\<and> Q a) t s\"",
+                "by (clarsimp simp: pred_tcb_at_def obj_at_def)"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. pred_tcb_at proj P t s \\<and> pred_tcb_at proj Q t s \\<longrightarrow> pred_tcb_at proj (\\<lambda>a. P a \\<and> Q a) t s",
+                ""
+            ],
+            "statement": "lemma pred_tcb_at_conj_strg:\n  \"pred_tcb_at proj P t s \\<and> pred_tcb_at proj Q t s \\<longrightarrow> pred_tcb_at proj (\\<lambda>a. P a \\<and> Q a) t s\"",
+            "name": "unnamed_thy_7188",
+            "theory_name": "Invariants_AI",
+            "num_steps": 1
+        },
+        {
+            "session": "AInvs",
+            "dependency": [],
+            "context": "lemma untyped_incD:\n  \"\\<lbrakk> cs p = Some c; is_untyped_cap c; cs p' = Some c'; is_untyped_cap c'; untyped_inc m cs \\<rbrakk> \\<Longrightarrow>\n  (untyped_range c \\<subseteq> untyped_range c' \\<or> untyped_range c' \\<subseteq> untyped_range c \\<or> untyped_range c \\<inter> untyped_range c' = {}) \\<and>\n  (untyped_range c \\<subset> untyped_range c' \\<longrightarrow> (p \\<in> descendants_of p' m \\<and> untyped_range c \\<inter> usable_untyped_range c' = {})) \\<and>\n  (untyped_range c' \\<subset> untyped_range c \\<longrightarrow> (p' \\<in> descendants_of p m \\<and> untyped_range c' \\<inter> usable_untyped_range c = {})) \\<and>\n  (untyped_range c = untyped_range c' \\<longrightarrow> (p' \\<in> descendants_of p m \\<and> usable_untyped_range c = {}\n  \\<or> p \\<in> descendants_of p' m \\<and> usable_untyped_range c' = {} \\<or> p = p'))\" unfolding untyped_inc_def apply (drule_tac x = p in spec) apply (drule_tac x = p' in spec) apply (elim allE impE) apply simp+ done",
+            "proof": [
+                "lemma untyped_incD:\n  \"\\<lbrakk> cs p = Some c; is_untyped_cap c; cs p' = Some c'; is_untyped_cap c'; untyped_inc m cs \\<rbrakk> \\<Longrightarrow>\n  (untyped_range c \\<subseteq> untyped_range c' \\<or> untyped_range c' \\<subseteq> untyped_range c \\<or> untyped_range c \\<inter> untyped_range c' = {}) \\<and>\n  (untyped_range c \\<subset> untyped_range c' \\<longrightarrow> (p \\<in> descendants_of p' m \\<and> untyped_range c \\<inter> usable_untyped_range c' = {})) \\<and>\n  (untyped_range c' \\<subset> untyped_range c \\<longrightarrow> (p' \\<in> descendants_of p m \\<and> untyped_range c' \\<inter> usable_untyped_range c = {})) \\<and>\n  (untyped_range c = untyped_range c' \\<longrightarrow> (p' \\<in> descendants_of p m \\<and> usable_untyped_range c = {}\n  \\<or> p \\<in> descendants_of p' m \\<and> usable_untyped_range c' = {} \\<or> p = p'))\"",
+                "unfolding untyped_inc_def",
+                "apply (drule_tac x = p in spec)",
+                "apply (drule_tac x = p' in spec)",
+                "apply (elim allE impE)",
+                "apply simp+",
+                "done"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<lbrakk>cs p = Some c; is_untyped_cap c; cs p' = Some c'; is_untyped_cap c'; untyped_inc m cs\\<rbrakk> \\<Longrightarrow> (untyped_range c \\<subseteq> untyped_range c' \\<or> untyped_range c' \\<subseteq> untyped_range c \\<or> untyped_range c \\<inter> untyped_range c' = {}) \\<and> (untyped_range c \\<subset> untyped_range c' \\<longrightarrow> p \\<in> descendants_of p' m \\<and> untyped_range c \\<inter> usable_untyped_range c' = {}) \\<and> (untyped_range c' \\<subset> untyped_range c \\<longrightarrow> p' \\<in> descendants_of p m \\<and> untyped_range c' \\<inter> usable_untyped_range c = {}) \\<and> (untyped_range c = untyped_range c' \\<longrightarrow> p' \\<in> descendants_of p m \\<and> usable_untyped_range c = {} \\<or> p \\<in> descendants_of p' m \\<and> usable_untyped_range c' = {} \\<or> p = p')",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<lbrakk>cs p = Some c; is_untyped_cap c; cs p' = Some c'; is_untyped_cap c'; \\<forall>p p' c c'. cs p = Some c \\<longrightarrow> is_untyped_cap c \\<longrightarrow> cs p' = Some c' \\<longrightarrow> is_untyped_cap c' \\<longrightarrow> (untyped_range c \\<subseteq> untyped_range c' \\<or> untyped_range c' \\<subseteq> untyped_range c \\<or> untyped_range c \\<inter> untyped_range c' = {}) \\<and> (untyped_range c \\<subset> untyped_range c' \\<longrightarrow> p \\<in> descendants_of p' m \\<and> untyped_range c \\<inter> usable_untyped_range c' = {}) \\<and> (untyped_range c' \\<subset> untyped_range c \\<longrightarrow> p' \\<in> descendants_of p m \\<and> untyped_range c' \\<inter> usable_untyped_range c = {}) \\<and> (untyped_range c = untyped_range c' \\<longrightarrow> p' \\<in> descendants_of p m \\<and> usable_untyped_range c = {} \\<or> p \\<in> descendants_of p' m \\<and> usable_untyped_range c' = {} \\<or> p = p')\\<rbrakk> \\<Longrightarrow> (untyped_range c \\<subseteq> untyped_range c' \\<or> untyped_range c' \\<subseteq> untyped_range c \\<or> untyped_range c \\<inter> untyped_range c' = {}) \\<and> (untyped_range c \\<subset> untyped_range c' \\<longrightarrow> p \\<in> descendants_of p' m \\<and> untyped_range c \\<inter> usable_untyped_range c' = {}) \\<and> (untyped_range c' \\<subset> untyped_range c \\<longrightarrow> p' \\<in> descendants_of p m \\<and> untyped_range c' \\<inter> usable_untyped_range c = {}) \\<and> (untyped_range c = untyped_range c' \\<longrightarrow> p' \\<in> descendants_of p m \\<and> usable_untyped_range c = {} \\<or> p \\<in> descendants_of p' m \\<and> usable_untyped_range c' = {} \\<or> p = p')",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<lbrakk>cs p = Some c; is_untyped_cap c; cs p' = Some c'; is_untyped_cap c'; \\<forall>p' c c'. cs p = Some c \\<longrightarrow> is_untyped_cap c \\<longrightarrow> cs p' = Some c' \\<longrightarrow> is_untyped_cap c' \\<longrightarrow> (untyped_range c \\<subseteq> untyped_range c' \\<or> untyped_range c' \\<subseteq> untyped_range c \\<or> untyped_range c \\<inter> untyped_range c' = {}) \\<and> (untyped_range c \\<subset> untyped_range c' \\<longrightarrow> p \\<in> descendants_of p' m \\<and> untyped_range c \\<inter> usable_untyped_range c' = {}) \\<and> (untyped_range c' \\<subset> untyped_range c \\<longrightarrow> p' \\<in> descendants_of p m \\<and> untyped_range c' \\<inter> usable_untyped_range c = {}) \\<and> (untyped_range c = untyped_range c' \\<longrightarrow> p' \\<in> descendants_of p m \\<and> usable_untyped_range c = {} \\<or> p \\<in> descendants_of p' m \\<and> usable_untyped_range c' = {} \\<or> p = p')\\<rbrakk> \\<Longrightarrow> (untyped_range c \\<subseteq> untyped_range c' \\<or> untyped_range c' \\<subseteq> untyped_range c \\<or> untyped_range c \\<inter> untyped_range c' = {}) \\<and> (untyped_range c \\<subset> untyped_range c' \\<longrightarrow> p \\<in> descendants_of p' m \\<and> untyped_range c \\<inter> usable_untyped_range c' = {}) \\<and> (untyped_range c' \\<subset> untyped_range c \\<longrightarrow> p' \\<in> descendants_of p m \\<and> untyped_range c' \\<inter> usable_untyped_range c = {}) \\<and> (untyped_range c = untyped_range c' \\<longrightarrow> p' \\<in> descendants_of p m \\<and> usable_untyped_range c = {} \\<or> p \\<in> descendants_of p' m \\<and> usable_untyped_range c' = {} \\<or> p = p')",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<lbrakk>cs p = Some c; is_untyped_cap c; cs p' = Some c'; is_untyped_cap c'; \\<forall>c c'. cs p = Some c \\<longrightarrow> is_untyped_cap c \\<longrightarrow> cs p' = Some c' \\<longrightarrow> is_untyped_cap c' \\<longrightarrow> (untyped_range c \\<subseteq> untyped_range c' \\<or> untyped_range c' \\<subseteq> untyped_range c \\<or> untyped_range c \\<inter> untyped_range c' = {}) \\<and> (untyped_range c \\<subset> untyped_range c' \\<longrightarrow> p \\<in> descendants_of p' m \\<and> untyped_range c \\<inter> usable_untyped_range c' = {}) \\<and> (untyped_range c' \\<subset> untyped_range c \\<longrightarrow> p' \\<in> descendants_of p m \\<and> untyped_range c' \\<inter> usable_untyped_range c = {}) \\<and> (untyped_range c = untyped_range c' \\<longrightarrow> p' \\<in> descendants_of p m \\<and> usable_untyped_range c = {} \\<or> p \\<in> descendants_of p' m \\<and> usable_untyped_range c' = {} \\<or> p = p')\\<rbrakk> \\<Longrightarrow> (untyped_range c \\<subseteq> untyped_range c' \\<or> untyped_range c' \\<subseteq> untyped_range c \\<or> untyped_range c \\<inter> untyped_range c' = {}) \\<and> (untyped_range c \\<subset> untyped_range c' \\<longrightarrow> p \\<in> descendants_of p' m \\<and> untyped_range c \\<inter> usable_untyped_range c' = {}) \\<and> (untyped_range c' \\<subset> untyped_range c \\<longrightarrow> p' \\<in> descendants_of p m \\<and> untyped_range c' \\<inter> usable_untyped_range c = {}) \\<and> (untyped_range c = untyped_range c' \\<longrightarrow> p' \\<in> descendants_of p m \\<and> usable_untyped_range c = {} \\<or> p \\<in> descendants_of p' m \\<and> usable_untyped_range c' = {} \\<or> p = p')",
+                "proof (prove)\ngoal (5 subgoals):\n 1. \\<lbrakk>cs p = Some c; is_untyped_cap c; cs p' = Some c'; is_untyped_cap c'\\<rbrakk> \\<Longrightarrow> cs p = Some ?c4\n 2. \\<lbrakk>cs p = Some c; is_untyped_cap c; cs p' = Some c'; is_untyped_cap c'\\<rbrakk> \\<Longrightarrow> is_untyped_cap ?c4\n 3. \\<lbrakk>cs p = Some c; is_untyped_cap c; cs p' = Some c'; is_untyped_cap c'\\<rbrakk> \\<Longrightarrow> cs p' = Some ?c'5\n 4. \\<lbrakk>cs p = Some c; is_untyped_cap c; cs p' = Some c'; is_untyped_cap c'\\<rbrakk> \\<Longrightarrow> is_untyped_cap ?c'5\n 5. \\<lbrakk>cs p = Some c; is_untyped_cap c; cs p' = Some c'; is_untyped_cap c'; (untyped_range ?c4 \\<subseteq> untyped_range ?c'5 \\<or> untyped_range ?c'5 \\<subseteq> untyped_range ?c4 \\<or> untyped_range ?c4 \\<inter> untyped_range ?c'5 = {}) \\<and> (untyped_range ?c4 \\<subset> untyped_range ?c'5 \\<longrightarrow> p \\<in> descendants_of p' m \\<and> untyped_range ?c4 \\<inter> usable_untyped_range ?c'5 = {}) \\<and> (untyped_range ?c'5 \\<subset> untyped_range ?c4 \\<longrightarrow> p' \\<in> descendants_of p m \\<and> untyped_range ?c'5 \\<inter> usable_untyped_range ?c4 = {}) \\<and> (untyped_range ?c4 = untyped_range ?c'5 \\<longrightarrow> p' \\<in> descendants_of p m \\<and> usable_untyped_range ?c4 = {} \\<or> p \\<in> descendants_of p' m \\<and> usable_untyped_range ?c'5 = {} \\<or> p = p')\\<rbrakk> \\<Longrightarrow> (untyped_range c \\<subseteq> untyped_range c' \\<or> untyped_range c' \\<subseteq> untyped_range c \\<or> untyped_range c \\<inter> untyped_range c' = {}) \\<and> (untyped_range c \\<subset> untyped_range c' \\<longrightarrow> p \\<in> descendants_of p' m \\<and> untyped_range c \\<inter> usable_untyped_range c' = {}) \\<and> (untyped_range c' \\<subset> untyped_range c \\<longrightarrow> p' \\<in> descendants_of p m \\<and> untyped_range c' \\<inter> usable_untyped_range c = {}) \\<and> (untyped_range c = untyped_range c' \\<longrightarrow> p' \\<in> descendants_of p m \\<and> usable_untyped_range c = {} \\<or> p \\<in> descendants_of p' m \\<and> usable_untyped_range c' = {} \\<or> p = p')",
+                "proof (prove)\ngoal:\nNo subgoals!",
+                ""
+            ],
+            "statement": "lemma untyped_incD:\n  \"\\<lbrakk> cs p = Some c; is_untyped_cap c; cs p' = Some c'; is_untyped_cap c'; untyped_inc m cs \\<rbrakk> \\<Longrightarrow>\n  (untyped_range c \\<subseteq> untyped_range c' \\<or> untyped_range c' \\<subseteq> untyped_range c \\<or> untyped_range c \\<inter> untyped_range c' = {}) \\<and>\n  (untyped_range c \\<subset> untyped_range c' \\<longrightarrow> (p \\<in> descendants_of p' m \\<and> untyped_range c \\<inter> usable_untyped_range c' = {})) \\<and>\n  (untyped_range c' \\<subset> untyped_range c \\<longrightarrow> (p' \\<in> descendants_of p m \\<and> untyped_range c' \\<inter> usable_untyped_range c = {})) \\<and>\n  (untyped_range c = untyped_range c' \\<longrightarrow> (p' \\<in> descendants_of p m \\<and> usable_untyped_range c = {}\n  \\<or> p \\<in> descendants_of p' m \\<and> usable_untyped_range c' = {} \\<or> p = p'))\"",
+            "name": "unnamed_thy_7175",
+            "theory_name": "Invariants_AI",
+            "num_steps": 6
+        },
+        {
+            "session": "AInvs",
+            "dependency": [],
+            "context": "lemma set_object_non_arch:\n  \"arch_obj_pred P' \\<Longrightarrow>\n   \\<lbrace>(\\<lambda>s. P (obj_at P' p' s)) and K(non_arch_obj ko) and obj_at non_arch_obj p \\<rbrace>\n    set_object p ko\n   \\<lbrace>\\<lambda>r s. P (obj_at P' p' s)\\<rbrace>\" unfolding set_object_def apply wp apply clarsimp apply (erule_tac P=P in rsubst) apply (clarsimp simp: obj_at_def) by (rule arch_obj_predE)",
+            "proof": [
+                "lemma set_object_non_arch:\n  \"arch_obj_pred P' \\<Longrightarrow>\n   \\<lbrace>(\\<lambda>s. P (obj_at P' p' s)) and K(non_arch_obj ko) and obj_at non_arch_obj p \\<rbrace>\n    set_object p ko\n   \\<lbrace>\\<lambda>r s. P (obj_at P' p' s)\\<rbrace>\"",
+                "unfolding set_object_def",
+                "apply wp",
+                "apply clarsimp",
+                "apply (erule_tac P=P in rsubst)",
+                "apply (clarsimp simp: obj_at_def)",
+                "by (rule arch_obj_predE)"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. arch_obj_pred P' \\<Longrightarrow> \\<lbrace>(\\<lambda>s. P (obj_at P' p' s)) and K (non_arch_obj ko) and obj_at non_arch_obj p\\<rbrace> set_object p ko \\<lbrace>\\<lambda>r s. P (obj_at P' p' s)\\<rbrace>",
+                "proof (prove)\ngoal (1 subgoal):\n 1. arch_obj_pred P' \\<Longrightarrow> \\<lbrace>(\\<lambda>s. P (obj_at P' p' s)) and K (non_arch_obj ko) and obj_at non_arch_obj p\\<rbrace> do kobj <- get_object p;\nassert (a_type kobj = a_type ko);\ns <- get;\nput (s\\<lparr>kheap := (kheap s)(p \\<mapsto> ko)\\<rparr>)\nod \\<lbrace>\\<lambda>r s. P (obj_at P' p' s)\\<rbrace>",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<And>s. \\<lbrakk>arch_obj_pred P'; ((\\<lambda>s. P (obj_at P' p' s)) and K (non_arch_obj ko) and obj_at non_arch_obj p) s\\<rbrakk> \\<Longrightarrow> \\<forall>koa. ko_at koa p s \\<longrightarrow> a_type koa = a_type ko \\<longrightarrow> P (obj_at P' p' (s\\<lparr>kheap := (kheap s)(p \\<mapsto> ko)\\<rparr>))",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<And>s koa. \\<lbrakk>arch_obj_pred P'; P (obj_at P' p' s); non_arch_obj ko; obj_at non_arch_obj p s; ko_at koa p s; a_type koa = a_type ko\\<rbrakk> \\<Longrightarrow> P (obj_at P' p' (s\\<lparr>kheap := \\<lambda>a. if a = p then Some ko else kheap s a\\<rparr>))",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<And>s koa. \\<lbrakk>arch_obj_pred P'; non_arch_obj ko; obj_at non_arch_obj p s; ko_at koa p s; a_type koa = a_type ko\\<rbrakk> \\<Longrightarrow> obj_at P' p' s = obj_at P' p' (s\\<lparr>kheap := \\<lambda>a. if a = p then Some ko else kheap s a\\<rparr>)",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<And>s koa. \\<lbrakk>arch_obj_pred P'; non_arch_obj ko; non_arch_obj koa; kheap s p = Some koa; a_type koa = a_type ko; p' = p\\<rbrakk> \\<Longrightarrow> P' koa = P' ko",
+                ""
+            ],
+            "statement": "lemma set_object_non_arch:\n  \"arch_obj_pred P' \\<Longrightarrow>\n   \\<lbrace>(\\<lambda>s. P (obj_at P' p' s)) and K(non_arch_obj ko) and obj_at non_arch_obj p \\<rbrace>\n    set_object p ko\n   \\<lbrace>\\<lambda>r s. P (obj_at P' p' s)\\<rbrace>\"",
+            "name": "unnamed_thy_7660",
+            "theory_name": "KHeap_AI",
+            "num_steps": 6
+        },
+        {
+            "session": "AInvs",
+            "dependency": [],
+            "context": "lemma set_untyped_cap_as_full_not_reachable_pg_cap[wp]:\n  \"\\<lbrace>\\<lambda>s. \\<not> reachable_pg_cap cap' s\\<rbrace>\n   set_untyped_cap_as_full src_cap cap src\n   \\<lbrace>\\<lambda>rv s. \\<not> reachable_pg_cap cap' s\\<rbrace>\" apply (clarsimp simp: set_untyped_cap_as_full_def set_cap_def split_def\n                        set_object_def) apply (wp get_object_wp | wpc)+ apply (clarsimp simp: obj_at_def simp del: fun_upd_apply) apply (auto simp: obj_at_def reachable_pg_cap_def is_cap_simps\n                    vs_lookup_pages_cnode_update vs_lookup_pages_tcb_update) done",
+            "proof": [
+                "lemma set_untyped_cap_as_full_not_reachable_pg_cap[wp]:\n  \"\\<lbrace>\\<lambda>s. \\<not> reachable_pg_cap cap' s\\<rbrace>\n   set_untyped_cap_as_full src_cap cap src\n   \\<lbrace>\\<lambda>rv s. \\<not> reachable_pg_cap cap' s\\<rbrace>\"",
+                "apply (clarsimp simp: set_untyped_cap_as_full_def set_cap_def split_def\n                        set_object_def)",
+                "apply (wp get_object_wp | wpc)+",
+                "apply (clarsimp simp: obj_at_def simp del: fun_upd_apply)",
+                "apply (auto simp: obj_at_def reachable_pg_cap_def is_cap_simps\n                    vs_lookup_pages_cnode_update vs_lookup_pages_tcb_update)",
+                "done"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<lbrace>\\<lambda>s. \\<not> reachable_pg_cap cap' s\\<rbrace> set_untyped_cap_as_full src_cap cap src \\<lbrace>\\<lambda>rv s. \\<not> reachable_pg_cap cap' s\\<rbrace>",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<lbrakk>is_untyped_cap src_cap; is_untyped_cap cap; obj_ref_of src_cap = obj_ref_of cap; cap_bits_untyped src_cap = cap_bits_untyped cap\\<rbrakk> \\<Longrightarrow> \\<lbrace>\\<lambda>s. \\<not> reachable_pg_cap cap' s\\<rbrace> do obj <- get_object (fst src);\nobj' <- case obj of CNode sz cn \\<Rightarrow> if snd src \\<in> dom cn \\<and> well_formed_cnode_n sz cn then return $ CNode sz $ cn(snd src \\<mapsto> max_free_index_update src_cap) else fail | TCB tcb \\<Rightarrow> if snd src = tcb_cnode_index 0 then return $ TCB $ tcb\\<lparr>tcb_ctable := max_free_index_update src_cap\\<rparr> else if snd src = tcb_cnode_index 1 then return $ TCB $ tcb\\<lparr>tcb_vtable := max_free_index_update src_cap\\<rparr> else if snd src = tcb_cnode_index 2 then return $ TCB $ tcb\\<lparr>tcb_reply := max_free_index_update src_cap\\<rparr> else if snd src = tcb_cnode_index 3 then return $ TCB $ tcb\\<lparr>tcb_caller := max_free_index_update src_cap\\<rparr> else if snd src = tcb_cnode_index 4 then return $ TCB $ tcb\\<lparr>tcb_ipcframe := max_free_index_update src_cap\\<rparr> else fail | _ \\<Rightarrow> fail;\nkobj <- get_object (fst src);\ny <- assert (a_type kobj = a_type obj');\ns <- get;\nput (s\\<lparr>kheap := (kheap s)(fst src \\<mapsto> obj')\\<rparr>)\nod \\<lbrace>\\<lambda>rv s. \\<not> reachable_pg_cap cap' s\\<rbrace>",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<And>s. \\<lbrakk>is_untyped_cap src_cap; is_untyped_cap cap; obj_ref_of src_cap = obj_ref_of cap; cap_bits_untyped src_cap = cap_bits_untyped cap; \\<not> reachable_pg_cap cap' s\\<rbrakk> \\<Longrightarrow> \\<forall>ko. ko_at ko (fst src) s \\<longrightarrow> (\\<forall>x xa. ko = CNode x xa \\<longrightarrow> (snd src \\<in> dom xa \\<and> well_formed_cnode_n x xa \\<longrightarrow> (\\<forall>ko. ko_at ko (fst src) s \\<longrightarrow> a_type ko = a_type (CNode x $ xa(snd src \\<mapsto> max_free_index_update src_cap)) \\<longrightarrow> \\<not> reachable_pg_cap cap' (s\\<lparr>kheap := (kheap s)(fst src \\<mapsto> CNode x $ xa(snd src \\<mapsto> max_free_index_update src_cap))\\<rparr>))) \\<and> (\\<not> (snd src \\<in> dom xa \\<and> well_formed_cnode_n x xa) \\<longrightarrow> True)) \\<and> (\\<forall>x. ko = TCB x \\<longrightarrow> (snd src = tcb_cnode_index 0 \\<longrightarrow> (\\<forall>ko. ko_at ko (fst src) s \\<longrightarrow> a_type ko = a_type (TCB $ x\\<lparr>tcb_ctable := max_free_index_update src_cap\\<rparr>) \\<longrightarrow> \\<not> reachable_pg_cap cap' (s\\<lparr>kheap := (kheap s)(fst src \\<mapsto> TCB $ x\\<lparr>tcb_ctable := max_free_index_update src_cap\\<rparr>)\\<rparr>))) \\<and> (snd src \\<noteq> tcb_cnode_index 0 \\<longrightarrow> (snd src = tcb_cnode_index 1 \\<longrightarrow> (\\<forall>ko. ko_at ko (fst src) s \\<longrightarrow> a_type ko = a_type (TCB $ x\\<lparr>tcb_vtable := max_free_index_update src_cap\\<rparr>) \\<longrightarrow> \\<not> reachable_pg_cap cap' (s\\<lparr>kheap := (kheap s)(fst src \\<mapsto> TCB $ x\\<lparr>tcb_vtable := max_free_index_update src_cap\\<rparr>)\\<rparr>))) \\<and> (snd src \\<noteq> tcb_cnode_index 1 \\<longrightarrow> (snd src = tcb_cnode_index 2 \\<longrightarrow> (\\<forall>ko. ko_at ko (fst src) s \\<longrightarrow> a_type ko = a_type (TCB $ x\\<lparr>tcb_reply := max_free_index_update src_cap\\<rparr>) \\<longrightarrow> \\<not> reachable_pg_cap cap' (s\\<lparr>kheap := (kheap s)(fst src \\<mapsto> TCB $ x\\<lparr>tcb_reply := max_free_index_update src_cap\\<rparr>)\\<rparr>))) \\<and> (snd src \\<noteq> tcb_cnode_index 2 \\<longrightarrow> (snd src = tcb_cnode_index 3 \\<longrightarrow> (\\<forall>ko. ko_at ko (fst src) s \\<longrightarrow> a_type ko = a_type (TCB $ x\\<lparr>tcb_caller := max_free_index_update src_cap\\<rparr>) \\<longrightarrow> \\<not> reachable_pg_cap cap' (s\\<lparr>kheap := (kheap s)(fst src \\<mapsto> TCB $ x\\<lparr>tcb_caller := max_free_index_update src_cap\\<rparr>)\\<rparr>))) \\<and> (snd src \\<noteq> tcb_cnode_index 3 \\<longrightarrow> (snd src = tcb_cnode_index 4 \\<longrightarrow> (\\<forall>ko. ko_at ko (fst src) s \\<longrightarrow> a_type ko = a_type (TCB $ x\\<lparr>tcb_ipcframe := max_free_index_update src_cap\\<rparr>) \\<longrightarrow> \\<not> reachable_pg_cap cap' (s\\<lparr>kheap := (kheap s)(fst src \\<mapsto> TCB $ x\\<lparr>tcb_ipcframe := max_free_index_update src_cap\\<rparr>)\\<rparr>))) \\<and> (snd src \\<noteq> tcb_cnode_index 4 \\<longrightarrow> True)))))) \\<and> (\\<forall>x. ko = Endpoint x \\<longrightarrow> True) \\<and> (\\<forall>x. ko = Notification x \\<longrightarrow> True) \\<and> (\\<forall>x. ko = ArchObj x \\<longrightarrow> True)",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<And>s ko. \\<lbrakk>is_untyped_cap src_cap; is_untyped_cap cap; obj_ref_of src_cap = obj_ref_of cap; cap_bits_untyped src_cap = cap_bits_untyped cap; \\<not> reachable_pg_cap cap' s; kheap s (fst src) = Some ko\\<rbrakk> \\<Longrightarrow> (\\<forall>x xa. ko = CNode x xa \\<longrightarrow> snd src \\<in> dom xa \\<and> well_formed_cnode_n x xa \\<longrightarrow> a_type (CNode x xa) = a_type (CNode x (xa(snd src \\<mapsto> max_free_index_update src_cap))) \\<longrightarrow> \\<not> reachable_pg_cap cap' (s\\<lparr>kheap := (kheap s)(fst src \\<mapsto> CNode x (xa(snd src \\<mapsto> max_free_index_update src_cap)))\\<rparr>)) \\<and> (\\<forall>x. ko = TCB x \\<longrightarrow> (snd src = tcb_cnode_index 0 \\<longrightarrow> \\<not> reachable_pg_cap cap' (s\\<lparr>kheap := (kheap s)(fst src \\<mapsto> TCB (x\\<lparr>tcb_ctable := max_free_index_update src_cap\\<rparr>))\\<rparr>)) \\<and> (snd src \\<noteq> tcb_cnode_index 0 \\<longrightarrow> (snd src = tcb_cnode_index (Suc 0) \\<longrightarrow> \\<not> reachable_pg_cap cap' (s\\<lparr>kheap := (kheap s)(fst src \\<mapsto> TCB (x\\<lparr>tcb_vtable := max_free_index_update src_cap\\<rparr>))\\<rparr>)) \\<and> (snd src \\<noteq> tcb_cnode_index (Suc 0) \\<longrightarrow> (snd src = tcb_cnode_index 2 \\<longrightarrow> \\<not> reachable_pg_cap cap' (s\\<lparr>kheap := (kheap s)(fst src \\<mapsto> TCB (x\\<lparr>tcb_reply := max_free_index_update src_cap\\<rparr>))\\<rparr>)) \\<and> (snd src \\<noteq> tcb_cnode_index 2 \\<longrightarrow> (snd src = tcb_cnode_index 3 \\<longrightarrow> \\<not> reachable_pg_cap cap' (s\\<lparr>kheap := (kheap s)(fst src \\<mapsto> TCB (x\\<lparr>tcb_caller := max_free_index_update src_cap\\<rparr>))\\<rparr>)) \\<and> (snd src \\<noteq> tcb_cnode_index 3 \\<longrightarrow> snd src = tcb_cnode_index 4 \\<longrightarrow> \\<not> reachable_pg_cap cap' (s\\<lparr>kheap := (kheap s)(fst src \\<mapsto> TCB (x\\<lparr>tcb_ipcframe := max_free_index_update src_cap\\<rparr>))\\<rparr>))))))",
+                "proof (prove)\ngoal:\nNo subgoals!",
+                ""
+            ],
+            "statement": "lemma set_untyped_cap_as_full_not_reachable_pg_cap[wp]:\n  \"\\<lbrace>\\<lambda>s. \\<not> reachable_pg_cap cap' s\\<rbrace>\n   set_untyped_cap_as_full src_cap cap src\n   \\<lbrace>\\<lambda>rv s. \\<not> reachable_pg_cap cap' s\\<rbrace>\"",
+            "name": "unnamed_thy_8600",
+            "theory_name": "ArchCSpace_AI",
+            "num_steps": 5
+        },
+        {
+            "session": "AInvs",
+            "dependency": [],
+            "context": "lemma update_cdt_iflive[wp]:\n  \"\\<lbrace>if_live_then_nonz_cap\\<rbrace> update_cdt f \\<lbrace>\\<lambda>rv. if_live_then_nonz_cap\\<rbrace>\" apply (simp add: update_cdt_def set_cdt_def) apply wp apply (simp add: if_live_then_nonz_cap_def ex_nonz_cap_to_def) done",
+            "proof": [
+                "lemma update_cdt_iflive[wp]:\n  \"\\<lbrace>if_live_then_nonz_cap\\<rbrace> update_cdt f \\<lbrace>\\<lambda>rv. if_live_then_nonz_cap\\<rbrace>\"",
+                "apply (simp add: update_cdt_def set_cdt_def)",
+                "apply wp",
+                "apply (simp add: if_live_then_nonz_cap_def ex_nonz_cap_to_def)",
+                "done"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<lbrace>if_live_then_nonz_cap\\<rbrace> update_cdt f \\<lbrace>\\<lambda>rv. if_live_then_nonz_cap\\<rbrace>",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<lbrace>if_live_then_nonz_cap\\<rbrace> do t <- gets cdt;\ns <- get;\nput (s\\<lparr>cdt := f t\\<rparr>)\nod \\<lbrace>\\<lambda>rv. if_live_then_nonz_cap\\<rbrace>",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<And>s. if_live_then_nonz_cap s \\<Longrightarrow> if_live_then_nonz_cap (s\\<lparr>cdt := f (cdt s)\\<rparr>)",
+                "proof (prove)\ngoal:\nNo subgoals!",
+                ""
+            ],
+            "statement": "lemma update_cdt_iflive[wp]:\n  \"\\<lbrace>if_live_then_nonz_cap\\<rbrace> update_cdt f \\<lbrace>\\<lambda>rv. if_live_then_nonz_cap\\<rbrace>\"",
+            "name": "unnamed_thy_8147",
+            "theory_name": "CSpaceInv_AI",
+            "num_steps": 4
+        },
+        {
+            "session": "AInvs",
+            "dependency": [],
+            "context": "lemma set_cap_same_valid_pspace:\n  \"\\<lbrace>cte_wp_at (\\<lambda>c. c = cap) p and valid_pspace\\<rbrace> set_cap cap p \\<lbrace>\\<lambda>rv. valid_pspace\\<rbrace>\" apply (wp set_cap_valid_pspace) apply (clarsimp simp: cte_wp_at_caps_of_state ex_zombie_refs_def2) apply (clarsimp simp: caps_of_state_valid_cap valid_pspace_def\n                        cte_wp_tcb_cap_valid [OF caps_of_state_cteD]) done",
+            "proof": [
+                "lemma set_cap_same_valid_pspace:\n  \"\\<lbrace>cte_wp_at (\\<lambda>c. c = cap) p and valid_pspace\\<rbrace> set_cap cap p \\<lbrace>\\<lambda>rv. valid_pspace\\<rbrace>\"",
+                "apply (wp set_cap_valid_pspace)",
+                "apply (clarsimp simp: cte_wp_at_caps_of_state ex_zombie_refs_def2)",
+                "apply (clarsimp simp: caps_of_state_valid_cap valid_pspace_def\n                        cte_wp_tcb_cap_valid [OF caps_of_state_cteD])",
+                "done"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<lbrace>cte_wp_at (\\<lambda>c. c = cap) p and valid_pspace\\<rbrace> set_cap cap p \\<lbrace>\\<lambda>rv. valid_pspace\\<rbrace>",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<And>s. (cte_wp_at (\\<lambda>c. c = cap) p and valid_pspace) s \\<Longrightarrow> cte_wp_at (\\<lambda>cap'. (\\<forall>p'\\<in>zobj_refs cap' - zobj_refs cap. obj_at (Not \\<circ> live) p' s) \\<and> (\\<forall>r\\<in>ex_zombie_refs (cap, cap'). \\<forall>p'. p \\<noteq> p' \\<and> cte_wp_at (\\<lambda>cap''. r \\<in> obj_refs cap'') p' s \\<longrightarrow> cte_wp_at (Not \\<circ> is_zombie) p' s \\<and> \\<not> is_zombie cap)) p s \\<and> s \\<turnstile> cap \\<and> tcb_cap_valid cap p s \\<and> valid_pspace s",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<And>s. \\<lbrakk>caps_of_state s p = Some cap; valid_pspace s\\<rbrakk> \\<Longrightarrow> s \\<turnstile> cap \\<and> tcb_cap_valid cap p s",
+                "proof (prove)\ngoal:\nNo subgoals!",
+                ""
+            ],
+            "statement": "lemma set_cap_same_valid_pspace:\n  \"\\<lbrace>cte_wp_at (\\<lambda>c. c = cap) p and valid_pspace\\<rbrace> set_cap cap p \\<lbrace>\\<lambda>rv. valid_pspace\\<rbrace>\"",
+            "name": "unnamed_thy_8118",
+            "theory_name": "CSpaceInv_AI",
+            "num_steps": 4
+        },
+        {
+            "session": "AInvs",
+            "dependency": [],
+            "context": "lemma set_cap_typ_at:\n  \"\\<lbrace>\\<lambda>s. P (typ_at T p s)\\<rbrace>\n   set_cap cap p'\n   \\<lbrace>\\<lambda>rv s. P (typ_at T p s)\\<rbrace>\" by (wpsimp wp: set_object_typ_at get_object_wp simp: set_cap_def)",
+            "proof": [
+                "lemma set_cap_typ_at:\n  \"\\<lbrace>\\<lambda>s. P (typ_at T p s)\\<rbrace>\n   set_cap cap p'\n   \\<lbrace>\\<lambda>rv s. P (typ_at T p s)\\<rbrace>\"",
+                "by (wpsimp wp: set_object_typ_at get_object_wp simp: set_cap_def)"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<lbrace>\\<lambda>s. P (typ_at T p s)\\<rbrace> set_cap cap p' \\<lbrace>\\<lambda>rv s. P (typ_at T p s)\\<rbrace>",
+                ""
+            ],
+            "statement": "lemma set_cap_typ_at:\n  \"\\<lbrace>\\<lambda>s. P (typ_at T p s)\\<rbrace>\n   set_cap cap p'\n   \\<lbrace>\\<lambda>rv s. P (typ_at T p s)\\<rbrace>\"",
+            "name": "unnamed_thy_8040",
+            "theory_name": "CSpaceInv_AI",
+            "num_steps": 1
+        },
+        {
+            "session": "AInvs",
+            "dependency": [],
+            "context": "lemma set_untyped_cap_as_full_cte_wp_at:\n  \"\\<lbrace>\\<lambda>s. (dest \\<noteq> src \\<and> cte_wp_at P dest s \\<or>\n         dest = src \\<and> cte_wp_at (\\<lambda>a. P (masked_as_full a cap)) src s) \\<and>\n        cte_wp_at ((=) src_cap) src s\\<rbrace>\n   set_untyped_cap_as_full src_cap cap src\n   \\<lbrace>\\<lambda>ya s. (cte_wp_at P dest s)\\<rbrace>\" apply (clarsimp simp: set_untyped_cap_as_full_def) apply (intro impI conjI allI) apply (wp set_cap_cte_wp_at) apply (clarsimp simp: free_index_update_def cte_wp_at_caps_of_state is_cap_simps\n                            max_free_index_def masked_as_full_def) apply (intro conjI,elim disjE) apply clarsimp+ apply wp apply (auto simp: is_cap_simps cte_wp_at_caps_of_state masked_as_full_def) done",
+            "proof": [
+                "lemma set_untyped_cap_as_full_cte_wp_at:\n  \"\\<lbrace>\\<lambda>s. (dest \\<noteq> src \\<and> cte_wp_at P dest s \\<or>\n         dest = src \\<and> cte_wp_at (\\<lambda>a. P (masked_as_full a cap)) src s) \\<and>\n        cte_wp_at ((=) src_cap) src s\\<rbrace>\n   set_untyped_cap_as_full src_cap cap src\n   \\<lbrace>\\<lambda>ya s. (cte_wp_at P dest s)\\<rbrace>\"",
+                "apply (clarsimp simp: set_untyped_cap_as_full_def)",
+                "apply (intro impI conjI allI)",
+                "apply (wp set_cap_cte_wp_at)",
+                "apply (clarsimp simp: free_index_update_def cte_wp_at_caps_of_state is_cap_simps\n                            max_free_index_def masked_as_full_def)",
+                "apply (intro conjI,elim disjE)",
+                "apply clarsimp+",
+                "apply wp",
+                "apply (auto simp: is_cap_simps cte_wp_at_caps_of_state masked_as_full_def)",
+                "done"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<lbrace>\\<lambda>s. (dest \\<noteq> src \\<and> cte_wp_at P dest s \\<or> dest = src \\<and> cte_wp_at (\\<lambda>a. P (masked_as_full a cap)) src s) \\<and> cte_wp_at ((=) src_cap) src s\\<rbrace> set_untyped_cap_as_full src_cap cap src \\<lbrace>\\<lambda>ya. cte_wp_at P dest\\<rbrace>",
+                "proof (prove)\ngoal (1 subgoal):\n 1. (is_untyped_cap src_cap \\<and> is_untyped_cap cap \\<and> obj_ref_of src_cap = obj_ref_of cap \\<and> cap_bits_untyped src_cap = cap_bits_untyped cap \\<longrightarrow> \\<lbrace>\\<lambda>s. (dest \\<noteq> src \\<and> cte_wp_at P dest s \\<or> dest = src \\<and> cte_wp_at (\\<lambda>a. P (masked_as_full a cap)) src s) \\<and> cte_wp_at ((=) src_cap) src s\\<rbrace> set_cap (max_free_index_update src_cap) src \\<lbrace>\\<lambda>ya. cte_wp_at P dest\\<rbrace>) \\<and> ((obj_ref_of src_cap = obj_ref_of cap \\<longrightarrow> is_untyped_cap cap \\<longrightarrow> is_untyped_cap src_cap \\<longrightarrow> cap_bits_untyped src_cap \\<noteq> cap_bits_untyped cap) \\<longrightarrow> \\<lbrace>\\<lambda>s. (dest \\<noteq> src \\<and> cte_wp_at P dest s \\<or> dest = src \\<and> cte_wp_at (\\<lambda>a. P (masked_as_full a cap)) src s) \\<and> cte_wp_at ((=) src_cap) src s\\<rbrace> return () \\<lbrace>\\<lambda>ya. cte_wp_at P dest\\<rbrace>)",
+                "proof (prove)\ngoal (2 subgoals):\n 1. is_untyped_cap src_cap \\<and> is_untyped_cap cap \\<and> obj_ref_of src_cap = obj_ref_of cap \\<and> cap_bits_untyped src_cap = cap_bits_untyped cap \\<Longrightarrow> \\<lbrace>\\<lambda>s. (dest \\<noteq> src \\<and> cte_wp_at P dest s \\<or> dest = src \\<and> cte_wp_at (\\<lambda>a. P (masked_as_full a cap)) src s) \\<and> cte_wp_at ((=) src_cap) src s\\<rbrace> set_cap (max_free_index_update src_cap) src \\<lbrace>\\<lambda>ya. cte_wp_at P dest\\<rbrace>\n 2. obj_ref_of src_cap = obj_ref_of cap \\<longrightarrow> is_untyped_cap cap \\<longrightarrow> is_untyped_cap src_cap \\<longrightarrow> cap_bits_untyped src_cap \\<noteq> cap_bits_untyped cap \\<Longrightarrow> \\<lbrace>\\<lambda>s. (dest \\<noteq> src \\<and> cte_wp_at P dest s \\<or> dest = src \\<and> cte_wp_at (\\<lambda>a. P (masked_as_full a cap)) src s) \\<and> cte_wp_at ((=) src_cap) src s\\<rbrace> return () \\<lbrace>\\<lambda>ya. cte_wp_at P dest\\<rbrace>",
+                "proof (prove)\ngoal (2 subgoals):\n 1. \\<And>s. \\<lbrakk>is_untyped_cap src_cap \\<and> is_untyped_cap cap \\<and> obj_ref_of src_cap = obj_ref_of cap \\<and> cap_bits_untyped src_cap = cap_bits_untyped cap; (dest \\<noteq> src \\<and> cte_wp_at P dest s \\<or> dest = src \\<and> cte_wp_at (\\<lambda>a. P (masked_as_full a cap)) src s) \\<and> cte_wp_at ((=) src_cap) src s\\<rbrakk> \\<Longrightarrow> ((\\<lambda>s. if dest = src then P (max_free_index_update src_cap) else cte_wp_at P dest s) and cte_wp_at (\\<lambda>_. True) src) s\n 2. obj_ref_of src_cap = obj_ref_of cap \\<longrightarrow> is_untyped_cap cap \\<longrightarrow> is_untyped_cap src_cap \\<longrightarrow> cap_bits_untyped src_cap \\<noteq> cap_bits_untyped cap \\<Longrightarrow> \\<lbrace>\\<lambda>s. (dest \\<noteq> src \\<and> cte_wp_at P dest s \\<or> dest = src \\<and> cte_wp_at (\\<lambda>a. P (masked_as_full a cap)) src s) \\<and> cte_wp_at ((=) src_cap) src s\\<rbrace> return () \\<lbrace>\\<lambda>ya. cte_wp_at P dest\\<rbrace>",
+                "proof (prove)\ngoal (2 subgoals):\n 1. \\<And>s dev f deva ra bitsa fa. \\<lbrakk>src_cap = UntypedCap dev ra bitsa f; dest \\<noteq> src \\<and> (\\<exists>cap. caps_of_state s dest = Some cap \\<and> P cap) \\<or> dest = src \\<and> P (UntypedCap dev ra bitsa (2 ^ bitsa)); caps_of_state s src = Some (UntypedCap dev ra bitsa f); cap = UntypedCap deva ra bitsa fa\\<rbrakk> \\<Longrightarrow> (dest = src \\<longrightarrow> P (UntypedCap dev ra bitsa (2 ^ bitsa))) \\<and> (dest \\<noteq> src \\<longrightarrow> (\\<exists>cap. caps_of_state s dest = Some cap \\<and> P cap))\n 2. obj_ref_of src_cap = obj_ref_of cap \\<longrightarrow> is_untyped_cap cap \\<longrightarrow> is_untyped_cap src_cap \\<longrightarrow> cap_bits_untyped src_cap \\<noteq> cap_bits_untyped cap \\<Longrightarrow> \\<lbrace>\\<lambda>s. (dest \\<noteq> src \\<and> cte_wp_at P dest s \\<or> dest = src \\<and> cte_wp_at (\\<lambda>a. P (masked_as_full a cap)) src s) \\<and> cte_wp_at ((=) src_cap) src s\\<rbrace> return () \\<lbrace>\\<lambda>ya. cte_wp_at P dest\\<rbrace>",
+                "proof (prove)\ngoal (4 subgoals):\n 1. \\<And>s dev f deva ra bitsa fa. \\<lbrakk>src_cap = UntypedCap dev ra bitsa f; caps_of_state s src = Some (UntypedCap dev ra bitsa f); cap = UntypedCap deva ra bitsa fa; dest \\<noteq> src \\<and> (\\<exists>cap. caps_of_state s dest = Some cap \\<and> P cap)\\<rbrakk> \\<Longrightarrow> dest = src \\<longrightarrow> P (UntypedCap dev ra bitsa (2 ^ bitsa))\n 2. \\<And>s dev f deva ra bitsa fa. \\<lbrakk>src_cap = UntypedCap dev ra bitsa f; caps_of_state s src = Some (UntypedCap dev ra bitsa f); cap = UntypedCap deva ra bitsa fa; dest = src \\<and> P (UntypedCap dev ra bitsa (2 ^ bitsa))\\<rbrakk> \\<Longrightarrow> dest = src \\<longrightarrow> P (UntypedCap dev ra bitsa (2 ^ bitsa))\n 3. \\<And>s dev f deva ra bitsa fa. \\<lbrakk>src_cap = UntypedCap dev ra bitsa f; dest \\<noteq> src \\<and> (\\<exists>cap. caps_of_state s dest = Some cap \\<and> P cap) \\<or> dest = src \\<and> P (UntypedCap dev ra bitsa (2 ^ bitsa)); caps_of_state s src = Some (UntypedCap dev ra bitsa f); cap = UntypedCap deva ra bitsa fa\\<rbrakk> \\<Longrightarrow> dest \\<noteq> src \\<longrightarrow> (\\<exists>cap. caps_of_state s dest = Some cap \\<and> P cap)\n 4. obj_ref_of src_cap = obj_ref_of cap \\<longrightarrow> is_untyped_cap cap \\<longrightarrow> is_untyped_cap src_cap \\<longrightarrow> cap_bits_untyped src_cap \\<noteq> cap_bits_untyped cap \\<Longrightarrow> \\<lbrace>\\<lambda>s. (dest \\<noteq> src \\<and> cte_wp_at P dest s \\<or> dest = src \\<and> cte_wp_at (\\<lambda>a. P (masked_as_full a cap)) src s) \\<and> cte_wp_at ((=) src_cap) src s\\<rbrace> return () \\<lbrace>\\<lambda>ya. cte_wp_at P dest\\<rbrace>",
+                "proof (prove)\ngoal (1 subgoal):\n 1. obj_ref_of src_cap = obj_ref_of cap \\<longrightarrow> is_untyped_cap cap \\<longrightarrow> is_untyped_cap src_cap \\<longrightarrow> cap_bits_untyped src_cap \\<noteq> cap_bits_untyped cap \\<Longrightarrow> \\<lbrace>\\<lambda>s. (dest \\<noteq> src \\<and> cte_wp_at P dest s \\<or> dest = src \\<and> cte_wp_at (\\<lambda>a. P (masked_as_full a cap)) src s) \\<and> cte_wp_at ((=) src_cap) src s\\<rbrace> return () \\<lbrace>\\<lambda>ya. cte_wp_at P dest\\<rbrace>",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<And>s. \\<lbrakk>obj_ref_of src_cap = obj_ref_of cap \\<longrightarrow> is_untyped_cap cap \\<longrightarrow> is_untyped_cap src_cap \\<longrightarrow> cap_bits_untyped src_cap \\<noteq> cap_bits_untyped cap; (dest \\<noteq> src \\<and> cte_wp_at P dest s \\<or> dest = src \\<and> cte_wp_at (\\<lambda>a. P (masked_as_full a cap)) src s) \\<and> cte_wp_at ((=) src_cap) src s\\<rbrakk> \\<Longrightarrow> cte_wp_at P dest s",
+                "proof (prove)\ngoal:\nNo subgoals!",
+                ""
+            ],
+            "statement": "lemma set_untyped_cap_as_full_cte_wp_at:\n  \"\\<lbrace>\\<lambda>s. (dest \\<noteq> src \\<and> cte_wp_at P dest s \\<or>\n         dest = src \\<and> cte_wp_at (\\<lambda>a. P (masked_as_full a cap)) src s) \\<and>\n        cte_wp_at ((=) src_cap) src s\\<rbrace>\n   set_untyped_cap_as_full src_cap cap src\n   \\<lbrace>\\<lambda>ya s. (cte_wp_at P dest s)\\<rbrace>\"",
+            "name": "unnamed_thy_8150",
+            "theory_name": "CSpaceInv_AI",
+            "num_steps": 9
+        },
+        {
+            "session": "AInvs",
+            "dependency": [],
+            "context": "lemma lookup_cap_cte_caps_to[wp]:\n  \"\\<lbrace>\\<lambda>s. \\<forall>rs cp. P (mask_cap rs cp) = P cp\\<rbrace>\n     lookup_cap t cref\n   \\<lbrace>\\<lambda>rv s. P rv \\<longrightarrow> (\\<forall>p\\<in>cte_refs rv (interrupt_irq_node s). ex_cte_cap_wp_to P p s)\\<rbrace>,-\" by (simp add: lookup_cap_def split_def) wpsimp",
+            "proof": [
+                "lemma lookup_cap_cte_caps_to[wp]:\n  \"\\<lbrace>\\<lambda>s. \\<forall>rs cp. P (mask_cap rs cp) = P cp\\<rbrace>\n     lookup_cap t cref\n   \\<lbrace>\\<lambda>rv s. P rv \\<longrightarrow> (\\<forall>p\\<in>cte_refs rv (interrupt_irq_node s). ex_cte_cap_wp_to P p s)\\<rbrace>,-\"",
+                "by (simp add: lookup_cap_def split_def) wpsimp"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<lbrace>\\<lambda>s. \\<forall>rs cp. P (mask_cap rs cp) = P cp\\<rbrace> lookup_cap t cref \\<lbrace>\\<lambda>rv s. P rv \\<longrightarrow> (\\<forall>p\\<in>cte_refs rv (interrupt_irq_node s). ex_cte_cap_wp_to P p s)\\<rbrace>, -",
+                ""
+            ],
+            "statement": "lemma lookup_cap_cte_caps_to[wp]:\n  \"\\<lbrace>\\<lambda>s. \\<forall>rs cp. P (mask_cap rs cp) = P cp\\<rbrace>\n     lookup_cap t cref\n   \\<lbrace>\\<lambda>rv s. P rv \\<longrightarrow> (\\<forall>p\\<in>cte_refs rv (interrupt_irq_node s). ex_cte_cap_wp_to P p s)\\<rbrace>,-\"",
+            "name": "unnamed_thy_9776",
+            "theory_name": "Ipc_AI",
+            "num_steps": 1
+        },
+        {
+            "session": "AInvs",
+            "dependency": [],
+            "context": "lemma set_mrs_irq_handlers[wp]:\n  \"\\<lbrace>valid_irq_handlers\\<rbrace> set_mrs r t mrs \\<lbrace>\\<lambda>rv. valid_irq_handlers\\<rbrace>\" apply (rule set_mrs_thread_set_dmo) apply ((wp valid_irq_handlers_lift thread_set_caps_of_state_trivial\n              ball_tcb_cap_casesI | simp)+)[1] apply wp done",
+            "proof": [
+                "lemma set_mrs_irq_handlers[wp]:\n  \"\\<lbrace>valid_irq_handlers\\<rbrace> set_mrs r t mrs \\<lbrace>\\<lambda>rv. valid_irq_handlers\\<rbrace>\"",
+                "apply (rule set_mrs_thread_set_dmo)",
+                "apply ((wp valid_irq_handlers_lift thread_set_caps_of_state_trivial\n              ball_tcb_cap_casesI | simp)+)[1]",
+                "apply wp",
+                "done"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<lbrace>valid_irq_handlers\\<rbrace> set_mrs r t mrs \\<lbrace>\\<lambda>rv. valid_irq_handlers\\<rbrace>",
+                "proof (prove)\ngoal (2 subgoals):\n 1. \\<And>c. \\<lbrace>valid_irq_handlers\\<rbrace> thread_set (\\<lambda>tcb. tcb\\<lparr>tcb_arch := arch_tcb_set_registers (c tcb) (tcb_arch tcb)\\<rparr>) r \\<lbrace>\\<lambda>rv. valid_irq_handlers\\<rbrace>\n 2. \\<And>x y. \\<lbrace>valid_irq_handlers\\<rbrace> do_machine_op (storeWord x y) \\<lbrace>\\<lambda>rv. valid_irq_handlers\\<rbrace>",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<And>x y. \\<lbrace>valid_irq_handlers\\<rbrace> do_machine_op (storeWord x y) \\<lbrace>\\<lambda>rv. valid_irq_handlers\\<rbrace>",
+                "proof (prove)\ngoal:\nNo subgoals!",
+                ""
+            ],
+            "statement": "lemma set_mrs_irq_handlers[wp]:\n  \"\\<lbrace>valid_irq_handlers\\<rbrace> set_mrs r t mrs \\<lbrace>\\<lambda>rv. valid_irq_handlers\\<rbrace>\"",
+            "name": "unnamed_thy_9820",
+            "theory_name": "Ipc_AI",
+            "num_steps": 4
+        },
+        {
+            "session": "AInvs",
+            "dependency": [],
+            "context": "lemma copy_mrs_invs[wp]:\n  \"\\<lbrace> invs and tcb_at r and tcb_at s \\<rbrace> copy_mrs s sb r rb n \\<lbrace>\\<lambda>rv. invs \\<rbrace>\" unfolding copy_mrs_redux by (wpsimp wp: mapM_wp')",
+            "proof": [
+                "lemma copy_mrs_invs[wp]:\n  \"\\<lbrace> invs and tcb_at r and tcb_at s \\<rbrace> copy_mrs s sb r rb n \\<lbrace>\\<lambda>rv. invs \\<rbrace>\"",
+                "unfolding copy_mrs_redux",
+                "by (wpsimp wp: mapM_wp')"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<lbrace>invs and tcb_at r and tcb_at s\\<rbrace> copy_mrs s sb r rb n \\<lbrace>\\<lambda>rv. invs\\<rbrace>",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<lbrace>invs and tcb_at r and tcb_at s\\<rbrace> do hardware_mrs <- return $ take (unat n) msg_registers;\nmapM (\\<lambda>ra. do v <- as_user s $ getRegister ra;\nas_user r $ setRegister ra v\nod) hardware_mrs;\nbuf_mrs <- case (sb, rb) of (None, b) \\<Rightarrow> return [] | (Some sb_ptr, None) \\<Rightarrow> return [] | (Some sb_ptr, Some rb_ptr) \\<Rightarrow> mapM (\\<lambda>x. load_word_offs sb_ptr x >>= store_word_offs rb_ptr x) [length msg_registers + 1..<Suc (unat n)];\nreturn $ min n $ nat_to_len $ length hardware_mrs + length buf_mrs\nod \\<lbrace>\\<lambda>rv. invs\\<rbrace>",
+                ""
+            ],
+            "statement": "lemma copy_mrs_invs[wp]:\n  \"\\<lbrace> invs and tcb_at r and tcb_at s \\<rbrace> copy_mrs s sb r rb n \\<lbrace>\\<lambda>rv. invs \\<rbrace>\"",
+            "name": "unnamed_thy_9791",
+            "theory_name": "Ipc_AI",
+            "num_steps": 2
+        },
+        {
+            "session": "AInvs",
+            "dependency": [],
+            "context": "lemma delete_objects_st_tcb_at:\n  \"\\<lbrace>pred_tcb_at proj P t and invs and K (t \\<notin> {ptr .. ptr + 2 ^ bits - 1})\\<rbrace>\n    delete_objects ptr bits\n  \\<lbrace>\\<lambda>y. pred_tcb_at proj P t\\<rbrace>\" by (wp|simp add: delete_objects_def do_machine_op_def split_def)+",
+            "proof": [
+                "lemma delete_objects_st_tcb_at:\n  \"\\<lbrace>pred_tcb_at proj P t and invs and K (t \\<notin> {ptr .. ptr + 2 ^ bits - 1})\\<rbrace>\n    delete_objects ptr bits\n  \\<lbrace>\\<lambda>y. pred_tcb_at proj P t\\<rbrace>\"",
+                "by (wp|simp add: delete_objects_def do_machine_op_def split_def)+"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<lbrace>pred_tcb_at proj P t and invs and K (t \\<notin> {ptr..ptr + 2 ^ bits - 1})\\<rbrace> delete_objects ptr bits \\<lbrace>\\<lambda>y. pred_tcb_at proj P t\\<rbrace>",
+                ""
+            ],
+            "statement": "lemma delete_objects_st_tcb_at:\n  \"\\<lbrace>pred_tcb_at proj P t and invs and K (t \\<notin> {ptr .. ptr + 2 ^ bits - 1})\\<rbrace>\n    delete_objects ptr bits\n  \\<lbrace>\\<lambda>y. pred_tcb_at proj P t\\<rbrace>\"",
+            "name": "unnamed_thy_10995",
+            "theory_name": "Arch_AI",
+            "num_steps": 1
+        },
+        {
+            "session": "AInvs",
+            "dependency": [],
+            "context": "lemma vs_lookup_next_asid [iff]:\n  \"vs_lookup (s\\<lparr>arch_state := arm_next_asid_update f (arch_state s)\\<rparr>) = vs_lookup s\" by (simp add: vs_lookup_arch_update)",
+            "proof": [
+                "lemma vs_lookup_next_asid [iff]:\n  \"vs_lookup (s\\<lparr>arch_state := arm_next_asid_update f (arch_state s)\\<rparr>) = vs_lookup s\"",
+                "by (simp add: vs_lookup_arch_update)"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. vs_lookup (s\\<lparr>arch_state := arm_next_asid_update f (arch_state s)\\<rparr>) = vs_lookup s",
+                ""
+            ],
+            "statement": "lemma vs_lookup_next_asid [iff]:\n  \"vs_lookup (s\\<lparr>arch_state := arm_next_asid_update f (arch_state s)\\<rparr>) = vs_lookup s\"",
+            "name": "unnamed_thy_7928",
+            "theory_name": "ArchAcc_AI",
+            "num_steps": 1
+        },
+        {
+            "session": "AInvs",
+            "dependency": [],
+            "context": "lemma store_pte_typ_at:\n    \"store_pte ptr pte \\<lbrace>\\<lambda>s. P (typ_at T p s)\\<rbrace>\" apply (simp add: store_pte_def set_pt_def set_object_def get_object_def) apply (wpsimp simp: obj_at_def a_type_def) done",
+            "proof": [
+                "lemma store_pte_typ_at:\n    \"store_pte ptr pte \\<lbrace>\\<lambda>s. P (typ_at T p s)\\<rbrace>\"",
+                "apply (simp add: store_pte_def set_pt_def set_object_def get_object_def)",
+                "apply (wpsimp simp: obj_at_def a_type_def)",
+                "done"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<lbrace>\\<lambda>s. P (typ_at T p s)\\<rbrace> store_pte ptr pte \\<lbrace>\\<lambda>_ s. P (typ_at T p s)\\<rbrace>",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<lbrace>\\<lambda>s. P (typ_at T p s)\\<rbrace> do pt <- get_pt (ptr && ~~ mask pt_bits);\nkobj <- do kh <- gets kheap;\ny <- assert (\\<exists>y. kh (ptr && ~~ mask pt_bits) = Some y);\nreturn (the (kh (ptr && ~~ mask pt_bits)))\nod;\ny <- assert (a_type kobj = a_type (ArchObj (PageTable (pt(UCAST(32 \\<rightarrow> 8) (ptr && mask pt_bits >> 2) := pte)))));\ns <- get;\nput (s\\<lparr>kheap := (kheap s)(ptr && ~~ mask pt_bits \\<mapsto> ArchObj (PageTable (pt(UCAST(32 \\<rightarrow> 8) (ptr && mask pt_bits >> 2) := pte))))\\<rparr>)\nod \\<lbrace>\\<lambda>_ s. P (typ_at T p s)\\<rbrace>",
+                "proof (prove)\ngoal:\nNo subgoals!",
+                ""
+            ],
+            "statement": "lemma store_pte_typ_at:\n    \"store_pte ptr pte \\<lbrace>\\<lambda>s. P (typ_at T p s)\\<rbrace>\"",
+            "name": "unnamed_thy_7733",
+            "theory_name": "ArchAcc_AI",
+            "num_steps": 3
+        },
+        {
+            "session": "AInvs",
+            "dependency": [],
+            "context": "lemma out_tcb[wp]:\n  \"\\<lbrace>tcb_at t\\<rbrace> option_update_thread t fn v \\<lbrace>\\<lambda>rv. tcb_at t\\<rbrace>\" by (simp add: tcb_at_typ, wp out_typ_at)",
+            "proof": [
+                "lemma out_tcb[wp]:\n  \"\\<lbrace>tcb_at t\\<rbrace> option_update_thread t fn v \\<lbrace>\\<lambda>rv. tcb_at t\\<rbrace>\"",
+                "by (simp add: tcb_at_typ, wp out_typ_at)"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<lbrace>tcb_at t\\<rbrace> option_update_thread t fn v \\<lbrace>\\<lambda>rv. tcb_at t\\<rbrace>",
+                ""
+            ],
+            "statement": "lemma out_tcb[wp]:\n  \"\\<lbrace>tcb_at t\\<rbrace> option_update_thread t fn v \\<lbrace>\\<lambda>rv. tcb_at t\\<rbrace>\"",
+            "name": "unnamed_thy_10267",
+            "theory_name": "Tcb_AI",
+            "num_steps": 1
+        },
+        {
+            "session": "AInvs",
+            "dependency": [],
+            "context": "lemma (in Tcb_AI) decode_readreg_wf:\n  \"\\<lbrace>invs and tcb_at t and ex_nonz_cap_to t\\<rbrace>\n   decode_read_registers args (cap.ThreadCap t)\n   \\<lbrace>tcb_inv_wf\\<rbrace>,-\" apply (simp add: decode_read_registers_def whenE_def\n             cong: list.case_cong) apply (rule hoare_pre) apply (wp | wpc)+ apply simp done",
+            "proof": [
+                "lemma (in Tcb_AI) decode_readreg_wf:\n  \"\\<lbrace>invs and tcb_at t and ex_nonz_cap_to t\\<rbrace>\n   decode_read_registers args (cap.ThreadCap t)\n   \\<lbrace>tcb_inv_wf\\<rbrace>,-\"",
+                "apply (simp add: decode_read_registers_def whenE_def\n             cong: list.case_cong)",
+                "apply (rule hoare_pre)",
+                "apply (wp | wpc)+",
+                "apply simp",
+                "done"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<lbrace>invs and tcb_at t and ex_nonz_cap_to t\\<rbrace> decode_read_registers args (ThreadCap t) \\<lbrace>tcb_inv_wf\\<rbrace>, -",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<lbrace>invs and tcb_at t and ex_nonz_cap_to t\\<rbrace> case args of [] \\<Rightarrow> throwError TruncatedMessage | [flags] \\<Rightarrow> throwError TruncatedMessage | flags # n # x \\<Rightarrow> doE y <- range_check n 1 (word_of_nat (length frameRegisters) + word_of_nat (length gpRegisters));\nself <- liftE (gets cur_thread);\ny <- if t = self then throwError IllegalOperation else returnOk ();\nreturnOk (ReadRegisters t (flags !! 0) n ArchDefaultExtraRegisters)\nodE \\<lbrace>tcb_inv_wf\\<rbrace>, -",
+                "proof (prove)\ngoal (2 subgoals):\n 1. \\<lbrace>?P'6\\<rbrace> case args of [] \\<Rightarrow> throwError TruncatedMessage | [flags] \\<Rightarrow> throwError TruncatedMessage | flags # n # x \\<Rightarrow> doE y <- range_check n 1 (word_of_nat (length frameRegisters) + word_of_nat (length gpRegisters));\nself <- liftE (gets cur_thread);\ny <- if t = self then throwError IllegalOperation else returnOk ();\nreturnOk (ReadRegisters t (flags !! 0) n ArchDefaultExtraRegisters)\nodE \\<lbrace>tcb_inv_wf\\<rbrace>, -\n 2. \\<And>s. (invs and tcb_at t and ex_nonz_cap_to t) s \\<Longrightarrow> ?P'6 s",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<And>s. (invs and tcb_at t and ex_nonz_cap_to t) s \\<Longrightarrow> (args = [] \\<longrightarrow> True) \\<and> (\\<forall>x xa. args = x # xa \\<longrightarrow> (xa = [] \\<longrightarrow> True) \\<and> (\\<forall>xb xc. xa = xb # xc \\<longrightarrow> True \\<and> True \\<and> True \\<and> (t = cur_thread s \\<longrightarrow> True) \\<and> (t \\<noteq> cur_thread s \\<longrightarrow> tcb_inv_wf (ReadRegisters t (x !! 0) xb ArchDefaultExtraRegisters) s)))",
+                "proof (prove)\ngoal:\nNo subgoals!",
+                ""
+            ],
+            "statement": "lemma (in Tcb_AI) decode_readreg_wf:\n  \"\\<lbrace>invs and tcb_at t and ex_nonz_cap_to t\\<rbrace>\n   decode_read_registers args (cap.ThreadCap t)\n   \\<lbrace>tcb_inv_wf\\<rbrace>,-\"",
+            "name": "unnamed_thy_10317",
+            "theory_name": "Tcb_AI",
+            "num_steps": 5
+        },
+        {
+            "session": "AInvs",
+            "dependency": [],
+            "context": "lemma out_no_cap_to_trivial:\n  \"(\\<And>tcb v. \\<forall>(getF, x)\\<in>ran tcb_cap_cases. getF (f v tcb) = getF tcb)\n   \\<Longrightarrow> \\<lbrace>no_cap_to_obj_with_diff_ref cap S\\<rbrace>\n         option_update_thread a f t\n      \\<lbrace>\\<lambda>rv. no_cap_to_obj_with_diff_ref cap S\\<rbrace>\" apply (simp add: no_cap_to_obj_with_diff_ref_def) apply (wpsimp wp: hoare_vcg_const_Ball_lift out_cte_wp_at_trivialT\n    | fast)+ done",
+            "proof": [
+                "lemma out_no_cap_to_trivial:\n  \"(\\<And>tcb v. \\<forall>(getF, x)\\<in>ran tcb_cap_cases. getF (f v tcb) = getF tcb)\n   \\<Longrightarrow> \\<lbrace>no_cap_to_obj_with_diff_ref cap S\\<rbrace>\n         option_update_thread a f t\n      \\<lbrace>\\<lambda>rv. no_cap_to_obj_with_diff_ref cap S\\<rbrace>\"",
+                "apply (simp add: no_cap_to_obj_with_diff_ref_def)",
+                "apply (wpsimp wp: hoare_vcg_const_Ball_lift out_cte_wp_at_trivialT\n    | fast)+",
+                "done"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. (\\<And>tcb v. \\<forall>(getF, x)\\<in>ran tcb_cap_cases. getF (f v tcb) = getF tcb) \\<Longrightarrow> \\<lbrace>no_cap_to_obj_with_diff_ref cap S\\<rbrace> option_update_thread a f t \\<lbrace>\\<lambda>rv. no_cap_to_obj_with_diff_ref cap S\\<rbrace>",
+                "proof (prove)\ngoal (1 subgoal):\n 1. (\\<And>tcb v. \\<forall>x\\<in>ran tcb_cap_cases. case x of (getF, x) \\<Rightarrow> getF (f v tcb) = getF tcb) \\<Longrightarrow> \\<lbrace>\\<lambda>s. \\<forall>p\\<in>UNIV - S. \\<not> cte_wp_at (\\<lambda>c. obj_refs c = obj_refs cap \\<and> table_cap_ref c \\<noteq> table_cap_ref cap) p s\\<rbrace> option_update_thread a f t \\<lbrace>\\<lambda>rv s. \\<forall>p\\<in>UNIV - S. \\<not> cte_wp_at (\\<lambda>c. obj_refs c = obj_refs cap \\<and> table_cap_ref c \\<noteq> table_cap_ref cap) p s\\<rbrace>",
+                "proof (prove)\ngoal:\nNo subgoals!",
+                ""
+            ],
+            "statement": "lemma out_no_cap_to_trivial:\n  \"(\\<And>tcb v. \\<forall>(getF, x)\\<in>ran tcb_cap_cases. getF (f v tcb) = getF tcb)\n   \\<Longrightarrow> \\<lbrace>no_cap_to_obj_with_diff_ref cap S\\<rbrace>\n         option_update_thread a f t\n      \\<lbrace>\\<lambda>rv. no_cap_to_obj_with_diff_ref cap S\\<rbrace>\"",
+            "name": "unnamed_thy_10297",
+            "theory_name": "Tcb_AI",
+            "num_steps": 3
+        },
+        {
+            "session": "AInvs",
+            "dependency": [],
+            "context": "lemma as_user_cte_wp_at [wp]:\n  \"\\<lbrace>\\<lambda>s. P (cte_wp_at P' c s)\\<rbrace> as_user p' f \\<lbrace>\\<lambda>rv s. P (cte_wp_at P' c s)\\<rbrace>\" by (wp as_user_wp_thread_set_helper\n         thread_set_cte_wp_at_trivial\n         ball_tcb_cap_casesI | simp)+",
+            "proof": [
+                "lemma as_user_cte_wp_at [wp]:\n  \"\\<lbrace>\\<lambda>s. P (cte_wp_at P' c s)\\<rbrace> as_user p' f \\<lbrace>\\<lambda>rv s. P (cte_wp_at P' c s)\\<rbrace>\"",
+                "by (wp as_user_wp_thread_set_helper\n         thread_set_cte_wp_at_trivial\n         ball_tcb_cap_casesI | simp)+"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<lbrace>\\<lambda>s. P (cte_wp_at P' c s)\\<rbrace> as_user p' f \\<lbrace>\\<lambda>rv s. P (cte_wp_at P' c s)\\<rbrace>",
+                ""
+            ],
+            "statement": "lemma as_user_cte_wp_at [wp]:\n  \"\\<lbrace>\\<lambda>s. P (cte_wp_at P' c s)\\<rbrace> as_user p' f \\<lbrace>\\<lambda>rv s. P (cte_wp_at P' c s)\\<rbrace>\"",
+            "name": "unnamed_thy_8684",
+            "theory_name": "TcbAcc_AI",
+            "num_steps": 1
+        },
+        {
+            "session": "AInvs",
+            "dependency": [],
+            "context": "lemma ct_in_state_set:\n  \"P st \\<Longrightarrow> \\<lbrace>\\<lambda>s. cur_thread s = t\\<rbrace> set_thread_state t st \\<lbrace>\\<lambda>rv. ct_in_state P \\<rbrace>\" apply (simp add: set_thread_state_def set_object_def get_object_def) by (wp|simp add: ct_in_state_def pred_tcb_at_def obj_at_def)+",
+            "proof": [
+                "lemma ct_in_state_set:\n  \"P st \\<Longrightarrow> \\<lbrace>\\<lambda>s. cur_thread s = t\\<rbrace> set_thread_state t st \\<lbrace>\\<lambda>rv. ct_in_state P \\<rbrace>\"",
+                "apply (simp add: set_thread_state_def set_object_def get_object_def)",
+                "by (wp|simp add: ct_in_state_def pred_tcb_at_def obj_at_def)+"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. P st \\<Longrightarrow> \\<lbrace>\\<lambda>s. cur_thread s = t\\<rbrace> set_thread_state t st \\<lbrace>\\<lambda>rv. ct_in_state P\\<rbrace>",
+                "proof (prove)\ngoal (1 subgoal):\n 1. P st \\<Longrightarrow> \\<lbrace>\\<lambda>s. cur_thread s = t\\<rbrace> do tcb <- gets_the (get_tcb t);\ny <- do kobj <- do kh <- gets kheap;\ny <- assert (\\<exists>y. kh t = Some y);\nreturn (the (kh t))\nod;\ny <- assert (a_type kobj = ATCB);\ns <- get;\nput (s\\<lparr>kheap := (kheap s)(t \\<mapsto> TCB (tcb\\<lparr>tcb_state := st\\<rparr>))\\<rparr>)\nod;\ndo_extended_op (set_thread_state_ext t)\nod \\<lbrace>\\<lambda>rv. ct_in_state P\\<rbrace>",
+                ""
+            ],
+            "statement": "lemma ct_in_state_set:\n  \"P st \\<Longrightarrow> \\<lbrace>\\<lambda>s. cur_thread s = t\\<rbrace> set_thread_state t st \\<lbrace>\\<lambda>rv. ct_in_state P \\<rbrace>\"",
+            "name": "unnamed_thy_8783",
+            "theory_name": "TcbAcc_AI",
+            "num_steps": 2
+        },
+        {
+            "session": "AInvs",
+            "dependency": [],
+            "context": "lemma delete_caller_cap_runnable[wp]:\n  \"\\<lbrace>st_tcb_at runnable t\\<rbrace> delete_caller_cap t' \\<lbrace>\\<lambda>rv. st_tcb_at runnable t\\<rbrace>\" apply (simp add: delete_caller_cap_def) apply (wp cap_delete_one_st_tcb_at) apply simp done",
+            "proof": [
+                "lemma delete_caller_cap_runnable[wp]:\n  \"\\<lbrace>st_tcb_at runnable t\\<rbrace> delete_caller_cap t' \\<lbrace>\\<lambda>rv. st_tcb_at runnable t\\<rbrace>\"",
+                "apply (simp add: delete_caller_cap_def)",
+                "apply (wp cap_delete_one_st_tcb_at)",
+                "apply simp",
+                "done"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<lbrace>st_tcb_at runnable t\\<rbrace> delete_caller_cap t' \\<lbrace>\\<lambda>rv. st_tcb_at runnable t\\<rbrace>",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<lbrace>st_tcb_at runnable t\\<rbrace> cap_delete_one (t', tcb_cnode_index 3) \\<lbrace>\\<lambda>rv. st_tcb_at runnable t\\<rbrace>",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<And>s. st_tcb_at runnable t s \\<Longrightarrow> (st_tcb_at runnable t and K (\\<forall>st. active st \\<longrightarrow> runnable st)) s",
+                "proof (prove)\ngoal:\nNo subgoals!",
+                ""
+            ],
+            "statement": "lemma delete_caller_cap_runnable[wp]:\n  \"\\<lbrace>st_tcb_at runnable t\\<rbrace> delete_caller_cap t' \\<lbrace>\\<lambda>rv. st_tcb_at runnable t\\<rbrace>\"",
+            "name": "unnamed_thy_11201",
+            "theory_name": "Syscall_AI",
+            "num_steps": 4
+        },
+        {
+            "session": "AInvs",
+            "dependency": [],
+            "context": "lemma tcb_state_If_valid[simp]:\n  \"valid_tcb_state (if P then Structures_A.Restart else Structures_A.Inactive)\n      = \\<top>\" by (rule ext, simp add: valid_tcb_state_def)",
+            "proof": [
+                "lemma tcb_state_If_valid[simp]:\n  \"valid_tcb_state (if P then Structures_A.Restart else Structures_A.Inactive)\n      = \\<top>\"",
+                "by (rule ext, simp add: valid_tcb_state_def)"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. valid_tcb_state (if P then Restart else Inactive) = (\\<lambda>_. True)",
+                ""
+            ],
+            "statement": "lemma tcb_state_If_valid[simp]:\n  \"valid_tcb_state (if P then Structures_A.Restart else Structures_A.Inactive)\n      = \\<top>\"",
+            "name": "unnamed_thy_11182",
+            "theory_name": "Syscall_AI",
+            "num_steps": 1
+        },
+        {
+            "session": "AInvs",
+            "dependency": [],
+            "context": "lemma list_eq_after_in_list:\n  \"\\<lbrakk>valid_list_2 t m; m x = Some p\\<rbrakk>\n    \\<Longrightarrow> \\<exists>list. t p = list @ x # after_in_list_list (t p) x\" apply(simp only:valid_list_2_def) apply (erule conjE) apply (drule_tac x = p in spec)+ apply (subgoal_tac \"x \\<in> set (t p)\") apply (drule_tac in_set_conv_nth[THEN iffD1], erule exE) apply (auto simp: in_set_conv_nth list_eq_after_in_list') done",
+            "proof": [
+                "lemma list_eq_after_in_list:\n  \"\\<lbrakk>valid_list_2 t m; m x = Some p\\<rbrakk>\n    \\<Longrightarrow> \\<exists>list. t p = list @ x # after_in_list_list (t p) x\"",
+                "apply(simp only:valid_list_2_def)",
+                "apply (erule conjE)",
+                "apply (drule_tac x = p in spec)+",
+                "apply (subgoal_tac \"x \\<in> set (t p)\")",
+                "apply (drule_tac in_set_conv_nth[THEN iffD1], erule exE)",
+                "apply (auto simp: in_set_conv_nth list_eq_after_in_list')",
+                "done"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<lbrakk>valid_list_2 t m; m x = Some p\\<rbrakk> \\<Longrightarrow> \\<exists>list. t p = list @ x # after_in_list_list (t p) x",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<lbrakk>(\\<forall>p. set (t p) = {c. m c = Some p}) \\<and> (\\<forall>p. distinct (t p)); m x = Some p\\<rbrakk> \\<Longrightarrow> \\<exists>list. t p = list @ x # after_in_list_list (t p) x",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<lbrakk>m x = Some p; \\<forall>p. set (t p) = {c. m c = Some p}; \\<forall>p. distinct (t p)\\<rbrakk> \\<Longrightarrow> \\<exists>list. t p = list @ x # after_in_list_list (t p) x",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<lbrakk>m x = Some p; set (t p) = {c. m c = Some p}; distinct (t p)\\<rbrakk> \\<Longrightarrow> \\<exists>list. t p = list @ x # after_in_list_list (t p) x",
+                "proof (prove)\ngoal (2 subgoals):\n 1. \\<lbrakk>m x = Some p; set (t p) = {c. m c = Some p}; distinct (t p); x \\<in> set (t p)\\<rbrakk> \\<Longrightarrow> \\<exists>list. t p = list @ x # after_in_list_list (t p) x\n 2. \\<lbrakk>m x = Some p; set (t p) = {c. m c = Some p}; distinct (t p)\\<rbrakk> \\<Longrightarrow> x \\<in> set (t p)",
+                "proof (prove)\ngoal (2 subgoals):\n 1. \\<And>i. \\<lbrakk>m x = Some p; set (t p) = {c. m c = Some p}; distinct (t p); i < length (t p) \\<and> t p ! i = x\\<rbrakk> \\<Longrightarrow> \\<exists>list. t p = list @ x # after_in_list_list (t p) x\n 2. \\<lbrakk>m x = Some p; set (t p) = {c. m c = Some p}; distinct (t p)\\<rbrakk> \\<Longrightarrow> x \\<in> set (t p)",
+                "proof (prove)\ngoal:\nNo subgoals!",
+                ""
+            ],
+            "statement": "lemma list_eq_after_in_list:\n  \"\\<lbrakk>valid_list_2 t m; m x = Some p\\<rbrakk>\n    \\<Longrightarrow> \\<exists>list. t p = list @ x # after_in_list_list (t p) x\"",
+            "name": "unnamed_thy_11534",
+            "theory_name": "Deterministic_AI",
+            "num_steps": 7
+        },
+        {
+            "session": "AInvs",
+            "dependency": [],
+            "context": "lemma invoke_tcb_bcorres[wp]:\n  fixes a\n  shows \"bcorres (invoke_tcb a) (invoke_tcb a)\" apply (cases a) apply (wp | wpc | simp)+ apply (rename_tac option) apply (case_tac option) apply (wp | wpc | simp)+ done",
+            "proof": [
+                "lemma invoke_tcb_bcorres[wp]:\n  fixes a\n  shows \"bcorres (invoke_tcb a) (invoke_tcb a)\"",
+                "apply (cases a)",
+                "apply (wp | wpc | simp)+",
+                "apply (rename_tac option)",
+                "apply (case_tac option)",
+                "apply (wp | wpc | simp)+",
+                "done"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. bcorres (invoke_tcb a) (invoke_tcb a)",
+                "proof (prove)\ngoal (8 subgoals):\n 1. \\<And>x11 x12 x13 x14. a = WriteRegisters x11 x12 x13 x14 \\<Longrightarrow> bcorres (invoke_tcb a) (invoke_tcb a)\n 2. \\<And>x21 x22 x23 x24. a = ReadRegisters x21 x22 x23 x24 \\<Longrightarrow> bcorres (invoke_tcb a) (invoke_tcb a)\n 3. \\<And>x31 x32 x33 x34 x35 x36 x37. a = CopyRegisters x31 x32 x33 x34 x35 x36 x37 \\<Longrightarrow> bcorres (invoke_tcb a) (invoke_tcb a)\n 4. \\<And>x41 x42 x43 x44 x45 x46 x47 x48. a = ThreadControl x41 x42 x43 x44 x45 x46 x47 x48 \\<Longrightarrow> bcorres (invoke_tcb a) (invoke_tcb a)\n 5. \\<And>x5. a = Suspend x5 \\<Longrightarrow> bcorres (invoke_tcb a) (invoke_tcb a)\n 6. \\<And>x6. a = Resume x6 \\<Longrightarrow> bcorres (invoke_tcb a) (invoke_tcb a)\n 7. \\<And>x71 x72. a = NotificationControl x71 x72 \\<Longrightarrow> bcorres (invoke_tcb a) (invoke_tcb a)\n 8. \\<And>x81 x82. a = SetTLSBase x81 x82 \\<Longrightarrow> bcorres (invoke_tcb a) (invoke_tcb a)",
+                "proof (prove)\ngoal (2 subgoals):\n 1. \\<And>x71 x72. a = NotificationControl x71 x72 \\<Longrightarrow> bcorres (invoke_tcb (NotificationControl x71 x72)) (invoke_tcb (NotificationControl x71 x72))\n 2. \\<And>x81 x82. a = SetTLSBase x81 x82 \\<Longrightarrow> bcorres (invoke_tcb a) (invoke_tcb a)",
+                "proof (prove)\ngoal (2 subgoals):\n 1. \\<And>x71 option. a = NotificationControl x71 option \\<Longrightarrow> bcorres (invoke_tcb (NotificationControl x71 option)) (invoke_tcb (NotificationControl x71 option))\n 2. \\<And>x81 x82. a = SetTLSBase x81 x82 \\<Longrightarrow> bcorres (invoke_tcb a) (invoke_tcb a)",
+                "proof (prove)\ngoal (3 subgoals):\n 1. \\<And>x71 option. \\<lbrakk>a = NotificationControl x71 option; option = None\\<rbrakk> \\<Longrightarrow> bcorres (invoke_tcb (NotificationControl x71 option)) (invoke_tcb (NotificationControl x71 option))\n 2. \\<And>x71 option aa. \\<lbrakk>a = NotificationControl x71 option; option = Some aa\\<rbrakk> \\<Longrightarrow> bcorres (invoke_tcb (NotificationControl x71 option)) (invoke_tcb (NotificationControl x71 option))\n 3. \\<And>x81 x82. a = SetTLSBase x81 x82 \\<Longrightarrow> bcorres (invoke_tcb a) (invoke_tcb a)",
+                "proof (prove)\ngoal:\nNo subgoals!",
+                ""
+            ],
+            "statement": "lemma invoke_tcb_bcorres[wp]:\n  fixes a\n  shows \"bcorres (invoke_tcb a) (invoke_tcb a)\"",
+            "name": "unnamed_thy_10535",
+            "theory_name": "ArchBCorres2_AI",
+            "num_steps": 6
+        },
+        {
+            "session": "InfoFlow",
+            "dependency": [],
+            "context": "lemma sub_big_steps_I_holds:\n  \"\\<lbrakk> A [> I; s \\<in> I; (x, xs) \\<in> sub_big_steps A R s \\<rbrakk>\n     \\<Longrightarrow> x \\<in> I\" apply (erule sub_big_steps.induct) apply simp apply (simp add: inv_holds_def) apply blast done",
+            "proof": [
+                "lemma sub_big_steps_I_holds:\n  \"\\<lbrakk> A [> I; s \\<in> I; (x, xs) \\<in> sub_big_steps A R s \\<rbrakk>\n     \\<Longrightarrow> x \\<in> I\"",
+                "apply (erule sub_big_steps.induct)",
+                "apply simp",
+                "apply (simp add: inv_holds_def)",
+                "apply blast",
+                "done"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<lbrakk>A [> I; s \\<in> I; (x, xs) \\<in> sub_big_steps A R s\\<rbrakk> \\<Longrightarrow> x \\<in> I",
+                "proof (prove)\ngoal (2 subgoals):\n 1. \\<And>evlist t. \\<lbrakk>A [> I; s \\<in> I; evlist = []; t = s; \\<not> R s s\\<rbrakk> \\<Longrightarrow> t \\<in> I\n 2. \\<And>evlist evlist' e s' t. \\<lbrakk>A [> I; s \\<in> I; evlist = evlist' @ [e]; (s', evlist') \\<in> sub_big_steps A R s; s' \\<in> I; (s', t) \\<in> Step A e; \\<not> R s t\\<rbrakk> \\<Longrightarrow> t \\<in> I",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<And>evlist evlist' e s' t. \\<lbrakk>A [> I; s \\<in> I; evlist = evlist' @ [e]; (s', evlist') \\<in> sub_big_steps A R s; s' \\<in> I; (s', t) \\<in> Step A e; \\<not> R s t\\<rbrakk> \\<Longrightarrow> t \\<in> I",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<And>evlist evlist' e s' t. \\<lbrakk>\\<forall>j. Step A j `` I \\<subseteq> I; s \\<in> I; evlist = evlist' @ [e]; (s', evlist') \\<in> sub_big_steps A R s; s' \\<in> I; (s', t) \\<in> Step A e; \\<not> R s t\\<rbrakk> \\<Longrightarrow> t \\<in> I",
+                "proof (prove)\ngoal:\nNo subgoals!",
+                ""
+            ],
+            "statement": "lemma sub_big_steps_I_holds:\n  \"\\<lbrakk> A [> I; s \\<in> I; (x, xs) \\<in> sub_big_steps A R s \\<rbrakk>\n     \\<Longrightarrow> x \\<in> I\"",
+            "name": "unnamed_thy_24312",
+            "theory_name": "ADT_IF",
+            "num_steps": 5
+        },
+        {
+            "session": "InfoFlow",
+            "dependency": [],
+            "context": "lemma preemption_point_reads_respects:\n  \"reads_respects aag l (invs and only_timer_irq_inv irq st) preemption_point\" apply (simp add: preemption_point_def2) apply (wp | wpc | simp add: comp_def)+ apply ((wp dmo_getActiveIRQ_reads_respects hoare_TrueI | simp\n                   | wp (once) hoare_drop_imps)+)[8] apply wp apply force done",
+            "proof": [
+                "lemma preemption_point_reads_respects:\n  \"reads_respects aag l (invs and only_timer_irq_inv irq st) preemption_point\"",
+                "apply (simp add: preemption_point_def2)",
+                "apply (wp | wpc | simp add: comp_def)+",
+                "apply ((wp dmo_getActiveIRQ_reads_respects hoare_TrueI | simp\n                   | wp (once) hoare_drop_imps)+)[8]",
+                "apply wp",
+                "apply force",
+                "done"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. reads_respects aag l (invs and only_timer_irq_inv irq st) preemption_point",
+                "proof (prove)\ngoal (1 subgoal):\n 1. reads_respects aag l (invs and only_timer_irq_inv irq st) (doE y <- liftE update_work_units;\nrv <- liftE work_units_limit_reached;\nif rv then doE liftE reset_work_units;\nliftE (do_machine_op (getActiveIRQ True)) >>=E case_option (returnOk ()) (K (throwError $ ()))\nodE else returnOk ()\nodE)",
+                "proof (prove)\ngoal (10 subgoals):\n 1. \\<And>rva. rva \\<Longrightarrow> reads_respects aag l (?P'6 () True ()) (do_machine_op (getActiveIRQ True))\n 2. \\<And>rv rva rvb. rva \\<Longrightarrow> \\<lbrace>?P''6 rv rva rvb\\<rbrace> liftE (do_machine_op (getActiveIRQ True)) \\<lbrace>\\<lambda>rvc s. (rvc = None \\<longrightarrow> True) \\<and> (\\<forall>x. rvc = Some x \\<longrightarrow> True)\\<rbrace>, -\n 3. \\<And>rv rva. rva \\<Longrightarrow> reads_respects aag l (?P'4 rv rva) (liftE reset_work_units)\n 4. \\<And>rv rva. rva \\<Longrightarrow> \\<lbrace>?P''4 rv rva\\<rbrace> liftE reset_work_units \\<lbrace>\\<lambda>rvb s. ?P'6 rv rva rvb s \\<and> ?P''6 rv rva rvb s\\<rbrace>, -\n 5. \\<And>rv rva. \\<not> rva \\<Longrightarrow> reads_respects aag l (?Q3 rv rva) (returnOk ())\n 6. \\<And>rv. reads_respects aag l (?P'2 rv) (liftE work_units_limit_reached)\n 7. \\<And>rv. \\<lbrace>?P''2 rv\\<rbrace> liftE work_units_limit_reached \\<lbrace>\\<lambda>rva s. (rva \\<longrightarrow> ?P'4 rv rva s \\<and> ?P''4 rv rva s) \\<and> (\\<not> rva \\<longrightarrow> ?Q3 rv rva s)\\<rbrace>, -\n 8. reads_respects aag l ?P'1 (liftE update_work_units)\n 9. \\<lbrace>?P''1\\<rbrace> liftE update_work_units \\<lbrace>\\<lambda>rv s. ?P'2 rv s \\<and> ?P''2 rv s\\<rbrace>, -\n 10. \\<And>s. (invs and only_timer_irq_inv irq st) s \\<Longrightarrow> ?P'1 s \\<and> ?P''1 s",
+                "proof (prove)\ngoal (2 subgoals):\n 1. \\<lbrace>?P''1\\<rbrace> liftE update_work_units \\<lbrace>\\<lambda>rv s. True \\<and> invs s \\<and> only_timer_irq_inv (?irq129 rv) (?st128 rv) s\\<rbrace>, -\n 2. \\<And>s. (invs and only_timer_irq_inv irq st) s \\<Longrightarrow> True \\<and> ?P''1 s\nflex-flex pairs:\n?irq129 () \\<equiv>\\<^sup>? ?irq75 () (ds_id True)\n?st128 () \\<equiv>\\<^sup>? ?st76 () (ds_id True)",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<And>s. (invs and only_timer_irq_inv irq st) s \\<Longrightarrow> True \\<and> True \\<and> invs s \\<and> only_timer_irq_inv (?irq75 () (ds_id True)) (?st76 () (ds_id True)) s",
+                "proof (prove)\ngoal:\nNo subgoals!",
+                ""
+            ],
+            "statement": "lemma preemption_point_reads_respects:\n  \"reads_respects aag l (invs and only_timer_irq_inv irq st) preemption_point\"",
+            "name": "unnamed_thy_23157",
+            "theory_name": "CNode_IF",
+            "num_steps": 6
+        },
+        {
+            "session": "InfoFlow",
+            "dependency": [],
+            "context": "lemma handle_fault_globals_equiv':\n  \"\\<lbrace>invs and globals_equiv st and K (valid_fault ex)\\<rbrace>\n   handle_fault thread ex\n   \\<lbrace>\\<lambda>_. globals_equiv st\\<rbrace>\" by (wpsimp wp: handle_fault_globals_equiv simp: invs_imps)",
+            "proof": [
+                "lemma handle_fault_globals_equiv':\n  \"\\<lbrace>invs and globals_equiv st and K (valid_fault ex)\\<rbrace>\n   handle_fault thread ex\n   \\<lbrace>\\<lambda>_. globals_equiv st\\<rbrace>\"",
+                "by (wpsimp wp: handle_fault_globals_equiv simp: invs_imps)"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<lbrace>invs and globals_equiv st and K (valid_fault ex)\\<rbrace> handle_fault thread ex \\<lbrace>\\<lambda>_. globals_equiv st\\<rbrace>",
+                ""
+            ],
+            "statement": "lemma handle_fault_globals_equiv':\n  \"\\<lbrace>invs and globals_equiv st and K (valid_fault ex)\\<rbrace>\n   handle_fault thread ex\n   \\<lbrace>\\<lambda>_. globals_equiv st\\<rbrace>\"",
+            "name": "unnamed_thy_23973",
+            "theory_name": "Syscall_IF",
+            "num_steps": 1
+        },
+        {
+            "session": "Refine",
+            "dependency": [],
+            "context": "lemma case_option_corresE:\n  assumes nonec: \"corres r Pn Qn (nc >>=E f) (nc' >>=E g)\"\n  and     somec: \"\\<And>v'. corres r (Ps v') (Qs v') (sc v' >>=E f) (sc' v' >>=E g)\"\n  shows \"corres r (case_option Pn Ps v) (case_option Qn Qs v) (case_option nc sc v >>=E f) (case_option nc' sc' v >>=E g)\" apply (cases v) apply simp apply (rule nonec) apply simp apply (rule somec) done",
+            "proof": [
+                "lemma case_option_corresE:\n  assumes nonec: \"corres r Pn Qn (nc >>=E f) (nc' >>=E g)\"\n  and     somec: \"\\<And>v'. corres r (Ps v') (Qs v') (sc v' >>=E f) (sc' v' >>=E g)\"\n  shows \"corres r (case_option Pn Ps v) (case_option Qn Qs v) (case_option nc sc v >>=E f) (case_option nc' sc' v >>=E g)\"",
+                "apply (cases v)",
+                "apply simp",
+                "apply (rule nonec)",
+                "apply simp",
+                "apply (rule somec)",
+                "done"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. corres r (case v of None \\<Rightarrow> Pn | Some x \\<Rightarrow> Ps x) (case v of None \\<Rightarrow> Qn | Some x \\<Rightarrow> Qs x) ((case v of None \\<Rightarrow> nc | Some x \\<Rightarrow> sc x) >>=E f) ((case v of None \\<Rightarrow> nc' | Some x \\<Rightarrow> sc' x) >>=E g)",
+                "proof (prove)\ngoal (2 subgoals):\n 1. v = None \\<Longrightarrow> corres r (case v of None \\<Rightarrow> Pn | Some x \\<Rightarrow> Ps x) (case v of None \\<Rightarrow> Qn | Some x \\<Rightarrow> Qs x) ((case v of None \\<Rightarrow> nc | Some x \\<Rightarrow> sc x) >>=E f) ((case v of None \\<Rightarrow> nc' | Some x \\<Rightarrow> sc' x) >>=E g)\n 2. \\<And>a. v = Some a \\<Longrightarrow> corres r (case v of None \\<Rightarrow> Pn | Some x \\<Rightarrow> Ps x) (case v of None \\<Rightarrow> Qn | Some x \\<Rightarrow> Qs x) ((case v of None \\<Rightarrow> nc | Some x \\<Rightarrow> sc x) >>=E f) ((case v of None \\<Rightarrow> nc' | Some x \\<Rightarrow> sc' x) >>=E g)",
+                "proof (prove)\ngoal (2 subgoals):\n 1. v = None \\<Longrightarrow> corres r Pn Qn (nc >>=E f) (nc' >>=E g)\n 2. \\<And>a. v = Some a \\<Longrightarrow> corres r (case v of None \\<Rightarrow> Pn | Some x \\<Rightarrow> Ps x) (case v of None \\<Rightarrow> Qn | Some x \\<Rightarrow> Qs x) ((case v of None \\<Rightarrow> nc | Some x \\<Rightarrow> sc x) >>=E f) ((case v of None \\<Rightarrow> nc' | Some x \\<Rightarrow> sc' x) >>=E g)",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<And>a. v = Some a \\<Longrightarrow> corres r (case v of None \\<Rightarrow> Pn | Some x \\<Rightarrow> Ps x) (case v of None \\<Rightarrow> Qn | Some x \\<Rightarrow> Qs x) ((case v of None \\<Rightarrow> nc | Some x \\<Rightarrow> sc x) >>=E f) ((case v of None \\<Rightarrow> nc' | Some x \\<Rightarrow> sc' x) >>=E g)",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<And>a. v = Some a \\<Longrightarrow> corres r (Ps a) (Qs a) (sc a >>=E f) (sc' a >>=E g)",
+                "proof (prove)\ngoal:\nNo subgoals!",
+                ""
+            ],
+            "statement": "lemma case_option_corresE:\n  assumes nonec: \"corres r Pn Qn (nc >>=E f) (nc' >>=E g)\"\n  and     somec: \"\\<And>v'. corres r (Ps v') (Qs v') (sc v' >>=E f) (sc' v' >>=E g)\"\n  shows \"corres r (case_option Pn Ps v) (case_option Qn Qs v) (case_option nc sc v >>=E f) (case_option nc' sc' v >>=E g)\"",
+            "name": "unnamed_thy_16262",
+            "theory_name": "Arch_R",
+            "num_steps": 6
+        },
+        {
+            "session": "Refine",
+            "dependency": [],
+            "context": "lemma capFault_injection:\n \"capFaultOnFailure addr b = injection_handler (Fault_H.CapFault addr b)\" apply (rule ext) apply (simp add: capFaultOnFailure_def rethrowFailure_injection) done",
+            "proof": [
+                "lemma capFault_injection:\n \"capFaultOnFailure addr b = injection_handler (Fault_H.CapFault addr b)\"",
+                "apply (rule ext)",
+                "apply (simp add: capFaultOnFailure_def rethrowFailure_injection)",
+                "done"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. capFaultOnFailure addr b = injection_handler (Fault_H.fault.CapFault addr b)",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<And>x. capFaultOnFailure addr b x = injection_handler (Fault_H.fault.CapFault addr b) x",
+                "proof (prove)\ngoal:\nNo subgoals!",
+                ""
+            ],
+            "statement": "lemma capFault_injection:\n \"capFaultOnFailure addr b = injection_handler (Fault_H.CapFault addr b)\"",
+            "name": "unnamed_thy_12468",
+            "theory_name": "Bits_R",
+            "num_steps": 3
+        },
+        {
+            "session": "Refine",
+            "dependency": [],
+            "context": "lemma weak_derived_untypedZeroRange:\n  \"\\<lbrakk> weak_derived' c c'; isUntypedCap c' \\<longrightarrow> c' = c \\<rbrakk>\n    \\<Longrightarrow> untypedZeroRange c = untypedZeroRange c'\" apply (clarsimp simp: untypedZeroRange_def isCap_simps) apply (clarsimp simp: weak_derived'_def) done",
+            "proof": [
+                "lemma weak_derived_untypedZeroRange:\n  \"\\<lbrakk> weak_derived' c c'; isUntypedCap c' \\<longrightarrow> c' = c \\<rbrakk>\n    \\<Longrightarrow> untypedZeroRange c = untypedZeroRange c'\"",
+                "apply (clarsimp simp: untypedZeroRange_def isCap_simps)",
+                "apply (clarsimp simp: weak_derived'_def)",
+                "done"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<lbrakk>weak_derived' c c'; isUntypedCap c' \\<longrightarrow> c' = c\\<rbrakk> \\<Longrightarrow> untypedZeroRange c = untypedZeroRange c'",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<And>d v0 v1 f. \\<lbrakk>weak_derived' (capability.UntypedCap False v0 v1 f) c'; (\\<exists>d v0 v1 f. c' = capability.UntypedCap d v0 v1 f) \\<longrightarrow> c' = capability.UntypedCap False v0 v1 f; f \\<noteq> max_free_index v1; \\<not> d; c = capability.UntypedCap False v0 v1 f\\<rbrakk> \\<Longrightarrow> \\<exists>d v0 v1 f. c' = capability.UntypedCap d v0 v1 f",
+                "proof (prove)\ngoal:\nNo subgoals!",
+                ""
+            ],
+            "statement": "lemma weak_derived_untypedZeroRange:\n  \"\\<lbrakk> weak_derived' c c'; isUntypedCap c' \\<longrightarrow> c' = c \\<rbrakk>\n    \\<Longrightarrow> untypedZeroRange c = untypedZeroRange c'\"",
+            "name": "unnamed_thy_15456",
+            "theory_name": "CNodeInv_R",
+            "num_steps": 3
+        },
+        {
+            "session": "Refine",
+            "dependency": [],
+            "context": "lemma derived'_not_Null:\n  \"\\<not> is_derived' m p c capability.NullCap\"\n  \"\\<not> is_derived' m p capability.NullCap c\" by (clarsimp simp: is_derived'_def badge_derived'_def)+",
+            "proof": [
+                "lemma derived'_not_Null:\n  \"\\<not> is_derived' m p c capability.NullCap\"\n  \"\\<not> is_derived' m p capability.NullCap c\"",
+                "by (clarsimp simp: is_derived'_def badge_derived'_def)+"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<not> is_derived' m p c capability.NullCap &&& \\<not> is_derived' m p capability.NullCap c",
+                ""
+            ],
+            "statement": "lemma derived'_not_Null:\n  \"\\<not> is_derived' m p c capability.NullCap\"\n  \"\\<not> is_derived' m p capability.NullCap c\"",
+            "name": "unnamed_thy_13678",
+            "theory_name": "CSpace_R",
+            "num_steps": 1
+        },
+        {
+            "session": "Refine",
+            "dependency": [],
+            "context": "lemma cap_table_at_gsCNodes:\n  \"cap_table_at bits ptr s \\<Longrightarrow> (s, s') \\<in> state_relation\n    \\<Longrightarrow> gsCNodes s' ptr = Some bits\" apply (clarsimp simp: state_relation_def ghost_relation_def\n                        obj_at_def is_cap_table) apply blast done",
+            "proof": [
+                "lemma cap_table_at_gsCNodes:\n  \"cap_table_at bits ptr s \\<Longrightarrow> (s, s') \\<in> state_relation\n    \\<Longrightarrow> gsCNodes s' ptr = Some bits\"",
+                "apply (clarsimp simp: state_relation_def ghost_relation_def\n                        obj_at_def is_cap_table)",
+                "apply blast",
+                "done"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<lbrakk>cap_table_at bits ptr s; (s, s') \\<in> state_relation\\<rbrakk> \\<Longrightarrow> gsCNodes s' ptr = Some bits",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<And>cs. \\<lbrakk>pspace_relation (kheap s) (ksPSpace s'); kheap s ptr = Some (CNode bits cs); ekheap_relation (ekheap s) (ksPSpace s'); well_formed_cnode_n bits cs; sched_act_relation (scheduler_action s) (ksSchedulerAction s'); ready_queues_relation (ready_queues s) (ksReadyQueues s'); \\<forall>a sz. (\\<exists>dev. kheap s a = Some (ArchObj (DataPage dev sz))) = (gsUserPages s' a = Some sz); \\<forall>a n. (\\<exists>cs. kheap s a = Some (CNode n cs) \\<and> well_formed_cnode_n n cs) = (gsCNodes s' a = Some n); cdt_relation (swp (cte_wp_at (\\<lambda>_. True)) s) (cdt s) (ctes_of s'); cdt_list_relation (cdt_list s) (cdt s) (ctes_of s'); revokable_relation (is_original_cap s) (null_filter (caps_of_state s)) (ctes_of s'); (arch_state s, ksArchState s') \\<in> arch_state_relation; interrupt_state_relation (interrupt_irq_node s) (interrupt_states s) (ksInterruptState s'); cur_thread s = ksCurThread s'; idle_thread s = ksIdleThread s'; machine_state s = ksMachineState s'; work_units_completed s = ksWorkUnitsCompleted s'; domain_index s = ksDomScheduleIdx s'; domain_list s = ksDomSchedule s'; cur_domain s = ksCurDomain s'; domain_time s = ksDomainTime s'\\<rbrakk> \\<Longrightarrow> gsCNodes s' ptr = Some bits",
+                "proof (prove)\ngoal:\nNo subgoals!",
+                ""
+            ],
+            "statement": "lemma cap_table_at_gsCNodes:\n  \"cap_table_at bits ptr s \\<Longrightarrow> (s, s') \\<in> state_relation\n    \\<Longrightarrow> gsCNodes s' ptr = Some bits\"",
+            "name": "unnamed_thy_13014",
+            "theory_name": "CSpace1_R",
+            "num_steps": 3
+        },
+        {
+            "session": "Refine",
+            "dependency": [],
+            "context": "lemma updateCap_no_0:\n  \"\\<lbrace>\\<lambda>s. no_0 (ctes_of s)\\<rbrace> updateCap cap ptr \\<lbrace>\\<lambda>_ s. no_0 (ctes_of s)\\<rbrace>\" apply (simp add: updateCap_def) apply (wp getCTE_wp') apply (clarsimp simp: cte_wp_at_ctes_of no_0_def) done",
+            "proof": [
+                "lemma updateCap_no_0:\n  \"\\<lbrace>\\<lambda>s. no_0 (ctes_of s)\\<rbrace> updateCap cap ptr \\<lbrace>\\<lambda>_ s. no_0 (ctes_of s)\\<rbrace>\"",
+                "apply (simp add: updateCap_def)",
+                "apply (wp getCTE_wp')",
+                "apply (clarsimp simp: cte_wp_at_ctes_of no_0_def)",
+                "done"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<lbrace>\\<lambda>s. no_0 (ctes_of s)\\<rbrace> updateCap cap ptr \\<lbrace>\\<lambda>_ s. no_0 (ctes_of s)\\<rbrace>",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<lbrace>\\<lambda>s. no_0 (ctes_of s)\\<rbrace> do cte <- getCTE cap;\nsetCTE cap (cteCap_update (\\<lambda>_. ptr) cte)\nod \\<lbrace>\\<lambda>_ s. no_0 (ctes_of s)\\<rbrace>",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<And>s. no_0 (ctes_of s) \\<Longrightarrow> \\<forall>cte. cte_wp_at' ((=) cte) cap s \\<longrightarrow> no_0 ((ctes_of s)(cap \\<mapsto> cteCap_update (\\<lambda>_. ptr) cte))",
+                "proof (prove)\ngoal:\nNo subgoals!",
+                ""
+            ],
+            "statement": "lemma updateCap_no_0:\n  \"\\<lbrace>\\<lambda>s. no_0 (ctes_of s)\\<rbrace> updateCap cap ptr \\<lbrace>\\<lambda>_ s. no_0 (ctes_of s)\\<rbrace>\"",
+            "name": "unnamed_thy_13280",
+            "theory_name": "CSpace1_R",
+            "num_steps": 4
+        },
+        {
+            "session": "Refine",
+            "dependency": [],
+            "context": "lemma user_mem_relation:\n  \"\\<lbrakk>(s,s') \\<in> state_relation; valid_state' s'; valid_state s\\<rbrakk>\n   \\<Longrightarrow> user_mem' s' = user_mem s\" apply (rule ext) apply (clarsimp simp: user_mem_def user_mem'_def pointerInUserData_relation pointerInDeviceData_relation) apply (simp add: state_relation_def) done",
+            "proof": [
+                "lemma user_mem_relation:\n  \"\\<lbrakk>(s,s') \\<in> state_relation; valid_state' s'; valid_state s\\<rbrakk>\n   \\<Longrightarrow> user_mem' s' = user_mem s\"",
+                "apply (rule ext)",
+                "apply (clarsimp simp: user_mem_def user_mem'_def pointerInUserData_relation pointerInDeviceData_relation)",
+                "apply (simp add: state_relation_def)",
+                "done"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<lbrakk>(s, s') \\<in> state_relation; valid_state' s'; valid_state s\\<rbrakk> \\<Longrightarrow> user_mem' s' = user_mem s",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<And>x. \\<lbrakk>(s, s') \\<in> state_relation; valid_state' s'; valid_state s\\<rbrakk> \\<Longrightarrow> user_mem' s' x = user_mem s x",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<And>x. \\<lbrakk>(s, s') \\<in> state_relation; valid_state' s'; valid_state s; in_user_frame x s\\<rbrakk> \\<Longrightarrow> underlying_memory (ksMachineState s') x = underlying_memory (machine_state s) x",
+                "proof (prove)\ngoal:\nNo subgoals!",
+                ""
+            ],
+            "statement": "lemma user_mem_relation:\n  \"\\<lbrakk>(s,s') \\<in> state_relation; valid_state' s'; valid_state s\\<rbrakk>\n   \\<Longrightarrow> user_mem' s' = user_mem s\"",
+            "name": "unnamed_thy_16643",
+            "theory_name": "Refine",
+            "num_steps": 4
+        },
+        {
+            "session": "Refine",
+            "dependency": [],
+            "context": "lemma msg_from_syserr_map[simp]:\n  \"msgFromSyscallError (syscall_error_map err) = msg_from_syscall_error err\" apply (simp add: msgFromSyscallError_def) apply (case_tac err,clarsimp+) done",
+            "proof": [
+                "lemma msg_from_syserr_map[simp]:\n  \"msgFromSyscallError (syscall_error_map err) = msg_from_syscall_error err\"",
+                "apply (simp add: msgFromSyscallError_def)",
+                "apply (case_tac err,clarsimp+)",
+                "done"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. msgFromSyscallError (syscall_error_map err) = msg_from_syscall_error err",
+                "proof (prove)\ngoal (1 subgoal):\n 1. (case syscall_error_map err of Fault_H.syscall_error.IllegalOperation \\<Rightarrow> (3, []) | Fault_H.syscall_error.InvalidArgument n \\<Rightarrow> (1, [fromIntegral n]) | Fault_H.syscall_error.TruncatedMessage \\<Rightarrow> (7, []) | Fault_H.syscall_error.DeleteFirst \\<Rightarrow> (8, []) | Fault_H.syscall_error.RangeError minV maxV \\<Rightarrow> (4, [minV, maxV]) | Fault_H.syscall_error.FailedLookup s lf \\<Rightarrow> (6, (fromIntegral $ fromEnum s) # msgFromLookupFailure lf) | Fault_H.syscall_error.InvalidCapability n \\<Rightarrow> (2, [fromIntegral n]) | Fault_H.syscall_error.RevokeFirst \\<Rightarrow> (9, []) | Fault_H.syscall_error.NotEnoughMemory n \\<Rightarrow> (0xA, [n]) | Fault_H.syscall_error.AlignmentError \\<Rightarrow> (5, [])) = msg_from_syscall_error err",
+                "proof (prove)\ngoal:\nNo subgoals!",
+                ""
+            ],
+            "statement": "lemma msg_from_syserr_map[simp]:\n  \"msgFromSyscallError (syscall_error_map err) = msg_from_syscall_error err\"",
+            "name": "unnamed_thy_16368",
+            "theory_name": "Syscall_R",
+            "num_steps": 3
+        }
+    ],
+    "test_hard": []
+}

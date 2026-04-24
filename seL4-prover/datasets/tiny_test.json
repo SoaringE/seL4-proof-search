@@ -1,0 +1,71 @@
+{
+    "test": [
+        {
+            "session": "",
+            "dependency": [],
+            "context": "lemma no_children_empty_desc:\n  \"(\\<forall>c. m c \\<noteq> Some slot) = (descendants_of slot m = {})\" apply(rule iffI) apply(simp add: descendants_of_def cdt_parent_defs) apply(intro allI notI) apply(drule tranclD) apply(simp) apply(fastforce simp: descendants_of_def cdt_parent_defs) done",
+            "proof": [
+                "lemma no_children_empty_desc:\n  \"(\\<forall>c. m c \\<noteq> Some slot) = (descendants_of slot m = {})\"",
+                "apply(rule iffI)",
+                "apply(simp add: descendants_of_def cdt_parent_defs)",
+                "apply(intro allI notI)",
+                "apply(drule tranclD)",
+                "apply(simp)",
+                "apply(fastforce simp: descendants_of_def cdt_parent_defs)",
+                "done"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. (\\<forall>c. m c \\<noteq> Some slot) = (descendants_of slot m = {})",
+                "proof (prove)\ngoal (2 subgoals):\n 1. \\<forall>c. m c \\<noteq> Some slot \\<Longrightarrow> descendants_of slot m = {}\n 2. descendants_of slot m = {} \\<Longrightarrow> \\<forall>c. m c \\<noteq> Some slot",
+                "proof (prove)\ngoal (2 subgoals):\n 1. \\<forall>a b. m (a, b) \\<noteq> Some slot \\<Longrightarrow> \\<forall>a b. (slot, a, b) \\<notin> {(p, c). m c = Some p}\\<^sup>+\n 2. descendants_of slot m = {} \\<Longrightarrow> \\<forall>c. m c \\<noteq> Some slot",
+                "proof (prove)\ngoal (2 subgoals):\n 1. \\<And>a b. \\<lbrakk>\\<forall>a b. m (a, b) \\<noteq> Some slot; (slot, a, b) \\<in> {(p, c). m c = Some p}\\<^sup>+\\<rbrakk> \\<Longrightarrow> False\n 2. descendants_of slot m = {} \\<Longrightarrow> \\<forall>c. m c \\<noteq> Some slot",
+                "proof (prove)\ngoal (2 subgoals):\n 1. \\<And>a b. \\<lbrakk>\\<forall>a b. m (a, b) \\<noteq> Some slot; \\<exists>z. (slot, z) \\<in> {(p, c). m c = Some p} \\<and> (z, a, b) \\<in> {(p, c). m c = Some p}\\<^sup>*\\<rbrakk> \\<Longrightarrow> False\n 2. descendants_of slot m = {} \\<Longrightarrow> \\<forall>c. m c \\<noteq> Some slot",
+                "proof (prove)\ngoal (1 subgoal):\n 1. descendants_of slot m = {} \\<Longrightarrow> \\<forall>c. m c \\<noteq> Some slot",
+                "proof (prove)\ngoal:\nNo subgoals!",
+                ""
+            ],
+            "statement": "lemma no_children_empty_desc:\n  \"(\\<forall>c. m c \\<noteq> Some slot) = (descendants_of slot m = {})\"",
+            "name": "unnamed_thy_11325",
+            "theory_name": "Deterministic_AI",
+            "num_steps": 7
+        },
+        {
+            "session": "",
+            "dependency": [],
+            "context": "lemma live_okE:\n    \"\\<And>P p. \\<lbrakk> obj_at P p s; \\<And>obj. P obj \\<Longrightarrow> live obj \\<rbrakk>\n    \\<Longrightarrow> p \\<notin> untyped_range cap\" apply (drule if_live_then_nonz_capD [OF iflive]) apply simp apply (rule notI) apply (erule ex_nonz_cap_toE) apply (erule untyped_children_in_mdbEE [OF child cap untyped]) apply (clarsimp simp: zobj_refs_to_obj_refs) apply blast apply (drule descendants_range_inD[OF drange]) apply (simp add:cte_wp_at_caps_of_state) apply (simp add:untyped) done",
+            "proof": [
+                "lemma live_okE:\n    \"\\<And>P p. \\<lbrakk> obj_at P p s; \\<And>obj. P obj \\<Longrightarrow> live obj \\<rbrakk>\n    \\<Longrightarrow> p \\<notin> untyped_range cap\"",
+                "apply (drule if_live_then_nonz_capD [OF iflive])",
+                "apply simp",
+                "apply (rule notI)",
+                "apply (erule ex_nonz_cap_toE)",
+                "apply (erule untyped_children_in_mdbEE [OF child cap untyped])",
+                "apply (clarsimp simp: zobj_refs_to_obj_refs)",
+                "apply blast",
+                "apply (drule descendants_range_inD[OF drange])",
+                "apply (simp add:cte_wp_at_caps_of_state)",
+                "apply (simp add:untyped)",
+                "done"
+            ],
+            "proof_state": [
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<And>P p. \\<lbrakk>obj_at P p s; \\<And>obj. P obj \\<Longrightarrow> live obj\\<rbrakk> \\<Longrightarrow> p \\<notin> untyped_range cap",
+                "proof (prove)\ngoal (2 subgoals):\n 1. \\<And>P p obj. \\<lbrakk>\\<And>obj. P obj \\<Longrightarrow> live obj; P obj; kheap s p = Some obj\\<rbrakk> \\<Longrightarrow> live obj\n 2. \\<And>P p. \\<lbrakk>\\<And>obj. P obj \\<Longrightarrow> live obj; ex_nonz_cap_to p s\\<rbrakk> \\<Longrightarrow> p \\<notin> untyped_range cap",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<And>P p. \\<lbrakk>\\<And>obj. P obj \\<Longrightarrow> live obj; ex_nonz_cap_to p s\\<rbrakk> \\<Longrightarrow> p \\<notin> untyped_range cap",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<And>P p. \\<lbrakk>\\<And>obj. P obj \\<Longrightarrow> live obj; ex_nonz_cap_to p s; p \\<in> untyped_range cap\\<rbrakk> \\<Longrightarrow> False",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<And>P p cref. \\<lbrakk>\\<And>obj. P obj \\<Longrightarrow> live obj; p \\<in> untyped_range cap; cte_wp_at (\\<lambda>c. p \\<in> zobj_refs c) cref s\\<rbrakk> \\<Longrightarrow> False",
+                "proof (prove)\ngoal (2 subgoals):\n 1. \\<And>P p cref cap'. \\<lbrakk>\\<And>obj. P obj \\<Longrightarrow> live obj; p \\<in> untyped_range cap; cte_wp_at ((=) cap') cref s; p \\<in> zobj_refs cap'\\<rbrakk> \\<Longrightarrow> obj_refs cap' \\<inter> untyped_range cap \\<noteq> {}\n 2. \\<And>P p cref cap'. \\<lbrakk>\\<And>obj. P obj \\<Longrightarrow> live obj; p \\<in> untyped_range cap; cte_wp_at ((=) cap') cref s; cap_range cap' \\<inter> untyped_range cap \\<noteq> {}; cref \\<in> descendants_of ptr (cdt s)\\<rbrakk> \\<Longrightarrow> False",
+                "proof (prove)\ngoal (2 subgoals):\n 1. \\<And>P p a b cap'. \\<lbrakk>\\<And>obj. P obj \\<Longrightarrow> live obj; p \\<in> untyped_range cap; cte_wp_at ((=) cap') (a, b) s; p \\<in> obj_refs cap'; \\<not> is_zombie cap'; obj_refs cap' \\<inter> untyped_range cap = {}\\<rbrakk> \\<Longrightarrow> False\n 2. \\<And>P p cref cap'. \\<lbrakk>\\<And>obj. P obj \\<Longrightarrow> live obj; p \\<in> untyped_range cap; cte_wp_at ((=) cap') cref s; cap_range cap' \\<inter> untyped_range cap \\<noteq> {}; cref \\<in> descendants_of ptr (cdt s)\\<rbrakk> \\<Longrightarrow> False",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<And>P p cref cap'. \\<lbrakk>\\<And>obj. P obj \\<Longrightarrow> live obj; p \\<in> untyped_range cap; cte_wp_at ((=) cap') cref s; cap_range cap' \\<inter> untyped_range cap \\<noteq> {}; cref \\<in> descendants_of ptr (cdt s)\\<rbrakk> \\<Longrightarrow> False",
+                "proof (prove)\ngoal (2 subgoals):\n 1. \\<And>P p cref cap'. \\<lbrakk>\\<And>obj. P obj \\<Longrightarrow> live obj; p \\<in> untyped_range cap; cte_wp_at ((=) cap') cref s; cap_range cap' \\<inter> untyped_range cap \\<noteq> {}\\<rbrakk> \\<Longrightarrow> caps_of_state s cref = Some (?cap31 P p cref cap')\n 2. \\<And>P p cref cap'. \\<lbrakk>\\<And>obj. P obj \\<Longrightarrow> live obj; p \\<in> untyped_range cap; cte_wp_at ((=) cap') cref s; cap_range cap' \\<inter> untyped_range cap \\<noteq> {}; cap_range (?cap31 P p cref cap') \\<inter> cap_range cap = {}\\<rbrakk> \\<Longrightarrow> False",
+                "proof (prove)\ngoal (1 subgoal):\n 1. \\<And>P p cref cap'. \\<lbrakk>\\<And>obj. P obj \\<Longrightarrow> live obj; p \\<in> untyped_range cap; cte_wp_at ((=) cap') cref s; cap_range cap' \\<inter> untyped_range cap \\<noteq> {}; cap_range cap' \\<inter> cap_range cap = {}\\<rbrakk> \\<Longrightarrow> False",
+                "proof (prove)\ngoal:\nNo subgoals!",
+                ""
+            ],
+            "statement": "lemma live_okE:\n    \"\\<And>P p. \\<lbrakk> obj_at P p s; \\<And>obj. P obj \\<Longrightarrow> live obj \\<rbrakk>\n    \\<Longrightarrow> p \\<notin> untyped_range cap\"",
+            "name": "unnamed_thy_10584",
+            "theory_name": "Detype_AI",
+            "num_steps": 11
+        }
+    ],
+    "test_hard": []
+}

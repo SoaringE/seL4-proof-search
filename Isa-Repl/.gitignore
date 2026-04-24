@@ -1,0 +1,15 @@
+project/project/*
+project/target/*
+**/project/metals.sbt
+*.pyc
+target/*
+.idea/
+.vscode/
+.metals/
+/python-test/python-test.iml
+/python-test/logs/
+.bsp/
+
+**/.bloop
+**/.vscode
+*.code-workspace

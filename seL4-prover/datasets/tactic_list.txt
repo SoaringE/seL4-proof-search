@@ -1,0 +1,3000 @@
+apply(rule <placeholder>) 15009
+done 14000
+apply(simp add:<placeholder>) 11441
+apply(clarsimp simp:<placeholder>) 10241
+apply simp 6912
+apply clarsimp 5987
+by(simp add:<placeholder>) 3063
+apply(erule <placeholder>) 2674
+unfolding <placeholder> 2434
+apply wp 1608
+apply(wp <placeholder>) 1534
+apply(drule <placeholder>) 1504
+apply fastforce 1303
+qed 1131
+apply (clarsimp simp:<placeholder> split:<placeholder>) 1099
+by simp 1035
+apply assumption 1020
+apply(rule <placeholder>[OF <placeholder>]) 1009
+apply(frule <placeholder>) 952
+apply(subst <placeholder>) 934
+prefer 2 866
+by (clarsimp simp:<placeholder>) 845
+apply(drule(1) <placeholder>) 801
+apply (fastforce simp:<placeholder>) 798
+by (cases v) simp 794
+apply csymbr 669
+apply (clarsimp simp add:<placeholder>) 647
+apply(<placeholder>) 643
+apply(frule(1) <placeholder>) 631
+apply(simp) 598
+show ?thesis 580
+apply(intro <placeholder>) 562
+apply vcg 559
+proof- 552
+apply simp+ 551
+using <placeholder> 546
+by (auto simp:<placeholder>) 534
+apply(elim <placeholder>) 529
+apply blast 514
+apply(rule <placeholder>)+ 512
+subgoal 511
+by auto 490
+next 485
+apply(clarsimp) 476
+apply (erule(1) <placeholder>) 447
+apply(simp only:<placeholder>) 412
+by(fastforce simp:<placeholder>) 403
+apply (simp add:<placeholder> split:<placeholder>) 398
+apply (simp add:<placeholder>)+ 370
+apply (rule <placeholder>,rule <placeholder>) 367
+apply auto 357
+apply (clarsimp split:<placeholder>) 357
+apply (wp <placeholder> |simp)+ 350
+apply wp+ 347
+apply - 347
+show ?case 341
+apply (wp <placeholder>)+ 331
+then 320
+apply (rule <placeholder>,simp) 300
+by blast 288
+by (metis <placeholder>) 283
+apply (clarsimp simp:<placeholder>)+ 280
+apply(unfold <placeholder>) 275
+apply (rule <placeholder>, rule <placeholder>,vcg) 273
+apply (ctac(no_vcg) add:<placeholder>) 272
+apply (simp add:<placeholder> del:<placeholder>) 270
+apply (auto simp:<placeholder>) 268
+apply (ctac add:<placeholder>) 267
+using assms 256
+apply ceqv 253
+apply (wp|simp)+ 249
+by (rule <placeholder>) 248
+thus ?thesis 247
+by (clarsimp simp:<placeholder> split:<placeholder>) 236
+apply (rule <placeholder>,clarsimp) 222
+apply(simp_all add:<placeholder>) 220
+apply (metis <placeholder>) 215
+by (simp add:<placeholder> split:<placeholder>) 212
+apply (subst <placeholder>[symmetric]) 211
+defer 208
+apply(erule <placeholder>[rotated]) 203
+moreover 200
+apply (simp add:<placeholder>[symmetric]) 200
+apply(subst(asm) <placeholder>) 197
+apply (clarsimp dest!:<placeholder>) 187
+apply force 175
+apply (rule <placeholder>[OF _ <placeholder>]) 169
+by(auto simp add: <placeholder>) 169
+apply (simp add:<placeholder> cong:<placeholder>) 169
+by fastforce 167
+apply (clarsimp simp:<placeholder> dest!:<placeholder>) 167
+apply clarsimp+ 165
+apply(drule(2) <placeholder>) 164
+apply(drule <placeholder>)+ 164
+apply (rule <placeholder>, vcg) 162
+by clarsimp 155
+by(wp <placeholder>) 153
+apply sep_solve 153
+apply (wpsimp wp: <placeholder>) 152
+apply(simp split: <placeholder>) 152
+apply (rule <placeholder>,simp+)[1] 152
+thus ?case 152
+apply (rule <placeholder>[where P=\<top> and P'=UNIV]) 148
+ultimately 145
+apply safe 143
+apply (rule hoare_seq_ext[OF _ <placeholder>]) 141
+apply (rule <placeholder>[rotated]) 135
+apply simp_all 130
+apply (rule <placeholder>,simp+) 129
+apply wpsimp 127
+apply (erule(2) <placeholder>) 123
+by(auto simp:<placeholder> split:<placeholder>) 123
+apply (wp <placeholder> |simp add:<placeholder>)+ 121
+by (fact <placeholder>) 118
+apply assumption+ 117
+apply (fold <placeholder>) 115
+apply(frule(2) <placeholder>) 114
+apply (drule <placeholder>,simp) 113
+apply (rule <placeholder>,assumption) 113
+apply (simp del:<placeholder>) 111
+apply(wp) 109
+by (wpsimp wp: <placeholder>) 109
+apply (rule <placeholder>[THEN <placeholder>]) 109
+apply auto[1] 109
+apply (rule <placeholder>,wp) 107
+apply (clarsimp elim!:<placeholder>) 107
+apply (rule <placeholder>,simp add:<placeholder>) 106
+apply <placeholder> 105
+by wpsimp 105
+{ 103
+} 103
+apply (drule(1) <placeholder>)+ 102
+apply wpc 100
+apply (clarsimp simp:<placeholder>[symmetric]) 98
+by (fastforce simp: <placeholder> split: <placeholder>) 97
+apply(blast intro: <placeholder>) 96
+apply clarify 95
+apply (clarsimp simp:<placeholder>:<placeholder>) 94
+apply (erule <placeholder>,simp) 94
+apply(fastforce intro: <placeholder>) 94
+by (wpsimp simp: <placeholder>) 94
+apply(wp <placeholder> | wpc)+ 93
+apply(fastforce dest: <placeholder>) 93
+proof (rule <placeholder>) 93
+apply(erule <placeholder>[OF _ <placeholder>]) 93
+by (simp_all add:<placeholder>) 92
+including no_pre 91
+apply (strengthen <placeholder>) 91
+also 91
+apply(rule <placeholder>, erule <placeholder>) 90
+supply <placeholder>[cong] 89
+apply(insert <placeholder>) 89
+apply (wp|clarsimp)+ 87
+apply fastforce+ 87
+apply (simp add:field_simps) 87
+apply(fastforce) 86
+apply rule 85
+apply (clarsimp simp add:<placeholder> split:<placeholder>) 84
+.. 84
+apply (drule <placeholder>,erule <placeholder>) 83
+apply (erule <placeholder>[OF <placeholder>]) 83
+apply (fastforce simp:<placeholder>)+ 82
+apply (sep_solve) 82
+apply (fastforce simp:<placeholder> split:<placeholder>) 79
+apply(erule <placeholder>)+ 78
+apply (rule <placeholder>,assumption+) 78
+apply (wp|wpc)+ 78
+case Nil 78
+apply wpsimp+ 77
+apply wp[1] 77
+apply (auto simp:<placeholder>)[1] 75
+apply (simp add:<placeholder> split del:<placeholder>) 74
+apply(wp <placeholder>)[1] 73
+apply(drule <placeholder>, clarsimp) 73
+apply (wp <placeholder> |wpc|simp)+ 73
+apply (clarsimp simp:<placeholder> simp del:<placeholder>) 73
+apply unat_arith 72
+apply (wpsimp wp: <placeholder>)+ 72
+apply(drule_tac x=x in <placeholder>) 72
+by (simp add:<placeholder> | wp)+ 71
+apply (clarsimp simp:<placeholder> cong:<placeholder>) 71
+apply (frule <placeholder>,clarsimp) 71
+by (rule <placeholder>,simp) 70
+apply (rule <placeholder>,wp <placeholder>) 70
+apply (erule <placeholder>, simp_all)[1] 69
+case False 68
+case True 68
+apply (<placeholder> xs) 66
+apply (subst <placeholder>,simp) 66
+apply (rule <placeholder>,clarsimp simp:<placeholder>) 65
+apply (wp| simp add:<placeholder>)+ 64
+apply arith 63
+including unfold_objects 61
+apply(erule <placeholder>, rule <placeholder>) 61
+finally 61
+proof 60
+apply (auto simp add:<placeholder>) 60
+apply (drule <placeholder>[OF <placeholder>]) 59
+by (simp add:<placeholder>,wp) 59
+apply (wp|wpc|simp)+ 59
+apply (wp <placeholder> |clarsimp)+ 59
+apply ctac 58
+apply (frule <placeholder>[OF <placeholder>]) 57
+by (wpsimp wp: <placeholder> simp: <placeholder>) 57
+apply(fastforce simp: <placeholder> dest: <placeholder>) 57
+apply (clarsimp simp:<placeholder> split:<placeholder>)+ 56
+apply(frule(3) <placeholder>) 56
+apply (simp add:<placeholder>[symmetric] <placeholder>) 56
+apply(assumption) 56
+. 55
+apply (drule(1) <placeholder>,clarsimp) 55
+apply (frule <placeholder>,simp) 54
+apply (rule <placeholder>, simp_all) 54
+apply (erule_tac x=p in <placeholder>) 54
+apply (clarsimp dest!:<placeholder> simp:<placeholder>) 54
+apply (simp only:<placeholder>[symmetric]) 54
+by (fastforce simp add:<placeholder>) 54
+apply (case_tac cte) 53
+apply (clarsimp simp:<placeholder> split del:<placeholder>) 53
+apply(fastforce simp add:<placeholder>) 52
+apply (fastforce elim: <placeholder>) 52
+apply (rename_tac arch_cap) 52
+apply(case_tac x) 52
+apply (simp add:<placeholder> | wp)+ 51
+apply (clarsimp simp:<placeholder>[symmetric] <placeholder>) 51
+apply (simp cong:<placeholder>) 51
+apply (simp add:<placeholder> field_simps) 51
+by (simp split: <placeholder>) 51
+apply (simp add:<placeholder>,wp) 51
+apply (rule <placeholder>, rule <placeholder>,simp) 51
+apply (<placeholder>(asm) <placeholder>) 51
+by (clarsimp simp add:<placeholder>) 49
+apply(drule_tac x=p in <placeholder>) 49
+by(simp add:<placeholder>)+ 49
+by (wp <placeholder> | simp)+ 47
+apply (subst <placeholder>,assumption) 47
+by (fastforce intro:<placeholder> simp:<placeholder>) 47
+apply (erule <placeholder>, simp only:, rule <placeholder>) 47
+apply (rule <placeholder>,fastforce) 46
+apply(drule_tac x=s in <placeholder>) 46
+apply (erule(1) <placeholder>[OF <placeholder>]) 46
+apply (rule_tac P=\<top> and P'=UNIV in <placeholder>) 46
+apply (clarsimp split:<placeholder> simp:<placeholder>) 45
+apply (clarsimp simp:<placeholder> elim!:<placeholder>) 45
+by force 45
+apply (frule <placeholder>, clarsimp+) 45
+apply(case_tac z) 45
+apply (vcg exspec=getSyscallArg_modifies) 45
+apply (clarsimp <placeholder>:<placeholder>) 44
+by (rule <placeholder>, simp add: <placeholder>) 44
+apply (frule(1) <placeholder>,clarsimp) 44
+prefer 3 44
+apply (erule <placeholder>,simp_all) 44
+apply (wpsimp wp: <placeholder> simp: <placeholder>) 44
+apply (force simp: <placeholder>) 44
+apply (rule <placeholder>,vcg,clarsimp) 44
+apply (auto simp:<placeholder> split:<placeholder>) 44
+apply (simp add:<placeholder> | wp <placeholder>)+ 43
+apply atomize 43
+apply (drule(1) <placeholder>,simp) 42
+apply (rule <placeholder>,simp_all)[1] 42
+apply (frule <placeholder>[OF _ <placeholder>]) 42
+apply (unfold <placeholder>)[1] 41
+by wp 41
+apply (simp add:<placeholder> split del:if_split) 41
+apply (case_tac a) 41
+apply (vcg exspec=setThreadState_modifies) 41
+proof induct 41
+apply (rule <placeholder>[where P=\<top>]) 40
+by (auto intro:<placeholder>) 40
+apply (rule <placeholder>[where R=\<top>]) 40
+by (simp add: <placeholder> | wp <placeholder>)+ 40
+apply(insert <placeholder>)[1] 40
+apply (simp add:objBits_simps) 40
+apply (rule <placeholder>[OF <placeholder>],assumption+) 40
+apply (simp add:word_bits_def) 39
+using that 39
+apply csymbr+ 39
+from <placeholder> 39
+by arith 39
+apply (erule <placeholder>, erule <placeholder>) 39
+apply (simp add: <placeholder> del:<placeholder> cong:call_ignore_cong) 39
+apply(fastforce dest: <placeholder> simp: <placeholder>) 39
+apply (frule(1) <placeholder>[OF _ <placeholder>]) 38
+apply (erule_tac x=p' in <placeholder>) 38
+apply (drule <placeholder>[rotated]) 37
+apply word_bitwise 37
+by (simp add: <placeholder>) wp 37
+apply (rename_tac list) 37
+apply(<placeholder>[symmetric]) 37
+apply (drule <placeholder>, drule(1) <placeholder>) 37
+apply(erule_tac x=src in <placeholder>) 37
+apply ccorres_rewrite 37
+using cover 37
+apply (<placeholder>,assumption) 36
+apply(fastforce <placeholder>: <placeholder>) 36
+apply (rename_tac arch_kernel_object) 36
+apply (clarsimp simp:field_simps) 36
+apply(drule(3) <placeholder>) 36
+continue 36
+apply (wp,simp) 35
+by (rule <placeholder>) (simp add: <placeholder>) 35
+apply(subst <placeholder>)+ 34
+apply(blast dest: <placeholder>) 34
+apply (rule <placeholder>[OF domains_distinct]) 34
+apply (blast <placeholder>: <placeholder>) 34
+apply (wp <placeholder>[OF <placeholder>]) 34
+apply(<placeholder> list) 33
+apply(rule <placeholder>, rule <placeholder>, rule <placeholder>) 33
+apply (clarsimp simp:<placeholder> objBits_simps) 33
+by simp_all 33
+apply (wp)+ 33
+apply (clarsimp simp:<placeholder> archObjSize_def <placeholder>) 33
+apply (rule <placeholder>[OF <placeholder>[OF <placeholder>]]) 33
+apply (rule hoare_pre) 33
+apply (thin_tac "P\<longrightarrow>Q" for P Q)+ 33
+apply (ctac(no_vcg)) 32
+by <placeholder> simp 32
+apply(atomize) 32
+apply (ctac add: <placeholder>[OF <placeholder>]) 32
+apply (simp add:<placeholder>[OF <placeholder>]) 32
+apply (rule <placeholder>[where r'=dc]) 32
+apply (frule(1) <placeholder>,simp) 31
+apply (simp add:<placeholder> del:split_paired_All) 31
+by (rule <placeholder>) fact+ 31
+apply (rule <placeholder>[OF <placeholder>],assumption) 31
+proof(induct rule: <placeholder>) 31
+apply (clarsimp simp:<placeholder> | rule <placeholder>)+ 31
+by (auto simp add:<placeholder> split:<placeholder>) 31
+by (fastforce intro: <placeholder>) 31
+apply(case_tac cap) 30
+by (fastforce simp: <placeholder> intro: <placeholder>) 30
+apply (safe) 30
+apply (drule <placeholder>, drule <placeholder>, erule <placeholder>, assumption) 30
+apply (subst(asm) <placeholder>,assumption) 30
+apply (clarsimp simp:<placeholder> split:option.splits) 30
+apply sep_cancel+ 30
+apply (clarsimp simp only: <placeholder>) 30
+by (auto simp: <placeholder> elim: <placeholder>) 29
+apply(drule (1) <placeholder>[OF _ <placeholder>]) 29
+apply (subst(asm) <placeholder>[symmetric]) 29
+apply (case_tac rv) 29
+apply(rule <placeholder>[symmetric]) 29
+by (clarsimp simp:<placeholder>)+ 29
+apply wps 29
+apply (drule <placeholder>[OF _ <placeholder>]) 29
+by (force simp:<placeholder>) 29
+apply (wps <placeholder>) 29
+by (clarsimp dest!: <placeholder>) 29
+apply (drule <placeholder>,fastforce) 29
+apply (clarsimp split del:<placeholder>) 29
+apply (drule(1) <placeholder>[rotated]) 29
+apply (erule <placeholder> [OF <placeholder>, OF <placeholder>, rotated -1]) 28
+apply (drule <placeholder>,blast) 28
+apply (erule <placeholder>,clarsimp) 28
+apply (clarsimp cong:<placeholder>) 28
+apply (simp add: <placeholder>[symmetric] <placeholder>[symmetric]) 28
+apply (clarsimp simp del:<placeholder>) 28
+apply (clarsimp simp: <placeholder> the_nat_to_bl_simps <placeholder> split: <placeholder>) 28
+apply(auto intro: <placeholder>) 28
+apply (clarsimp simp:<placeholder> field_simps) 28
+apply (case_tac cap,simp_all add:<placeholder>) 28
+apply (rename_tac arch_kernel_obj) 28
+apply (simp del: <placeholder> cong: call_ignore_cong) 28
+apply (rule <placeholder>,rule <placeholder>,simp+) 27
+apply (rule <placeholder>[unfolded <placeholder>]) 27
+apply (clarsimp simp:<placeholder> del:<placeholder>) 27
+apply (rule subtree.<placeholder>) 27
+fix x 27
+supply <placeholder>[cong] <placeholder>[cong] 27
+apply metis 27
+by (simp add: <placeholder>(2) <placeholder>(3)) 27
+apply (erule_tac x=obj_id in <placeholder>) 27
+by (simp add:<placeholder>) blast 26
+by (fastforce dest:<placeholder>) 26
+apply (erule(3) <placeholder>) 26
+by(auto dest: <placeholder>) 26
+apply (simp add:<placeholder> pageBits_def <placeholder>) 26
+apply (simp add:<placeholder> archObjSize_def <placeholder>) 26
+by (rule <placeholder>) simp 26
+apply(simp)+ 26
+apply (erule_tac x=x in <placeholder>) 26
+qed fact+ 26
+apply(case_tac y) 26
+by (cases opt) auto 26
+apply (simp only:) 26
+apply (elim <placeholder>, simp_all add: <placeholder>)[1] 26
+apply (wp <placeholder> |wpc|simp add:<placeholder>)+ 25
+apply (subst <placeholder>[THEN <placeholder>]) 25
+apply (subst <placeholder>,simp+) 25
+apply (frule <placeholder>[rotated]) 25
+apply(subst <placeholder>[OF <placeholder>]) 25
+apply (rule <placeholder>[rotated],assumption) 25
+using prems 25
+apply (rename_tac arch_capability) 25
+apply (intro <placeholder>,simp_all) 25
+apply (simp add:<placeholder>:<placeholder>) 25
+apply(frule <placeholder>, simp+) 24
+apply (clarsimp simp:<placeholder>[OF <placeholder>]) 24
+by (erule <placeholder>) 24
+apply (erule(4) <placeholder>) 24
+by (simp only: <placeholder>) 24
+by (clarsimp simp: <placeholder> elim!: <placeholder>) 24
+apply (wpsimp simp:<placeholder>) 24
+apply (drule_tac x=t in <placeholder>) 24
+apply (subst <placeholder>[symmetric])+ 24
+apply (simp add:<placeholder> word_bits_def) 24
+using Cons.prems 24
+apply (wp <placeholder> | clarsimp simp:<placeholder>)+ 24
+by (wp <placeholder> | simp add: <placeholder>)+ 23
+apply(simp_all) 23
+from assms 23
+apply (rule hoare_post_imp_R) 23
+apply (frule(1) <placeholder>[OF <placeholder>]) 23
+by(simp) 23
+by word_eqI_solve 23
+apply (rule <placeholder>, rule <placeholder>, assumption) 23
+apply (drule <placeholder>, clarsimp+) 23
+apply (erule(5) <placeholder>) 23
+apply (clarsimp simp:<placeholder> split del:if_split) 23
+by <placeholder> (simp add: <placeholder>) 23
+apply (clarsimp simp:<placeholder> split:if_split_asm) 23
+apply (drule <placeholder>, rule <placeholder>, assumption, erule <placeholder>, rule <placeholder>) 23
+apply (rule hoare_post_impErr) 22
+apply (rule cc) 22
+apply (clarsimp simp:<placeholder> dest!:<placeholder> split:<placeholder>) 22
+apply (case_tac ctea) 22
+apply (erule_tac x=t in <placeholder>) 22
+apply (ccorres_remove_UNIV_guard) 22
+apply (simp add: <placeholder>[symmetric] del: <placeholder>) 22
+<placeholder> Nil 22
+apply (auto dest: <placeholder>) 22
+apply (case_tac slot) 22
+apply (subst (asm) <placeholder>, simp)+ 22
+apply (rule <placeholder>,clarsimp+) 22
+apply (subst <placeholder>,simp add:<placeholder>) 21
+apply (case_tac arch_cap) 21
+by (simp add: <placeholder>[symmetric]) 21
+apply(clarify) 21
+apply(rule <placeholder>[simplified]) 21
+apply (frule <placeholder>,fastforce) 21
+apply (clarsimp)+ 21
+apply (simp add:field_simps <placeholder>) 21
+apply (frule <placeholder>[OF <placeholder>], clarsimp+) 21
+apply (rule <placeholder>[simplified <placeholder>]) 21
+by(clarsimp) 21
+apply (<placeholder>,rule <placeholder>) 21
+by(clarsimp split: <placeholder>) 21
+apply(erule_tac x=a in <placeholder>) 21
+apply (clarsimp split:<placeholder>)+ 21
+by(blast intro: <placeholder>) 20
+apply (fastforce dest!:<placeholder>) 20
+prefer 4 20
+apply (clarsimp|rule <placeholder>)+ 20
+apply (simp|wp)+ 20
+apply (drule_tac x=p' in <placeholder>) 20
+apply (frule_tac x=p' in <placeholder>) 20
+apply (erule_tac x=s in <placeholder>) 20
+apply (fastforce intro!:<placeholder>) 20
+by (meson <placeholder>) 20
+apply(case_tac "p=src") 20
+apply (drule_tac x=a in <placeholder>) 20
+apply(fastforce elim!: <placeholder>) 20
+apply(rule <placeholder>, auto) 20
+by (auto elim: <placeholder>) 20
+apply (wp <placeholder>,simp) 20
+apply (case_tac ko,simp_all) 20
+apply(assumption)+ 20
+apply (erule_tac x=p'' in <placeholder>) 20
+apply (vcg exspec=slowpath_noreturn_spec) 20
+apply (rename_tac rv s) 19
+apply (simp(no_asm)) 19
+apply (fastforce elim: <placeholder> intro: <placeholder>) 19
+apply (safe, simp_all) 19
+by (simp add: <placeholder>, wp <placeholder>) 19
+apply (auto simp add:<placeholder>)[1] 19
+apply(auto split: <placeholder>) 19
+case 0 19
+apply (cases "m (mdbPrev src_node)") 19
+by (cases x; simp) 19
+by (clarsimp simp:<placeholder>,wp) 19
+apply (case_tac ko) 19
+subgoal premises prems 19
+apply (clarsimp simp:<placeholder> |wp)+ 19
+apply (<placeholder>) \<comment> \<open>tcb relation\<close> 19
+by (auto split:<placeholder>) 19
+apply (clarsimp,rule <placeholder>) 19
+apply (erule_tac x=y in <placeholder>) 19
+apply(simp_all)[2] 19
+apply ((wp <placeholder> | simp)+)[1] 18
+apply (fastforce simp:<placeholder> dest!:<placeholder>) 18
+apply(erule(1) <placeholder>[OF _ <placeholder>]) 18
+by (simp add:<placeholder> split:<placeholder>)+ 18
+apply (erule <placeholder>, erule(1) <placeholder>) 18
+apply(induct rule: <placeholder>) 18
+apply (rule x) 18
+by (auto elim!: <placeholder>) 18
+apply (rename_tac apiobject_type) 18
+apply (simp(no_asm) add: <placeholder>) 18
+apply (rule <placeholder>[OF x]) 18
+apply (drule <placeholder>,simp+) 18
+apply (case_tac cap,simp_all) 18
+apply (vcg, clarsimp) 18
+apply (drule_tac x=ptr in <placeholder>) 18
+using sz 18
+proof (<placeholder> xs) 18
+apply (wp (once) <placeholder>) 18
+apply(rule_tac x=q in <placeholder>) 18
+apply (subst <placeholder>,rule <placeholder>) 18
+apply (drule_tac p=p'' in <placeholder>) 18
+apply (drule(1) <placeholder>[OF <placeholder>]) 17
+apply (wpsimp wp: <placeholder> simp: <placeholder>)+ 17
+apply (rule conjI; clarsimp) 17
+apply (wp|wpc|simp add:<placeholder>)+ 17
+apply (induct n) 17
+from Cons.prems 17
+apply (rule <placeholder>[OF _ _ <placeholder>]) 17
+apply (simp only: <placeholder>[symmetric] <placeholder>) 17
+apply (rule <placeholder>, erule(1) <placeholder>) 17
+apply(case_tac "p=dest") 17
+apply (frule <placeholder>, erule <placeholder>) 17
+apply (rule <placeholder>, fastforce simp: <placeholder>) 17
+by fact+ 17
+apply (erule subtree.<placeholder>) 17
+case (Cons x xs) 17
+from rf 17
+apply (clarsimp simp:<placeholder> split:option.splits <placeholder>) 17
+apply (rule get_cap_corres; simp) 17
+apply (hoare_rule <placeholder>) 17
+apply(erule <placeholder>, fastforce) 17
+apply (drule <placeholder>, drule <placeholder>, drule(1) <placeholder>) 17
+apply (clarsimp simp:<placeholder> split:if_splits) 17
+apply (elim <placeholder>, drule(1) <placeholder>) 17
+apply (wpsimp simp:<placeholder>)+ 17
+apply (rule <placeholder>[OF <placeholder>],simp+) 17
+by (clarsimp simp:<placeholder> dest!:<placeholder>) 17
+apply (cases cte) 17
+apply (erule <placeholder>[where P=P]) 17
+apply (simp split del:<placeholder>) 17
+apply (subst <placeholder>,assumption+) 17
+apply (drule <placeholder>,simp add:<placeholder>) 17
+apply (wp <placeholder>[OF <placeholder>] <placeholder>) 17
+apply (drule(1) <placeholder>, erule <placeholder>) 17
+apply return_NullCap_pair_ccorres 17
+apply (clarsimp simp:) 16
+apply (clarsimp simp:<placeholder> simp del:split_paired_All) 16
+apply (erule <placeholder>[OF <placeholder>], erule <placeholder>) 16
+apply (fastforce split:<placeholder>) 16
+apply (rule hoare_post_imp_R, rule <placeholder>) 16
+apply (erule <placeholder>,assumption) 16
+apply (rename_tac cap node) 16
+apply (case_tac cte') 16
+apply (drule <placeholder>, drule(1) <placeholder>, clarsi<placeholder>) 16
+apply (rule <placeholder>[where n=2, simplified]) 16
+show False 16
+apply (simp add:<placeholder>[abs_def]) 16
+by (unfold <placeholder>) 16
+apply (rule <placeholder>[where vals=extraCaps and n=0]) 16
+apply (sep_cancel)+ 16
+apply (simp flip: <placeholder>) 16
+apply (clarsimp simp:field_simps <placeholder>) 16
+apply (wp|clarsimp simp:<placeholder>)+ 16
+apply (<placeholder>,clarsimp) 16
+apply (wp (once)) 16
+apply (erule ctcb_relation_null_queue_ptrs) 16
+apply (rule cready_queues_relation_null_queue_ptrs, assumption+) 16
+apply(insert assms) 16
+apply (erule <placeholder>, blast) 16
+apply (wp <placeholder> |wpc|clarsimp)+ 16
+by (simp add:field_simps) 16
+apply (wp | wp (once) <placeholder>)+ 16
+apply (rule <placeholder>[rotated -1,where Q=\<top> and Q'=\<top>]) 16
+from al 16
+apply (drule_tac Q="\<lambda>_ m'. underlying_memory m' p = underlying_memory m p" in <placeholder>) 15
+by(auto <placeholder>: <placeholder>) 15
+apply (erule(1) <placeholder>, simp) 15
+apply (fastforce dest: <placeholder>[OF _ <placeholder>]) 15
+apply (erule <placeholder>,simp add:<placeholder>) 15
+<placeholder> False 15
+<placeholder> True 15
+by (cases F, auto) 15
+apply (rename_tac tcb) 15
+apply (csymbr, csymbr) 15
+by(fastforce split: <placeholder>) 15
+apply(erule_tac x=slot in <placeholder>) 15
+apply fast 15
+apply (simp, rule <placeholder>) 15
+proof(<placeholder>) 15
+using cr 15
+apply (erule <placeholder>, erule <placeholder>, blast) 15
+apply(frule <placeholder>, simp add: <placeholder>) 15
+apply (rule hoare_seq_ext) 15
+apply (simp add:word_bits_conv) 15
+by(fastforce) 15
+apply (rule <placeholder> | simp)+ 15
+apply (rule <placeholder>[unfolded <placeholder>,simplified]) 15
+apply (rule <placeholder>[where P=\<top> and P'=\<top>]) 15
+apply (subst <placeholder>,subst <placeholder>) 15
+apply(drule_tac x=y in <placeholder>) 15
+apply (clarsimp simp add: <placeholder> simp del: <placeholder>) 15
+apply (rule_tac x=x in <placeholder>) 15
+apply (simp add:<placeholder>[unfolded <placeholder>]) 15
+apply (clarsimp simp: <placeholder>ew_<placeholder>_def split: <placeholder>) 15
+apply (drule_tac x=x in <placeholder>)+ 15
+apply (clarsimp split: option.splits) 15
+apply (cases \<open>LENGTH('a)\<close>) 14
+apply (clarsimp, frule(1) <placeholder>) 14
+apply (simp add: <placeholder> | elim <placeholder>)+ 14
+apply (subst <placeholder>, simp_all) 14
+with assms 14
+apply (rule <placeholder>, simp add: <placeholder> split: <placeholder>) 14
+apply (wp <placeholder> |simp split del:<placeholder>)+ 14
+by (clarsimp simp: <placeholder> split:<placeholder>)+ 14
+apply (auto elim!: <placeholder>)[1] 14
+apply (<placeholder>,simp_all) 14
+supply if_split[split del] 14
+apply (simp add: <placeholder> del: if_<placeholder>) 14
+apply (fastforce elim: <placeholder>: <placeholder>) 14
+apply (drule <placeholder>[THEN <placeholder>]) 14
+apply (clarsimp simp:<placeholder> archObjSize_def) 14
+case (<placeholder> c) 14
+by (simp add: <placeholder> bit_simps) 14
+apply(<placeholder>[OF <placeholder>]) 14
+apply (case_tac s) 14
+apply (clarsimp simp: <placeholder> objBits_simps <placeholder>) 14
+apply (clarsimp simp del:fun_upd_apply) 14
+apply (unfold_locales) 14
+apply (simp add:<placeholder> archObjSize_def) 14
+apply (rule <placeholder>[where Q=\<top> and Q'=\<top>]) 14
+apply (clarsimp simp: <placeholder>) \<comment> \<open>ep relation\<close> 14
+by (<placeholder> xs) auto 14
+by (wp|simp add: <placeholder>)+ 14
+by (wpsimp simp: <placeholder> wp: <placeholder>) 14
+using hyps 14
+apply ((simp add:<placeholder>)+)[2] 14
+apply(fastforce simp: <placeholder> intro: <placeholder>) 14
+apply (insert cover) 14
+by (rule <placeholder>[OF <placeholder>]) 14
+supply <placeholder>[simp] 14
+apply (rule <placeholder>, clarsimp elim!: <placeholder>) 14
+apply (rule preserve) 14
+using vui 14
+apply (case_tac rv') 14
+apply (simp add: <placeholder> del: <placeholder> cong: <placeholder>) 14
+apply (frule <placeholder>,assumption) 13
+apply (simp <placeholder>:<placeholder>) 13
+by metis 13
+by (auto simp: <placeholder> intro: <placeholder>) 13
+by (rule <placeholder>) auto 13
+apply (drule_tac x=b in <placeholder>) 13
+apply (simp add:<placeholder> del:upt.simps) 13
+apply (drule <placeholder>,assumption) 13
+apply(simp split: <placeholder>)+ 13
+apply (simp add: <placeholder>[OF <placeholder>] <placeholder>) 13
+apply (monadic_rewrite_l <placeholder>) 13
+apply (rule <placeholder>[OF _ <placeholder> _ <placeholder>]) 13
+apply (rule <placeholder>,wp,simp) 13
+apply(auto dest!: <placeholder>) 13
+apply (drule <placeholder>[ where s=s and t=t and s'=s' and t'=t' and u=u],simp+) 13
+apply safe[1] 13
+apply (elim <placeholder>,simp_all) 13
+from Cons 13
+apply (rule hoare_vcg_precond_imp) 13
+apply (drule_tac x="(a,b)" in <placeholder>) 13
+from invs 13
+by (fastforce simp: <placeholder> dest: <placeholder>) 13
+apply (frule <placeholder> [simplified <placeholder>] <placeholder>) 13
+by (simp add: <placeholder>, blast) 13
+apply (meson <placeholder>) 13
+apply (clarsimp simp:<placeholder> split:<placeholder>,intro <placeholder>) 13
+apply (case_tac "has_slots obj") 13
+apply (rule <placeholder>[OF P]) 13
+apply (wp <placeholder> | wps)+ 13
+apply(case_tac list) 13
+apply (cut_tac <placeholder>) 13
+apply (rename_tac syscall) 13
+apply (erule <placeholder>,simp+) 13
+apply (clarsimp simp:<placeholder> split:<placeholder> dest!:<placeholder>) 13
+apply ((clarsimp simp:<placeholder>)+)[2] 13
+apply (case_tac a,simp_all) 13
+apply (frule(4) <placeholder>) 13
+apply(frule <placeholder>, fastforce+) 13
+by (simp add: direct_caps_of_def <placeholder>) 13
+apply(rule_tac x=p in <placeholder>) 13
+apply vcg_step 13
+apply (simp | wp <placeholder>)+ 12
+apply (drule(1) <placeholder>,clarsimp)+ 12
+using <placeholder>[OF <placeholder>] 12
+apply (clarsimp simp: <placeholder> states_<placeholder>) 12
+apply (<placeholder>,simp+) 12
+apply (fold_subgoals (prefix))[2] 12
+apply (rule <placeholder>[where r'="dc"]) 12
+apply (rule assms) 12
+by fact 12
+apply (subst <placeholder>, clarsimp simp: <placeholder>) 12
+apply(auto elim: <placeholder>) 12
+apply (clarsimp simp:<placeholder> field_simps <placeholder>) 12
+supply ethread_get_wp[wp del] 12
+apply (rule <placeholder>, drule(1) <placeholder>) 12
+apply (cases p) 12
+apply (rule <placeholder>[OF _ _ _ <placeholder>]) 12
+using a 12
+apply (rule <placeholder>,rule <placeholder>[OF <placeholder>]) 12
+apply (clarsimp <placeholder> del:<placeholder>) 12
+apply (wp <placeholder>,clarsimp) 12
+apply (split <placeholder>) 12
+by (blast dest: <placeholder>) 12
+apply (drule <placeholder>, rule <placeholder>) 12
+by fastforce+ 12
+using <placeholder>[of x] 12
+apply (wp "1.hyps") 12
+qed fact 12
+apply (case_tac cte,clarsimp) 12
+apply (rule c) 12
+apply(drule(1) <placeholder>, rule <placeholder>) 12
+apply (subst <placeholder>,clarsimp) 12
+using x 12
+apply (rule <placeholder>,(simp add: <placeholder>)+) 12
+by unat_arith 12
+by (auto intro!: <placeholder>) 12
+case <placeholder> 12
+apply (clarsimp simp:<placeholder>,wp) 12
+apply (simp add: <placeholder>,wp <placeholder>) 12
+apply (rule <placeholder>[where f=ksCurThread]) 12
+apply (rule <placeholder>[OF <placeholder>[where P=\<top> and P'=\<top>]]) 12
+by simp+ 12
+apply(simp_all)[6] 12
+apply (simp+)[3] 12
+apply (simp add: <placeholder> flip: <placeholder>) 12
+apply (clarsimp intro!: <placeholder>) 12
+apply (subgoal_tac "mdb_inv_preserve (Q (ctes_of s)) (Q (modify_map (ctes_of s) src (cteCap_update (\<lambda>_. capFreeIndex_update (\<lambda>_. index) (cteCap srcCTE)))))") 12
+apply (simp add: <placeholder> size_td_lt_ti_typ_pad_combine <placeholder>) 12
+apply (case_tac x, simp_all add: <placeholder>) 12
+by word_eqI 12
+apply (auto simp add: bit_simps <placeholder>) 12
+apply(rule <placeholder>, fastforce+) 12
+apply(drule_tac <placeholder>) 12
+apply (case_tac ko, simp_all add:<placeholder>) 12
+apply (erule <placeholder>, simp only:, rule <placeholder>, simp) 12
+apply (rule <placeholder>[OF <placeholder>])+ 12
+apply (clarsimp simp: unify) 12
+apply (rule_tac <placeholder>) 12
+apply(auto simp: <placeholder> | rename_tac xa, case_tac xa)+ 12
+apply (rule_tac x=b in <placeholder>) 12
+apply (frule <placeholder>[rotated, rotated]) 12
+apply (clarsimp simp: <placeholder>' <placeholder> split: <placeholder>) 12
+apply ((simp add: <placeholder>[THEN <placeholder>] <placeholder> | simp add: <placeholder>[THEN <placeholder>] <placeholder>)+)[1] 12
+apply (simp add: Collect_const_mem) 12
+apply (cases slot) 11
+apply (rule <placeholder>[OF y]) 11
+apply (clarsimp simp: <placeholder>[THEN <placeholder>]) 11
+apply (simp add: bit_simps) 11
+by (wpsimp wp: <placeholder>[THEN <placeholder>] simp: <placeholder>) 11
+by (metis (full_types) <placeholder>) 11
+apply (case_tac s') 11
+apply (drule(5) <placeholder>) 11
+apply (simp add:<placeholder> | wp | wpc)+ 11
+by (rule <placeholder>,simp+) 11
+apply (rule <placeholder>, simp only: <placeholder>) 11
+with that 11
+apply(erule <placeholder>, fastforce+) 11
+apply (frule(1) <placeholder>[THEN <placeholder>]) 11
+apply (clarsimp simp:<placeholder> pageBits_def <placeholder>) 11
+apply (wp <placeholder> get_object_wp) 11
+apply(erule_tac x=aa in <placeholder>) 11
+apply (simp_all add:<placeholder> split:<placeholder>) 11
+apply (simp,simp,simp,simp) 11
+apply(auto simp: <placeholder>[simplified]) 11
+apply (rule_tac x=0 in <placeholder>) 11
+using sef 11
+apply (auto elim!:<placeholder> intro: <placeholder>) 11
+apply (frule <placeholder>, rule <placeholder>) 11
+apply (clarsimp split: kernel_object.splits) 11
+apply (rule <placeholder>,simp,simp) 11
+apply (simp <placeholder> del:<placeholder>) 11
+apply (<placeholder>,simp_all add:<placeholder>) 11
+apply (rule <placeholder>, simp_all add: <placeholder>)[1] 11
+apply (rule <placeholder>[rule_format]) 11
+apply (clarsimp simp add: <placeholder>[symmetric]) 11
+apply (<placeholder>,simp) 11
+apply (clarsimp simp: if_1_0_0) 11
+by (clarsimp simp:<placeholder> | wp)+ 11
+by (rule <placeholder>) (simp add: bit_simps) 11
+apply (erule <placeholder>,clarsimp+) 11
+apply (rule <placeholder>[OF <placeholder>[where pd=pd]]) 11
+apply (rule <placeholder>[OF <placeholder>],simp) 11
+apply (clarsimp simp:image_def) 11
+apply (drule_tac x=s in <placeholder>, drule_tac x=t in <placeholder>) 11
+apply (erule(1) <placeholder>[rotated]) 11
+apply unfold_locales 11
+apply (simp add:<placeholder> pageBits_def) 11
+apply (wp, clarsimp) 11
+by monad_eq 11
+apply (simp add: <placeholder> | wp <placeholder> | wpc)+ 11
+apply (auto simp add: <placeholder> split: <placeholder>) 11
+by (rule <placeholder>, auto) 11
+apply (case_tac ptr) 11
+apply (case_tac "p'=src") 11
+supply <placeholder>[simp del] 11
+apply (case_tac arch_kernel_object,simp_all) 11
+apply (case_tac r) 11
+proof cases 11
+by (erule <placeholder>, simp) 11
+using al 11
+hence ?thesis 11
+apply (rename_tac option) 11
+apply(erule_tac x=aa in <placeholder>, erule_tac x=bb in <placeholder>) 11
+apply (rule <placeholder>[where sz=sz]) 11
+apply (clarsimp|wp)+ 11
+apply(drule(4) <placeholder>) 11
+<placeholder> (1 slot exposed s) 11
+apply (simp add:<placeholder> split:<placeholder>)+ 11
+apply (clarsimp simp:untyped_eq) 11
+apply(auto) 11
+apply (ctac add: <placeholder>[where args=args and n=0 and buffer=buffer]) 11
+apply(rule_tac x=a in <placeholder>) 11
+apply (clarsimp simp: <placeholder> case_option_over_if elim!: <placeholder>) 11
+apply (frule <placeholder> [where obj_id=obj_id], simp add: <placeholder>) 11
+by (subst <placeholder>) auto 10
+by (rule <placeholder>, rule <placeholder>) 10
+apply(simp+) 10
+apply (drule(1) <placeholder>, clarsimp simp: <placeholder>) 10
+apply (frule_tac cap'=cap_b in <placeholder>) 10
+apply (wpc) 10
+by (rule validNF; wpsimp) 10
+apply (drule_tac x=xa in <placeholder>) 10
+apply(case_tac list, simp, simp) 10
+apply (auto elim!: <placeholder>) 10
+apply (simp add:<placeholder> split_def) 10
+apply (subst(asm) <placeholder>[where n=2]) 10
+apply (wp <placeholder>[where sz=sz]) 10
+apply (wpc|wp)+ 10
+apply (rule_tac P = "y = cur_thread" in <placeholder>) 10
+apply (wp <placeholder> |wp (once) <placeholder>)+ 10
+apply (clarsimp simp:<placeholder>:option.<placeholder>s) 10
+apply (rule hoare_vcg_E_elim) 10
+apply (simp add:<placeholder>[unfolded <placeholder>,simplified]) 10
+by (<placeholder> ms; simp add: empty_fail_term empty_fail_cond) 10
+apply (strengthen <placeholder>[mk_strg I E]) 10
+apply (simp add:<placeholder>[simplified]) 10
+apply (simp add: storePDE_def) 10
+apply (simp add: storePTE_def) 10
+apply(rule_tac x=y in <placeholder>) 10
+apply (simp add: <placeholder> cong: call_ignore_cong) 10
+apply (simp only: <placeholder> split:<placeholder>) 10
+by (force simp: <placeholder> split: <placeholder>) 10
+by (cases F, auto elim:<placeholder>) 10
+apply (rule <placeholder>[OF ceqv]) 10
+apply (clarsimp simp add: <placeholder>)+ 10
+apply (auto dest: <placeholder>)[1] 10
+apply (simp add: <placeholder>[symmetric] <placeholder> del: <placeholder>) 10
+by clarsimp+ 10
+apply (rename_tac word) 10
+by (auto simp: <placeholder> intro!: <placeholder>) 10
+by (simp add: <placeholder> empty_fail_term empty_fail_cond) 10
+apply (simp add: <placeholder>[THEN <placeholder>]) 10
+apply (rule <placeholder>[OF cul ist], assumption+, simp+) 10
+by (rule <placeholder>) (auto simp add: bit_simps) 10
+by (fastforce intro: empty_fail_term empty_fail_cond) 10
+apply (rule y) 10
+apply (simp add:<placeholder> bind_assoc) 10
+apply (case_tac cte, case_tac cte') 10
+apply blast+ 10
+apply(drule(2) <placeholder>, simp) 10
+apply (frule <placeholder>[rule_format, where n=0], simp) 10
+apply (erule <placeholder>, rule <placeholder>, simp) 10
+apply (case_tac "n = 0") 10
+apply(rename_tac pde) 10
+apply (rule <placeholder>[where m=6, simplified]) 10
+using szv 10
+apply (rule <placeholder>[OF misc(2)]) 10
+apply (case_tac x, simp_all) 10
+by (clarsimp simp add: <placeholder> split: <placeholder>) 10
+apply (wp x|simp)+ 10
+apply (rule_tac x=cref' in <placeholder>) 10
+apply (frule <placeholder>, erule(1) <placeholder>[THEN <placeholder>]) 10
+apply(simp add: <placeholder> word_size) 10
+apply (subst(asm) <placeholder>, assumption+) 10
+using not_0 n_less 10
+apply (rule <placeholder>,rule <placeholder>, fastforce+)[1] 10
+apply (rule <placeholder>, clarsimp split: <placeholder>) 10
+apply (simp add:<placeholder> archObjSize_def <placeholder>)+ 10
+<placeholder> (2 slot exposed s) 10
+apply (rule_tac x=cref in <placeholder>) 10
+apply (rule lookupSlotForCNodeOp_corres; simp) 10
+apply (fastforce simp: <placeholder> elim:<placeholder>) 10
+apply(case_tac "m slot") 10
+note <placeholder>[simp] 10
+apply (ctac add: <placeholder>[where args=args and n=1 and buffer=buffer]) 10
+apply (rule <placeholder>[where P=\<top> and P'=UNIV], simp) 10
+apply (rule <placeholder>[OF _ <placeholder>, simplified <placeholder>]) 10
+apply (auto simp:<placeholder> split:<placeholder>)[1] 10
+apply (simp only:field_simps) 10
+apply (rule <placeholder>, rename_tac s) 10
+apply (erule_tac x=parent in <placeholder>) 10
+apply (drule(2) <placeholder>, rule <placeholder>, simp) 10
+apply (simp add:<placeholder> split:kernel_object.splits <placeholder>) 10
+apply (frule_tac i=i in <placeholder>) 10
+apply (erule <placeholder>, simp only:, rule <placeholder>, rule <placeholder>) 10
+apply (vcg exspec=setMR_modifies) 10
+apply (wpsimp wp: <placeholder>[THEN <placeholder>] simp: <placeholder>) 9
+apply (wp <placeholder> |simp split del: if_split)+ 9
+apply (cases cte') 9
+apply (subst (asm) <placeholder>[THEN <placeholder>]) 9
+apply (case_tac b) 9
+by (simp add: bit_simps) 9
+by (cases cap, simp_all add: <placeholder>) 9
+apply (drule_tac x=cref in <placeholder>) 9
+using False 9
+note <placeholder>[cong] 9
+apply (drule_tac x=r in <placeholder>) 9
+apply (rule <placeholder>[rotated], simp) 9
+apply (wp <placeholder> | wpc | simp <placeholder> del:if_<placeholder>)+ 9
+apply (erule <placeholder>[symmetric]) 9
+apply (frule(6) <placeholder>) 9
+apply (erule <placeholder>,simp,simp) 9
+apply (auto simp add: bit_simps) 9
+apply (case_tac "t=thread") 9
+apply (drule_tac x=u in <placeholder>, drule_tac x="[a]" in <placeholder>, drule_tac x="[]" in <placeholder>) 9
+apply (drule_tac x=s in <placeholder>, drule_tac x=s in <placeholder>) 9
+apply (wp+)[4] 9
+by (cases P'; simp) 9
+by(auto dest!: <placeholder>) 9
+apply (clarsimp simp: <placeholder> intro!: <placeholder>) 9
+case (Suc n) 9
+by (metis <placeholder>(1)) 9
+apply (<placeholder> list,simp+) 9
+apply (simp add: <placeholder> rl' <placeholder>) 9
+apply (erule_tac x=x2 in <placeholder>) 9
+apply (<placeholder>(asm) <placeholder>[symmetric]) 9
+apply(frule(5) <placeholder>) 9
+apply (simp(no_asm_use) add: <placeholder>) 9
+apply (erule <placeholder>[rotated],simp) 9
+apply (sep_drule <placeholder>) 9
+apply (rule z) 9
+apply (clarsimp simp: <placeholder> cacheLineBits_def <placeholder>) 9
+from koat 9
+apply (drule_tac x=u in <placeholder>, drule_tac x="[a]" in <placeholder>, drule_tac x="[a]" in <placeholder>) 9
+apply (rule <placeholder>, rule <placeholder>, erule <placeholder>) 9
+apply (clarsimp simp: <placeholder>[OF <placeholder>] <placeholder>) 9
+by (clarsimp simp: <placeholder>: <placeholder>) 9
+apply (clarsimp dest!:<placeholder> simp:<placeholder> split:<placeholder>) 9
+using rl 9
+apply (rule set_cap_corres; simp) 9
+apply (clarsimp simp:Decode_A.decode_untyped_invocation_def <placeholder>) 9
+apply (simp add: x) 9
+case (Cons z zs) 9
+apply (simp add: <placeholder> objBits_simps) 9
+apply (rule <placeholder>, assumption, assumption) 9
+apply(induct slot rule: <placeholder>[where s=s]) 9
+apply (rule hoare_vcg_conj_liftE_R) 9
+apply (ccorres_rewrite) 9
+apply (rule <placeholder>, ctac add: <placeholder>[where args=args and n=0 and buffer=buffer]) 9
+apply (rule <placeholder>[where Q=\<top>,simplified]) 9
+apply (simp add: if_1_0_0 <placeholder> del: <placeholder>) 9
+apply (rule <placeholder> [where f="(\<and>)"]) 9
+apply(blast) 9
+by (si<placeholder>p add:<placeholder>) 9
+apply (subst <placeholder>(4)[where f=id, symmetric]) 9
+apply (subst (asm) <placeholder>(4)[where f=id, symmetric]) 9
+by (wp <placeholder>)+ 9
+apply (thin_tac "S = dom K" for S K)+ 9
+apply (thin_tac "\<forall>x\<in> S. K x" for S K)+ 9
+apply (<placeholder>)+ 9
+apply (erule <placeholder>[OF <placeholder>, rotated]) 9
+by (fastforce elim: <placeholder> elim!: <placeholder> intro: <placeholder> simp: <placeholder>) 9
+apply (simp add: valid_queues_valid_q) 9
+case None 9
+apply (erule <placeholder>[THEN <placeholder>]) 9
+case (base y) 9
+apply(rule_tac x=src in <placeholder>) 9
+apply (clarsimp simp:<placeholder> preserve)+ 9
+apply (sep_drule (direct) <placeholder>) 9
+subgoal for n 9
+apply (rule corres_split[where r'="(=)"]) 9
+apply (rule Cons.hyps) 9
+apply (wpe <placeholder>) 9
+apply (erule x) 9
+apply (fastforce dest!: <placeholder> simp: <placeholder>) 9
+apply (clarsimp simp add: a_type_def <placeholder> split: if_split_asm Structures_A.kernel_object.splits arch_kernel_obj.splits) 9
+apply (case_tac ko; simp) 9
+apply (drule <placeholder>, clarsimp)+ 9
+apply unfold_locales[1] 9
+apply (frule <placeholder>[OF <placeholder>],simp) 9
+apply (rule <placeholder> |rule <placeholder>)+ 9
+by (cases v) auto 9
+by (simp add: <placeholder> no_trace_terminal) 9
+<placeholder> (3 ptr bits n slot s) 9
+<placeholder> (4 ptr bits n slot s) 9
+apply(erule_tac x=x in <placeholder>)+ 9
+apply (erule(1) <placeholder>)+ 9
+by (wp <placeholder> | wpc | simp)+ 9
+apply(drule <placeholder>, simp add: <placeholder>, simp add: <placeholder>) 9
+apply (case_tac arch_kernel_obj, simp_all add:<placeholder>) 9
+apply corres_pre 9
+apply (frule(1) ct_not_ksQ) 9
+apply (clarsimp simp: <placeholder> split: sep_state.splits) 9
+apply ((fastforce simp: <placeholder>)+)[3] 9
+apply (erule <placeholder>, rule <placeholder>, rule <placeholder>, simp) 9
+apply (cases oldcte) 9
+apply (<placeholder> c', auto simp: <placeholder>)[1] 9
+apply (clarsimp simp: <placeholder> elim!: <placeholder>: <placeholder>) 9
+apply (fact <placeholder>) 9
+apply(drule_tac p="cte_map src" in <placeholder>) 9
+apply (rule <placeholder>, ctac(no_vcg) add: <placeholder> [where buffer=buffer]) 9
+apply (subgoal_tac "excaps ! 0 \<in> <placeholder> excaps") 9
+apply (simp add:mdb_inv_preserve_def <placeholder>)+ 9
+apply (rename_tac obj) 9
+apply (guess_exI, clarsimp) 9
+apply (clarsimp simp: <placeholder> the_nat_to_bl_simps split: <placeholder>) 9
+apply (rule <placeholder>,simp_all add: <placeholder>) 8
+apply (wp seL4_GetIPCBuffer_wp) 8
+apply (thin_tac "P" for P)+ 8
+by (auto simp:<placeholder> dest:<placeholder>) 8
+apply (clarsimp, drule(1) <placeholder>) 8
+apply (case_tac capb, simp_all add: <placeholder>)[1] 8
+apply (drule <placeholder>, drule <placeholder>, erule <placeholder>) 8
+apply force+ 8
+from vuc 8
+by (auto simp: <placeholder> elim!: <placeholder>) 8
+apply (rule <placeholder>[OF <placeholder>], assumption, erule <placeholder>) 8
+apply (erule_tac P=P in <placeholder>) 8
+apply (clarsimp simp del:upt.simps) 8
+apply (rule <placeholder>, elim <placeholder>) 8
+apply (erule <placeholder>[where f = R,THEN <placeholder>,rotated]) 8
+supply empty_fail_cond[simp] 8
+qed simp_all 8
+from that 8
+note <placeholder>[simp del] 8
+apply (frule <placeholder>[THEN <placeholder>]) 8
+apply (case_tac v, simp_all add: <placeholder>) 8
+apply (monadic_rewrite_l <placeholder> \<open>wpsimp wp: <placeholder>\<close>) 8
+apply (wp <placeholder>[THEN <placeholder>]) 8
+apply (subgoal_tac "p\<noteq>0") 8
+apply (sep_cancel) 8
+by (simp, blast?)+ 8
+apply (fastforce simp: obj_at_def) 8
+apply(fastforce intro: <placeholder>)+ 8
+apply (case_tac "f s") 8
+apply (rule <placeholder>, rule <placeholder>, simp add: <placeholder>) 8
+apply (clarsimp simp:<placeholder> split:<placeholder> | rule <placeholder>)+ 8
+apply (case_tac xs) 8
+by (wp, simp) 8
+apply (auto simp: <placeholder> elim: <placeholder>) 8
+apply (rule <placeholder>[OF <placeholder>];simp) 8
+by (cases x, simp_all) 8
+apply (sep_schem) 8
+supply image_cong_simp[cong del] 8
+by (fastforce dest: <placeholder> simp: <placeholder>) 8
+apply (rename_tac "fun") 8
+apply (wp <placeholder> | force)+ 8
+using px 8
+case (<placeholder> c c') 8
+by (subst <placeholder>) simp 8
+apply (rule <placeholder>[OF al]) 8
+apply (simp add:piud al <placeholder> pal pdst)+ 8
+apply (drule <placeholder>, assumption)+ 8
+apply (fastforce simp: <placeholder>: <placeholder>) 8
+apply (subst <placeholder>[unfolded <placeholder>]) 8
+apply (clarsimp elim!: <placeholder> simp:<placeholder>) 8
+apply (subst <placeholder>[symmetric], rule <placeholder>) 8
+apply cinit 8
+apply ((wp | simp)+)[1] 8
+apply (frule_tac i=i and tr=tr in <placeholder>) 8
+apply (frule_tac i=j and tr=tr' in <placeholder>) 8
+apply (simp add:) 8
+apply (rule <placeholder>[where G=\<top>, simplified]) 8
+apply (drule_tac x=ptr' in <placeholder>) 8
+apply ((simp add:<placeholder>)+)[3] 8
+apply (rule <placeholder>, ceqv) 8
+apply (subst(asm) <placeholder>,simp+) 8
+apply (case_tac i) 8
+apply (rule <placeholder>, blast) 8
+apply (rule_tac xf'=ret__int_' in <placeholder>, ceqv) 8
+apply (rename_tac ptr t payload) 8
+apply (rule <placeholder>[where buf =obuf and buf'=buf]) 8
+apply (rule_tac x=t in <placeholder>) 8
+apply (rule_tac r'=dc and xf'=xfdc in <placeholder>) 8
+apply (wp <placeholder> | strengthen <placeholder>)+ 8
+apply (rule_tac x=\<sigma> in <placeholder>) 8
+apply (clarsimp simp: <placeholder> nth_shiftr nth_shiftl <placeholder>) 8
+apply (rule <placeholder>[where xs=xs]) 8
+apply (case_tac s,clarsimp) 8
+apply normalise_obj_at' 8
+apply (subst(asm) <placeholder>)+ 8
+apply (frule(2) <placeholder>[OF _ _ <placeholder>]) 8
+apply (thin_tac "All P" for P) 8
+apply (rename_tac capability mdbnode) 8
+apply (case_tac cteb) 8
+apply (drule_tac x=src in <placeholder>) 8
+apply (cases a) 8
+apply (erule_tac t = s' in <placeholder>) 8
+apply (simp,wp,simp) 8
+apply (vcg exspec=deriveCap_modifies) 8
+apply (drule <placeholder>[rotated -1]) 8
+apply (erule <placeholder>[where f="id (a := b, b := a)"]) 8
+by (fastforce elim: <placeholder>) 8
+apply (simp add:Cons) 8
+apply(erule_tac x=c in <placeholder>) 8
+apply (frule(1) <placeholder>[OF _ vpdpt]) 8
+apply (<placeholder> cap, simp_all) 8
+apply (drule <placeholder>,clarsimp simp:<placeholder>) 8
+apply (cases cap) 8
+proof (cases "m ptr") 8
+using Some 8
+apply (case_tac ep, simp_all) 8
+apply (case_tac obj) 8
+apply (simp add: h_t_valid_clift_Some_iff) 8
+apply (rule <placeholder>[where r = root_size]) 8
+supply <placeholder>[cong del] 8
+apply (clarsimp simp: <placeholder> exec_graph_invariant_Cons split: <placeholder>) 8
+apply (case_tac ty) 8
+apply (drule <placeholder>[OF <placeholder>])+ 8
+apply (safe intro!: <placeholder>) 8
+apply (clarsimp simp: <placeholder> elim!: <placeholder> split: <placeholder>) 8
+fix \<sigma> x 8
+let ?thesis = "(\<sigma>\<lparr>ksPSpace := ?ks \<sigma>\<rparr>, x\<lparr>globals := globals x\<lparr>t_hrs_' := ?ks' x\<rparr>\<rparr>) \<in> rf_sr" 8
+let ?ks = "?ks \<sigma>" 8
+let ?ks' = "?ks' x" 8
+assume "?P \<sigma> x" 8
+note ht_rl = <placeholder>[OF rl', OF <placeholder>, simplified] 8
+hence "cpspace_relation ?ks (underlying_memory (ksMachineState \<sigma>)) ?ks'" 8
+apply (clarsimp simp:blah) 8
+by (wp hoare_drop_imps <placeholder> | simp add: <placeholder>)+ 8
+apply (rule <placeholder>[OF <placeholder>,where r'="(=)"]) 8
+apply (<placeholder>[unfolded <placeholder>]) 8
+apply(simp add: <placeholder> split: if_split_asm) 8
+using cc 8
+apply (case_tac arch_kernel_obj) 8
+apply(erule <placeholder>, rule <placeholder>, rule <placeholder>) 8
+by (simp add: <placeholder> del: split_paired_All) 8
+apply ((clarsimp split: <placeholder>)+)[3] 8
+apply (cases c, simp_all add: <placeholder>) 8
+apply (fold <placeholder>)[1] 8
+apply (erule bd) 8
+apply (subgoal_tac "cte_at (aa,bb) a") 8
+apply (clarsimp simp: <placeholder>[OF _ <placeholder>]) 8
+apply (simp add: valid_<placeholder>) 8
+apply(drule(1) <placeholder>, simp add: <placeholder>) 8
+apply (frule(1) <placeholder>[rotated]) 8
+apply (simp only: split: <placeholder>) 8
+case Cons 8
+apply (sep_select 2) 8
+using sr 8
+from pn2 8
+apply (drule_tac x=epptr in <placeholder>) 8
+apply (clarsimp simp:<placeholder> split:Structures_A.kernel_object.splits)+ 8
+apply (erule <placeholder>[OF _ pspace_relation]) 8
+using Cons 8
+apply (clarsimp simp:<placeholder> dest!:<placeholder>)+ 8
+apply (ctac add: <placeholder> [OF <placeholder>, unfolded <placeholder>]) 8
+apply (vcg exspec=ensureEmptySlot_modifies) 8
+apply (clarsimp simp: blob) 8
+apply (erule_tac x=pa in <placeholder>) 8
+apply (erule <placeholder>[OF _ <placeholder>,rotated]) 8
+unfolding m'_def 8
+apply (subgoal_tac "capVPMappedAddress cp \<noteq> None") 8
+apply (clarsimp simp: <placeholder> capAligned_def <placeholder> split: if_split_asm) 8
+apply (clarsimp simp: <placeholder>[OF ieq] elim!: <placeholder>) 8
+apply (rule <placeholder>[where Q=\<top> and Q'=\<top>, rotated -1]) 8
+apply(erule_tac x="(aa, bb)" in <placeholder>)+ 8
+apply (erule(2) <placeholder>[OF <placeholder>]) 7
+by fast 7
+apply (rule_tac x=cap' in <placeholder>) 7
+apply(induct list p rule: <placeholder>) 7
+apply (clarsimp simp: <placeholder>[OF x]) 7
+apply (case_tac s,simp) 7
+by (<placeholder> xs, simp_all) 7
+apply (force dest: <placeholder> simp: <placeholder>) 7
+apply (cases ep, simp_all add: <placeholder>) 7
+apply (drule_tac x=s' in <placeholder>) 7
+apply(simp split: <placeholder> add: <placeholder>) 7
+by (simp add: <placeholder> cong: <placeholder>) 7
+apply(drule(2) <placeholder>)+ 7
+supply subst_all [simp del] 7
+apply (case_tac arch_kernel_object,simp_all add:<placeholder>)[1] 7
+apply (fastforce <placeholder>: <placeholder> simp: <placeholder>) 7
+apply (cases ts) 7
+apply (simp, rule <placeholder>, rule assms, simp)+ 7
+using at 7
+by (simp add: <placeholder> word_bw_assocs) 7
+apply (fastforce simp: <placeholder> elim!: <placeholder>) 7
+apply (cases c) 7
+apply(case_tac x, simp) 7
+fix x y 7
+apply (simp add: <placeholder> cong: <placeholder> split del: <placeholder>) 7
+apply (rule <placeholder>,clarsimp)+ 7
+apply (drule(1) <placeholder>[OF _ <placeholder>, rotated]) 7
+apply (simp add:word_bits_def <placeholder>) 7
+apply (erule_tac x=0 in <placeholder>) 7
+fix n 7
+apply (drule <placeholder>[where n = "Suc n"]) 7
+apply (clarsimp simp: <placeholder> del: disjCI) 7
+apply (erule rl) 7
+apply (erule (1) <placeholder> [OF _ _ ca]) 7
+apply (case_tac srcCTE) 7
+apply(case_tac list, simp) 7
+apply (thin_tac "\<forall>x. P x" for P) 7
+apply (clarsimp simp:|rule <placeholder>)+ 7
+apply (frule <placeholder>[OF <placeholder>], clarsimp) 7
+apply (drule_tac x=pa in <placeholder>) 7
+apply (drule_tac x=d in <placeholder>) 7
+apply (clarsimp split:if_splits) 7
+apply (simp add: <placeholder>[OF x]) 7
+by assumption 7
+by (fastforce intro!:<placeholder>) 7
+apply (fastforce simp: <placeholder> dest: <placeholder> elim: <placeholder>) 7
+case (Cons a as) 7
+apply (clarsimp simp:<placeholder>,wp <placeholder>) 7
+apply (frule invs_queues) 7
+apply cinit' 7
+apply (simp add: <placeholder> | wpc | wp)+ 7
+apply (drule_tac x=x2 in <placeholder>) 7
+apply (erule <placeholder>, rule <placeholder>(3)) 7
+apply (wp <placeholder> | strengthen invs_queues_imp <placeholder>)+ 7
+apply (clarsimp simp:<placeholder> KHeap_D.<placeholder>) 7
+apply (case_tac a,simp_all add:<placeholder>) 7
+apply (rule <placeholder>, rule <placeholder>[OF _ <placeholder>]) 7
+apply (clarsimp simp:objBits_simps) 7
+using True 7
+supply if_<placeholder>[<placeholder> del] 7
+apply (simp add: <placeholder> cong: <placeholder> split del: if_split) 7
+using c 7
+apply (auto simp: <placeholder> dest: <placeholder>) 7
+by (rule <placeholder>,clarsimp simp:<placeholder>) 7
+apply (simp add: nth_shiftr) 7
+note blah[simp del] = atLeastAtMost_iff atLeastatMost_subset_iff atLeastLessThan_iff Int_atLeastAtMost atLeastatMost_empty_iff split_paired_Ex 7
+apply (rule <placeholder>[where slot=slot]) 7
+by (cases P, simp_all add: <placeholder>) 7
+by (auto simp:<placeholder> dest!:<placeholder>) 7
+apply (intro <placeholder>, assumption) 7
+proof(induct rule: <placeholder>[where ?a1.0=s]) 7
+case (1 slot s) 7
+by (wpsimp wp: no_trace_terminal) 7
+apply (simp only: <placeholder>, simp) 7
+apply (simp+)[2] 7
+apply (case_tac ys) 7
+apply (rule_tac x=sz in <placeholder>) 7
+apply (clarsimp cong:<placeholder> simp: <placeholder>) 7
+apply (simp (no_asm_simp) add: <placeholder>) 7
+apply (cases "p = slot") 7
+apply (cinit) 7
+apply (rule <placeholder>, rule <placeholder>, clarsimp) 7
+apply(rule <placeholder>[where R=\<top>], simp add: <placeholder>) 7
+unfolding <placeholder> state_relation_def <placeholder> 7
+apply (cinit lift: asid_') 7
+apply (sep_mp) 7
+apply (cinit lift: thread_') 7
+<placeholder> 0 7
+by (rule <placeholder>, auto simp: <placeholder> split: <placeholder>) 7
+apply (frule <placeholder>[rotated], fastforce) 7
+apply (case_tac m) 7
+apply (clarsimp simp: word_sle_def <placeholder>) 7
+supply <placeholder>[<placeholder> del] 7
+apply (frule_tac p=p in <placeholder>) 7
+apply(cases cap, simp_all add: <placeholder>) 7
+apply (rule_tac P=\<top> and P'=\<top> in <placeholder>) 7
+by (smt <placeholder>) 7
+apply (case_tac "p'=dest") 7
+apply (case_tac y; simp add: <placeholder>) 7
+apply (clarsimp split del: if_split) 7
+apply (<placeholder> caps arbitrary: slots n mi) 7
+apply ((wp <placeholder> |wpc|simp)+)[1] 7
+apply (simp add:field_simps)+ 7
+apply (simp add: <placeholder> del: split_paired_Ex) 7
+apply (clarsimp simp: <placeholder> split del: <placeholder> cong: <placeholder>) 7
+apply (cinit' lift: start_' end_' pstart_') 7
+apply (simp add: <placeholder> empty_fail_cond) 7
+apply (rule <placeholder>[where P'=UNIV]) 7
+apply (simp only: ccorres_seq_skip) 7
+with al 7
+apply(elim <placeholder>, simp) 7
+apply (rule <placeholder> | csymbr)+ 7
+apply (frule_tac d="tcbDomain tcb" and p="tcbPriority tcb" in rf_sr_sched_queue_relation) 7
+apply (clarsimp simp: h_val_field_clift' h_t_valid_clift) 7
+apply (drule <placeholder>[where n = 6 and m = 2,simplified]) 7
+apply (rule <placeholder> | clarsimp)+ 7
+using nxt 7
+apply (drule(1) misc)+ 7
+from nxt 7
+apply (rule <placeholder>[where r'="(=)"]) 7
+by <placeholder> (simp flip: <placeholder>) 7
+apply (frule(2) <placeholder>, simp+) 7
+apply word_eqI 7
+apply (rule <placeholder>[folded <placeholder>]) 7
+apply (clarsimp simp: <placeholder> word_sle_def) 7
+have ?thesis 7
+apply (subst (asm) <placeholder>, assumption)+ 7
+apply (force intro: <placeholder>) 7
+apply (rule <placeholder>[where b="()"]) 7
+apply (case_tac buf) 7
+by (simp add:<placeholder>,rule <placeholder>) 7
+apply (<placeholder> xs arbitrary:s; clarsimp simp: <placeholder>) 7
+apply (subst <placeholder>[symmetric,where w = "mask sz"]) 7
+apply (force simp:<placeholder> split:<placeholder>) 7
+by (rule <placeholder>, auto simp: <placeholder>) 7
+apply (simp add:<placeholder>[abs_def] <placeholder>) 7
+apply (<placeholder> c) 7
+apply (simp add:expand) 7
+apply (cases queue) 7
+by (clarsimp intro!: <placeholder>) 7
+apply (vcg) 7
+apply (erule_tac a = xa in <placeholder>) 7
+apply (rule_tac xf'=xfdc and r'=dc in <placeholder>) 7
+apply (clarsimp simp:<placeholder> split:<placeholder> | drule(1) <placeholder>)+ 7
+apply (rule_tac R'="\<top>\<top>" in <placeholder>) 7
+have "cpspace_relation (ksPSpace \<sigma>) (underlying_memory (ksMachineState \<sigma>)) (t_hrs_' (globals x))" 7
+using cstate 7
+by (fastforce elim!: <placeholder>) 7
+apply (ctac) 7
+apply (subst <placeholder>[symmetric],simp) 7
+apply (rename_tac vmpage_size) 7
+by (fastforce simp: <placeholder> elim!: <placeholder>) 7
+apply (cases "n = 0") 7
+apply (rule <placeholder>[OF <placeholder>(1)]) 7
+apply (sep_select_asm 2) 7
+apply (simp | wp <placeholder> | wp (once) <placeholder>)+ 7
+apply (wp, clarsimp simp: <placeholder>) 7
+apply (vcg exspec=handleFault_modifies) 7
+apply (unfold <placeholder>, rule <placeholder>) 7
+apply(fastforce simp: <placeholder> split: <placeholder> dest: <placeholder>) 7
+apply (csymbr) 7
+apply (erule <placeholder>[where P=Q]) 7
+apply (cases P) 7
+apply (case_tac c) 7
+by (blast elim: <placeholder>) 7
+apply (erule_tac t = ret__unsigned in <placeholder>) 7
+apply (erule <placeholder>, erule <placeholder>, erule (1) <placeholder>) 7
+apply (thin_tac "Ball S P" for S P) 7
+apply (simp add: <placeholder> field_simps <placeholder>) 7
+apply (frule(1) <placeholder>, simp add: <placeholder>) 7
+apply (case_tac option) 7
+apply (drule_tac t ="tcb_ipcframe obj" in <placeholder>) 7
+apply (rule <placeholder>[OF <placeholder>],clarsimp) 7
+unfolding bitmap_fun_defs 7
+apply (case_tac apiobject_type) 7
+apply (simp add: <placeholder> cong: <placeholder> del: if_<placeholder>) 7
+apply (clarsimp simp: <placeholder> del: <placeholder> cong: <placeholder>) 7
+apply (ctac(no_simp) add: <placeholder>) 7
+proof <placeholder> 7
+apply(simp_all)[4] 7
+apply (rule_tac Q="\<lambda>_. ?PRE" in <placeholder>) 7
+apply (cut_tac x=irq and 'a=32 in <placeholder>) 7
+apply (clarsimp simp: <placeholder>: pde.<placeholder>s) 7
+apply (subst <placeholder> [symmetric, OF _ <placeholder>]) 7
+apply (rule Some) 7
+apply (rule <placeholder>[folded <placeholder>], simp+)[1] 7
+apply (wp <placeholder> | wpc | clarsimp simp: <placeholder>)+ 7
+apply (rule_tac sz=28 in <placeholder>) 7
+apply (rule <placeholder>[OF _ <placeholder>[OF <placeholder>]]) 7
+apply (clarsimp simp: <placeholder> sep_conj_exists) 7
+apply (rule_tac x=all_available_ids in <placeholder>) 7
+assume xin: "x \<in> dom (ksPSpace s')" 7
+obtain ko where ko: "ksPSpace s x = Some ko" 7
+by (clarsimp simp: thms(3)[symmetric]) 7
+from xin 7
+obtain ko' where ko': "ksPSpace s' x = Some ko'" 7
+using xin thms(4) ceq 7
+by - (drule (1) <placeholder>, cases ko, auto simp: <placeholder>) 7
+using ko ko' 7
+apply (rule_tac P="\<top>" and P'="\<top>" in <placeholder>) 6
+apply (clarsimp simp: <placeholder>: cap.<placeholder>_asm <placeholder>) 6
+apply (auto intro: <placeholder> simp: <placeholder>) 6
+apply (rename_tac r'' t'') 6
+apply (rule_tac x = "(r'', t'')" in <placeholder>) 6
+apply (clarsimp del: <placeholder>) 6
+apply (rename_tac x) 6
+apply (drule (2) <placeholder>[OF _ x, OF _ <placeholder>]) 6
+apply (wp|wpc|clarsimp)+ 6
+apply (simp add: <placeholder> unless_def) 6
+apply (simp add: <placeholder> cong: if_cong) 6
+by (cases opt; wpsimp) 6
+by (<placeholder> xs) (auto split: <placeholder>) 6
+apply (simp add: <placeholder>[where n=2,simplified]) 6
+apply (wp <placeholder> | simp add:<placeholder> | wpc)+ 6
+apply (rename_tac aobject_type) 6
+by (rule <placeholder>) (simp split: <placeholder>) 6
+apply (fastforce intro: <placeholder> elim: <placeholder>) 6
+apply (fastforce elim: <placeholder> simp: <placeholder>) 6
+apply (simp add: <placeholder> split: if_split) 6
+apply (simp, elim <placeholder>) 6
+apply (case_tac s, case_tac t, simp_all) 6
+apply (vcg spec=modifies) 6
+show "\<lbrace>G\<rbrace> return () \<lbrace>\<lambda>_. G\<rbrace>" 6
+by (unfold <placeholder>, wp) 6
+apply (thin_tac "valid P f Q" for P f Q) 6
+by (wpsimp wp: seq_ext <placeholder>) 6
+apply (simp add:<placeholder> objBits_simps <placeholder>) 6
+apply (simp add: eq) 6
+using assms <placeholder> 6
+apply (simp add: <placeholder> archObjSize_def word_bits_def) 6
+by (wp <placeholder>,simp) 6
+apply (strengthen <placeholder>, simp) 6
+from xv 6
+by (wp <placeholder> updateObject_default_inv|simp)+ 6
+apply ((erule <placeholder>, simp_all)[1])+ 6
+by (clarsimp simp:<placeholder>, blast) 6
+apply (wp hoare_Ball_helper <placeholder> | simp add: bitmapQ_def)+ 6
+apply (clarsimp simp: <placeholder> projectKOs pspace_aligned'_def ps_clear_upd objBits_def[symmetric] <placeholder> split: if_split_asm) 6
+apply (fastforce simp: <placeholder> dest: <placeholder> simp: <placeholder>) 6
+apply (case_tac "t = fst slot") 6
+supply if_weak_cong[cong] 6
+apply (subst <placeholder>, simp)+ 6
+by (cases P, simp_all) 6
+apply (simp add: <placeholder>, simp add: <placeholder>) 6
+apply (rule <placeholder>[OF <placeholder> _ <placeholder>]) 6
+by <placeholder> (auto simp add: <placeholder>) 6
+apply (rename_tac thread) 6
+apply (frule <placeholder>(1)) 6
+apply (cases x) 6
+by (auto simp: <placeholder> split: <placeholder> bool.splits) 6
+apply (elim <placeholder>, simp_all)[1] 6
+apply (elim <placeholder>,simp_all add:<placeholder>) 6
+apply (frule_tac s=s in <placeholder>) 6
+by (fastforce simp: <placeholder> split: sum.splits) 6
+apply (thin_tac "P\<longrightarrow>Q" for P Q) 6
+apply (drule_tac x=s in <placeholder>)+ 6
+apply (rule <placeholder> [where P=\<top>], simp) 6
+apply (rule <placeholder> | (rule <placeholder>, rule <placeholder>))+ 6
+apply (wp <placeholder> | simp add: unless_def)+ 6
+apply (simp only: flip: <placeholder>) 6
+apply (drule_tac x=i in <placeholder>) 6
+apply (clarsimp simp: <placeholder>[THEN <placeholder>] <placeholder>) 6
+apply (rule_tac P="\<lambda>s. ksCurThread s = thread" in <placeholder>) 6
+using p_neq 6
+apply (case_tac arch_kernel_obj; simp) 6
+apply (rule <placeholder>[where Q="%r. invs"]) 6
+apply (rule <placeholder>, simp, simp, simp) 6
+apply (<placeholder>,simp_all)[1] 6
+apply (rule <placeholder>, clarsimp simp add: <placeholder>) 6
+apply (clarsimp dest!:<placeholder> split:<placeholder>) 6
+apply (erule <placeholder>[rotated, where P=P]) 6
+apply (simp add: <placeholder>, drule_tac x=x in <placeholder>) 6
+apply (rule <placeholder>(3)) 6
+apply (clarsimp, vcg) 6
+apply (frule(1) <placeholder>, clarsimp simp: <placeholder>) 6
+apply (wps) 6
+by (wp|simp)+ 6
+apply (<placeholder>, rule <placeholder>, vcg) 6
+apply (subst <placeholder>, erule <placeholder>, simp+) 6
+apply (wp z) 6
+by (drule(1) <placeholder>, simp) 6
+apply (monad_eq split: <placeholder>) 6
+apply (rule <placeholder>[where r="(=)"]) 6
+apply (simp add:<placeholder> word_bits_conv) 6
+apply (auto dest: <placeholder> simp: <placeholder>) 6
+apply (wp get_pde_wp|wpc)+ 6
+by (fastforce dest!: <placeholder>) 6
+apply (drule(1) <placeholder>, clarsimp+) 6
+apply (clarsimp simp: <placeholder>: option.<placeholder>_asm) 6
+using se 6
+apply (clarsimp simp: <placeholder>: list.<placeholder>) 6
+apply (erule_tac x=n in <placeholder>) 6
+apply (rule <placeholder>[rotated 2]) 6
+apply hypsubst_thin 6
+apply (rule_tac <placeholder>[OF <placeholder>]) 6
+apply (<placeholder> xs arbitrary: ys) 6
+by (simp_all add:<placeholder> split:<placeholder>) 6
+apply(rule hoare) 6
+using f_d 6
+by (simp add: ac_simps) 6
+apply (rename_tac curThread) 6
+apply (rule <placeholder> [OF _ x(1)], assumption) 6
+apply (rule <placeholder> [OF _ x(2)], assumption) 6
+apply (frule_tac x=p in <placeholder>, clarsimp, clarsimp) 6
+by(intro <placeholder> impI; rule <placeholder>, assumption, clarsimp) 6
+by (clarsimp simp: states_<placeholder>) 6
+by (cases xs, simp_all) 6
+by (auto simp: <placeholder> elim!: <placeholder> intro: <placeholder>) 6
+apply (cinit lift: tcb_') 6
+apply (rule <placeholder>[OF _ <placeholder>verse]) 6
+apply (drule(3) <placeholder>, simp) 6
+apply (rule ccorres_return_CE; simp) 6
+apply (rule ccorres_return_C_errorE; simp) 6
+apply (simp only: <placeholder>[symmetric], drule(1) <placeholder>) 6
+apply (frule <placeholder>, clarify+) 6
+apply (frule_tac <placeholder>) 6
+apply (wp| simp split del: <placeholder>)+ 6
+apply (rule <placeholder>[where P =\<top>,simplified]) 6
+apply (clarsimp elim!: <placeholder>[where P=P] intro!: <placeholder>) 6
+apply (drule <placeholder>[symmetric]) 6
+apply (simp add: assms) 6
+by (rule <placeholder>) (simp add: <placeholder> split: <placeholder>) 6
+apply (simp | rule <placeholder>)+ 6
+apply (rule <placeholder>, rule <placeholder>, simp_all) 6
+case (step q r) 6
+using step 6
+using vs 6
+apply (cut_tac <placeholder>[OF misc(1)]) 6
+apply (frule(1) <placeholder>[rotated,unfolded <placeholder>,simplified],simp) 6
+apply(simp add: <placeholder> split del: <placeholder> cong: <placeholder>) 6
+apply (metis post_cond) 6
+apply(erule_tac x=a in <placeholder>)+ 6
+apply (subst <placeholder>[simplified]) 6
+apply(simp add: <placeholder> del: <placeholder> split del: <placeholder>) 6
+apply (frule_tac s=\<sigma> in tcb_queue'_head_end_NULL) 6
+apply (drule <placeholder> [where b = c]) 6
+apply (drule <placeholder> [where b = c']) 6
+apply (cases n) 6
+with <placeholder> 6
+<placeholder> (base y) 6
+case (Some cte) 6
+apply(simp add: desc) 6
+apply(rule_tac ep="partition_label EP" in <placeholder>) 6
+apply (case_tac cte,simp) 6
+apply (rule ac) 6
+apply (erule_tac P="a \<and> b" for a b in <placeholder>) 6
+apply (rule_tac f="ksCurDomain" in <placeholder>) 6
+apply (rule a) 6
+by (<placeholder> xs, simp_all add: <placeholder>) 6
+by (simp add: <placeholder>[symmetric] <placeholder>) 6
+apply (fastforce+)[2] 6
+apply (frule <placeholder>, assumption, rule <placeholder>) 6
+apply (subst <placeholder>[abs_def]) 6
+apply (cinitlift index_') 6
+apply (drule_tac s="w1 && mask 5" in <placeholder>, simp add: <placeholder>) 6
+apply (<placeholder> cap) 6
+by (simp add: <placeholder>) (wp <placeholder>) 6
+apply (frule <placeholder>,clarsimp simp:<placeholder>) 6
+apply (simp add: <placeholder> size_td_lt_final_pad size_td_lt_ti_typ_pad_combine <placeholder>) 6
+apply (wp | simp only: <placeholder>)+ 6
+apply (case_tac cap; simp) 6
+apply (case_tac arch_cap; simp) 6
+apply (drule (3) <placeholder>, rule <placeholder>) 6
+apply (rule_tac x="(aa,ba)" in <placeholder>) 6
+apply (wp <placeholder> | simp | wpc)+ 6
+apply (frule <placeholder>[OF <placeholder>[OF <placeholder>]]) 6
+apply (rule conjI; rule <placeholder>) 6
+apply force? 6
+apply (<placeholder>, assumption+) 6
+apply (clarsimp simp:KHeap_D.<placeholder>) 6
+unfolding <placeholder>[symmetric] 6
+apply (simp add: ccorres_cond_iffs) 6
+apply (clarsimp simp:<placeholder>, frule(1) <placeholder>) 6
+apply (rule <placeholder>[rotated], erule <placeholder>) 6
+apply(simp, simp) 6
+using len 6
+apply (subst <placeholder>[symmetric, where n=6]) 6
+by (clarsimp simp: <placeholder>) wp 6
+apply (case_tac pt) 6
+apply (frule_tac slot="(a,bc)" in <placeholder>) 6
+by (simp add: ko_def <placeholder>) 6
+apply (erule <placeholder>[OF _ _ <placeholder>]) 6
+apply ((simp add:<placeholder>)+)[7] 6
+apply (subst <placeholder>, fastforce, assumption+) 6
+apply (simp add: <placeholder>, safe) 6
+apply (drule_tac t="tcb_state tcb" in <placeholder>) 6
+apply (simp add: <placeholder> del: <placeholder> split: <placeholder>) 6
+apply(wp add:<placeholder>) 6
+supply <placeholder>[wp] 6
+using xp 6
+proof (cases rule: <placeholder>) 6
+apply (rule_tac Q=\<top> and Q'=\<top> in <placeholder>[rotated -1]) 6
+apply (case_tac st,simp+) 6
+apply (clarsimp simp: new_<placeholder>_def <placeholder>) 6
+apply (wp <placeholder>, simp+) 6
+apply (thin_tac "ksMachineState t = p" for t p)+ 6
+apply (thin_tac "ksCurThread t = p" for t p)+ 6
+apply (thin_tac "ksReadyQueues t = p" for t p)+ 6
+apply (thin_tac "ksSchedulerAction t = p" for t p)+ 6
+apply(rule_tac x=dest in <placeholder>) 6
+apply (rule bs) 6
+apply (rule <placeholder>,auto)[1] 6
+apply (frule <placeholder>[OF dom,OF <placeholder>],rotate_tac) 6
+apply (clarsimp simp: <placeholder> objBits_defs) 6
+apply(erule <placeholder>, (fastforce simp: <placeholder>)+) 6
+case (step y z) 6
+using hyp <placeholder> 6
+apply (simp add: <placeholder>, rule <placeholder>) 6
+apply (drule_tac x = word in <placeholder>) 6
+apply (rule <placeholder>[OF _ le_<placeholder>]) 6
+apply (erule <placeholder>, erule <placeholder>, erule <placeholder>, erule <placeholder>) 6
+by (fastforce simp: <placeholder> states_<placeholder> elim!: <placeholder>) 6
+apply(intro <placeholder>, simp+) 6
+apply (fastforce elim!: <placeholder>[rotated]) 6
+apply(simp_all add: <placeholder>)[4] 6
+by (simp add: <placeholder> empty_fail_cond) 6
+apply (case_tac obj, simp_all add:<placeholder>) 6
+apply (rule <placeholder>, erule <placeholder>, erule <placeholder>) 6
+apply (drule(1) <placeholder>[OF _ <placeholder>])+ 6
+apply (cases cap, simp_all) 6
+apply (clarsimp <placeholder>: list.<placeholder>) 6
+apply (frule <placeholder>[symmetric]) 6
+apply (clarsimp simp del:<placeholder> split:<placeholder>) 6
+apply (rename_tac s_cap s_node) 6
+apply (assumption|rule <placeholder>)+ 6
+apply (simp add:insertI1) 6
+apply (drule_tac p' = y in <placeholder>[OF vd]) 6
+apply (rule <placeholder>[where k = 2,simplified]) 6
+by (simp flip: <placeholder>) 6
+by (fastforce simp: <placeholder> intro!:<placeholder>) 6
+apply (erule <placeholder>[where p=p]) 6
+apply ccorres_remove_UNIV_guard 6
+apply (clarsimp simp: <placeholder> simp del: fun_upd_apply) 6
+apply (frule(3) <placeholder>[OF <placeholder>]) 6
+apply (erule(1) <placeholder>, simp_all) 6
+apply (rule_tac Q="\<lambda>_. ?PRE t'" in <placeholder>, clarsimp) 6
+from sr 6
+apply (rule_tac Q = "\<lambda>r s. r \<noteq> [] \<and> Q r s" for Q in <placeholder>) 6
+apply (case_tac x, simp_all)[1] 6
+apply (erule <placeholder>[OF iffD1[OF subset_iff_psubset_eq]]) 6
+apply sep_cancel 6
+apply (vcg exspec=setRegister_modifies) 6
+apply (rule_tac x=aa in <placeholder>, rule_tac x=ba in <placeholder>) 6
+apply (simp add: <placeholder> del: <placeholder> del: <placeholder>) 6
+by (wp <placeholder> | clarsimp)+ 6
+apply (clarsimp simp: M_def) 6
+apply (drule(2) <placeholder> [OF <placeholder>]) 6
+apply (simp del:split_paired_All split del:<placeholder>)+ 6
+apply (wp do_machine_op_wp|clarsimp simp:<placeholder>)+ 6
+apply (clarsimp simp del:<placeholder> split del:<placeholder> simp: <placeholder>) 6
+apply (clarsimp simp: defns split: <placeholder>) 6
+apply (rule lookup_slot_for_cnode_op_corres; simp) 6
+apply (metis <placeholder>(1) <placeholder>) 6
+apply (erule_tac x="s_d_swap p'' <placeholder> dest" in <placeholder>) 6
+apply (drule_tac p="s_d_swap p'' <placeholder> dest" in <placeholder>) 6
+apply (clarsimp, rule <placeholder>, vcg) 6
+apply (case_tac arch_capability, simp_all add: <placeholder> ARM_H.<placeholder>) 6
+apply ((wp <placeholder> | wps)+)[1] 6
+apply (erule(1) <placeholder>[OF <placeholder>[OF <placeholder>]]) 6
+apply (clarsimp simp:<placeholder>[OF <placeholder>] split del:<placeholder>) 6
+apply (subst <placeholder>, assumption)+ 6
+apply (ctac add: <placeholder>[where args=args and n=2 and buffer=buffer]) 6
+apply (vcg exspec=lookupTargetSlot_modifies) 6
+subgoal for \<dots> vmpage_size option 6
+apply (rule <placeholder>, (wp | simp)+) 6
+apply ((erule <placeholder>, wp | simp)+)[1] 6
+apply (rule ext, simp <placeholder>: if_<placeholder>) 6
+apply (wp+ | simp)+ 6
+apply (clarsimp simp:<placeholder>[symmetric] <placeholder>[symmetric]) 6
+apply (rule <placeholder> [OF <placeholder>],assumption,auto intro!:<placeholder>)[1] 6
+apply (cinit' lift: t_' regionBase_' userSize_' deviceMemory_') 6
+by sep_solve 6
+apply (frule_tac x=src in spec, erule allE, erule (1) impE) 6
+apply (<placeholder>(asm) <placeholder>, simp) 6
+apply (rule <placeholder>[rotated], rule_tac n=sz in power_strict_increasing; simp add: <placeholder>) 6
+apply (rule_tac x=untyped_caps in <placeholder>) 6
+proof (induct arbitrary: s rule: <placeholder>) 5
+by (<placeholder> xs, auto) 5
+by (wp <placeholder>) simp 5
+apply (rule "4.hyps", assumption+) 5
+apply (simp add: findFreeHWASID_def invalidateHWASIDEntry_def invalidateASID_def <placeholder> cong: <placeholder>) 5
+apply ((clarsimp simp: <placeholder> | wp)+)[3] 5
+apply (cinit') 5
+supply <placeholder>[split del] 5
+apply (simp add:<placeholder>,elim <placeholder>) 5
+apply (erule_tac x="cur_domain s" in <placeholder>) 5
+apply (wp <placeholder> | simp add: <placeholder> archObjSize_def <placeholder>)+ 5
+apply (rule_tac p=p in <placeholder>) 5
+apply (rename_tac word option) 5
+apply (clarsimp simp:<placeholder>[simplified]) 5
+by (auto simp add: bit_simps) 5
+apply (erule <placeholder>[OF <placeholder>,rotated -1]) 5
+fix m 5
+apply (erule tmres.rel_cases; clarsimp) 5
+apply (wpsimp wp: <placeholder> simp: <placeholder> split: <placeholder>) 5
+apply (wp <placeholder> get_object_wp | simp)+ 5
+by (auto simp: <placeholder> intro: <placeholder> elim!: <placeholder>) 5
+apply (rule <placeholder>[OF <placeholder>, simplified]) 5
+by wpsimp+ 5
+apply (<placeholder>, simp add: <placeholder>) 5
+by (two_induct xs ys) 5
+by (fastforce simp: <placeholder> dest!: <placeholder>) 5
+apply (simp, wp) 5
+apply (simp add:lookupPTSlot_def) 5
+apply(auto intro: <placeholder> simp del: <placeholder>) 5
+apply (case_tac ko, simp_all)[1] 5
+apply (rule rl) 5
+apply (erule <placeholder> | simp)+ 5
+apply (subgoal_tac "(y,z) \<in> store_connected_direct s") 5
+apply (case_tac sz,simp_all)[1] 5
+apply (strengthen <placeholder> | simp)+ 5
+apply (erule <placeholder>, clarsimp simp: <placeholder>) 5
+apply (wp|simp|wpc)+ 5
+apply (drule <placeholder>[OF <placeholder>], clarsimp) 5
+apply (case_tac u, simp_all) 5
+by (cases G, simp+) 5
+apply (rule <placeholder>[where f="arch_state", OF _ arch]) 5
+apply (case_tac rv, simp_all add: <placeholder>)[1] 5
+apply (sep_solve)+ 5
+apply (rule hoare_post_impErr[OF <placeholder>]) 5
+apply (rule lookup_cap_and_slot_exec) 5
+apply (rule <placeholder>, clarsimp simp:<placeholder>)+ 5
+apply (clarsimp simp: <placeholder>: option.<placeholder>) 5
+by (clarsimp simp: <placeholder>) (wp | simp add: <placeholder>)+ 5
+apply (drule(1) <placeholder>[where sz = sz]) 5
+apply(drule_tac x=n in <placeholder>) 5
+by (wpsimp wp: <placeholder>[THEN <placeholder>]) 5
+apply (clarsimp simp:<placeholder> | strengthen <placeholder>)+ 5
+apply (wp <placeholder> | simp del: <placeholder>)+ 5
+apply (simp add: z) 5
+apply (intro <placeholder> b<placeholder>) 5
+apply ((simp add: <placeholder> split: <placeholder> | <placeholder> | elim <placeholder> | simp_all add: not_schedule_modes_KernelEntry)+)[1] 5
+apply (case_tac st,simp_all)[1] 5
+apply (drule_tac a=x in <placeholder>) 5
+apply (case_tac "e = Interrupt") 5
+apply (auto simp add: bit_simps dest: <placeholder>) 5
+apply (case_tac ntfnptr, simp_all) 5
+apply (rule <placeholder>, vcg, clarsimp simp: <placeholder>[unfolded <placeholder>]) 5
+apply(case_tac "slot=dest") 5
+apply (case_tac e) 5
+apply (word_bitwise,simp) 5
+apply (erule <placeholder>, simp_all add: <placeholder>)[1] 5
+apply (clarsimp simp: <placeholder> is_tcb <placeholder>) 5
+apply (drule <placeholder>, assumption, simp) 5
+by (erule <placeholder>, clarsimp) 5
+apply (subst <placeholder>[where us=2, simplified]) 5
+apply (rule_tac x=n in <placeholder>) 5
+apply (frule <placeholder> [where idx="tcb_cnode_index 4"]) 5
+using <placeholder>[OF <placeholder>] <placeholder> 5
+apply (rule <placeholder>[where f=ksInterruptState, OF <placeholder>]) 5
+apply (drule <placeholder>[rotated,where 'a=32]) 5
+apply (case_tac p) 5
+apply (wp,simp add:<placeholder>) 5
+apply(induct_tac xs) 5
+apply (clarsimp simp: x) 5
+by (wp <placeholder> | wpc| simp add: <placeholder>)+ 5
+apply (wp x y) 5
+apply (clarsimp|wp <placeholder>)+ 5
+apply (clarsimp simp: dest!:<placeholder>) 5
+using P 5
+apply (rename_tac notification) 5
+by (rule <placeholder>) (fastforce intro!: <placeholder> split: <placeholder>)+ 5
+apply (simp add: <placeholder> performARMMMUInvocation_def) 5
+apply (clarsimp simp: <placeholder> split: kernel_object.splits) 5
+apply (case_tac n; simp) 5
+by (auto elim!: <placeholder> intro: <placeholder>) 5
+by (clarsimp dest!:<placeholder> simp:<placeholder>) 5
+apply (rule_tac F="list \<noteq> []" in <placeholder>) 5
+apply (simp add: ac_simps) 5
+apply (clarsimp simp: <placeholder>[where P="\<lambda>x. x s" for s]) 5
+apply ((simp add:<placeholder>)+)[4] 5
+let ?ran = "{ptr..ptr + 2 ^ bits - 1}" 5
+let ?s = "(s\<lparr>ksPSpace := (ksPSpace s) |` (- ?ran)\<rparr>)" 5
+let ?ran' = "{ptr..+2 ^ bits}" 5
+have ran' [simp]: "?ran' = ?ran" 5
+using al wb <placeholder> 5
+have oran' [simp]: "?oran' = ?oran" 5
+apply (<placeholder>(asm) <placeholder>, assumption) 5
+by (erule <placeholder>,simp+) 5
+apply (fold_subgoals (prefix))[3] 5
+apply (rename_tac s) 5
+apply (erule_tac x="Normal s" in <placeholder>) 5
+by (fastforce simp:<placeholder>)+ 5
+apply (rule "1.hyps") 5
+by (clarsimp simp: <placeholder>, case_tac s, auto intro: <placeholder> elim!: <placeholder>) 5
+apply (simp add: assms hi[simplified])+ 5
+by (force intro: <placeholder> elim: <placeholder>) 5
+apply (clarsimp simp:<placeholder> split:Structures_A.kernel_object.splits) 5
+proof (subst <placeholder>) 5
+apply (wp threadSet_valid_queues') 5
+apply (induct as rule: <placeholder>) 5
+apply (subst <placeholder>[simplified <placeholder>]) 5
+apply (rule <placeholder> ccorres_Guard_Seq)+ 5
+apply (erule(1) <placeholder>, (simp add: <placeholder>)+, simp_all?)[1] 5
+apply (clarsimp simp: <placeholder> word_sle_def <placeholder>) 5
+apply (clarsimp simp: inQ_def) 5
+apply (<placeholder> tree) 5
+apply (rule <placeholder>[OF <placeholder>],clarsimp+) 5
+apply (<placeholder>, assumption)+ 5
+by (simp add: <placeholder> bind_assoc) 5
+apply (rule <placeholder>[where cap = RestartCap]) 5
+apply (clarsimp simp: comp_def) 5
+apply (elim <placeholder>,fastforce) 5
+case (Cons y ys) 5
+apply (rule_tac P="rv \<noteq> Some 0xFFFF" in ccorres_gen_asm) 5
+apply (clarsimp simp: Kernel_C.maxIRQ_def ARM.maxIRQ_def) 5
+apply (wp <placeholder> getActiveIRQ_neq_Some0xFF | simp)+ 5
+apply (metis (mono_tags, lifting) <placeholder>) 5
+apply (wp hoare_drop_imp|simp)+ 5
+by (simp flip: <placeholder> add: <placeholder>) 5
+by (auto simp:<placeholder>[OF <placeholder>]) 5
+apply (rule e) 5
+apply (frule <placeholder>[OF <placeholder>[OF <placeholder>[OF <placeholder>]]]) 5
+apply (erule_tac x=\<sigma> in <placeholder>, erule_tac x=x in <placeholder>) 5
+apply (clarsimp elim!:is_aligned_weaken simp: <placeholder> word_bits_def)+ 5
+apply (rename_tac ep) 5
+by (rule <placeholder>[OF _ <placeholder>]) 5
+apply (simp flip: <placeholder> add: <placeholder>) 5
+apply (frule_tac p=p' in <placeholder>) 5
+by (rule <placeholder>, clarsimp simp:<placeholder> split:<placeholder>) 5
+apply (rule <placeholder>[where R'="(=)"]) 5
+apply (wp <placeholder> | simp only: <placeholder>)+ 5
+apply (induct xs rule: <placeholder>) 5
+apply(case_tac "y=child") 5
+apply (force simp: <placeholder>: <placeholder>) 5
+apply (cut_tac x=x in <placeholder>) 5
+apply (simp add: if_1_0_0 <placeholder>) 5
+apply (erule <placeholder>, simp_all add: <placeholder>) 5
+apply (<placeholder>, clarsimp simp:<placeholder>) 5
+fix y 5
+apply (rule_tac P=\<top> and P'=\<top> and r'="(=)" in <placeholder>) 5
+apply (erule <placeholder> | simp | fastforce intro: <placeholder>)+ 5
+apply (wp|clarsimp split:<placeholder>)+ 5
+apply (<placeholder> cap', simp_all add: <placeholder>) 5
+apply(erule <placeholder>, drule(1) <placeholder>) 5
+by (<placeholder> cap, simp_all add: <placeholder>) 5
+apply (simp add: <placeholder> archObjSize_def <placeholder> split:<placeholder>) 5
+apply (rule inv) 5
+apply (clarsimp simp: <placeholder> x) 5
+apply(case_tac "next_not_child p t m") 5
+apply (simp add: kernel_global.<placeholder>) 5
+apply (simp split del: if_split) 5
+apply (drule_tac x=a in <placeholder>, drule_tac x=b in <placeholder>) 5
+supply Collect_const[simp del] 5
+defer 2 5
+apply (rule <placeholder>, erule obj_at'_weakenE, simp) 5
+by (clarsimp simp: <placeholder> intro!: <placeholder>) 5
+apply (auto intro: <placeholder>)[1] 5
+apply (fastforce simp: <placeholder> intro!: <placeholder>) 5
+apply(case_tac "m dest") 5
+apply (frule(1) misc) 5
+apply (erule_tac f="underlying_memory" in <placeholder>) 5
+by (frule <placeholder>, fastforce simp: <placeholder>) 5
+apply (wp|simp split del:if_split)+ 5
+apply (wp, fastforce) 5
+apply (erule_tac x=ta in <placeholder>) 5
+apply (simp add: <placeholder> msgLengthBits_def <placeholder>) 5
+apply (erule <placeholder>[rotated], rule <placeholder>) 5
+apply (simp|elim <placeholder>)+ 5
+apply (clarsimp simp:<placeholder> pageBits_def) 5
+apply (<placeholder> a) 5
+apply (rule b) 5
+apply (rule corres_split_noop_rhs2) 5
+apply (vcg exspec=getRegister_modifies) 5
+apply ((wp | simp)+)[2] 5
+apply (drule_tac x=oid in <placeholder>) 5
+by(fastforce <placeholder>: <placeholder>) 5
+apply (blast | simp add: <placeholder>)+ 5
+apply(frule <placeholder>, frule <placeholder>) 5
+by (rule <placeholder>) (auto simp: <placeholder>) 5
+apply (<placeholder> recv_buf) 5
+apply (erule_tac i="Suc i" and j="Suc j" in <placeholder>) 5
+apply (rule <placeholder>, clarsimp elim!: <placeholder> simp: <placeholder>) 5
+apply (drule_tac p' = "p && ~~ mask 6" in <placeholder>[rotated]) 5
+apply (case_tac arch_kernel_object; simp) 5
+apply (erule (1) <placeholder>) \<comment> \<open>queue relation\<close> 5
+apply (fastforce simp: <placeholder> states_<placeholder>) 5
+by (auto simp: <placeholder> split: if_split_asm) 5
+apply (case_tac vmpage_size, simp_all add: <placeholder>) 5
+apply (rule <placeholder> [where f=ksArchState, OF <placeholder>]) 5
+apply (clarsimp simp: <placeholder>[simplified <placeholder>]) 5
+by (monad_eq simp: <placeholder>) 5
+apply (intro <placeholder>,elim <placeholder>) 5
+apply (clarsimp simp del: split_paired_Ex <placeholder>) 5
+apply (clarsimp simp only:) 5
+apply(rule <placeholder>[OF <placeholder>[simplified]]) 5
+apply (safe elim!: <placeholder>) 5
+apply (clarsimp simp add: <placeholder>: <placeholder>) 5
+apply (clarsimp simp:transform_cdt_def| rule <placeholder>)+ 5
+by (clarsimp simp:<placeholder>[where 'a=32, folded <placeholder>])+ 5
+by (simp add: <placeholder> ko_def) 5
+apply (subst szo) 5
+using <placeholder>' 5
+apply (frule(2) <placeholder>[rotated]) 5
+apply (elim <placeholder> | simp)+ 5
+apply (clarsimp simp: if_1_0_0 <placeholder>) 5
+apply (drule <placeholder>[OF _ <placeholder>, OF _ <placeholder>]) 5
+apply (simp del:upt.simps) 5
+apply (simp add: storePTE_def <placeholder>) 5
+apply (drule obj_at_ko_at') 5
+case (Suc m) 5
+apply (simp add: <placeholder>[unfolded <placeholder>] <placeholder>) 5
+apply (case_tac arch_cap, simp_all add: <placeholder>) 5
+using <placeholder>[simplified <placeholder>] 5
+apply(simp split: if_split_asm) 5
+by (erule <placeholder>) simp 5
+apply (case_tac "x \<in> kernel_mappings") 5
+apply (clarsimp simp: <placeholder>[abs_def]) 5
+apply (rename_tac cdl_tcb) 5
+apply (wp)[1] 5
+apply (elim <placeholder>, (clarsimp simp: <placeholder>)+)[1] 5
+apply (clarsimp simp: <placeholder> objBits_simps <placeholder> split: <placeholder>) 5
+apply (cases "p = <placeholder>") 5
+apply (clarsimp simp: <placeholder> unify) 5
+apply (subgoal_tac "null_filter (caps_of_state a) (aa,bb) \<noteq> None") 5
+by (drule <placeholder>, simp) 5
+apply (rule_tac P="a=idle_thread s" in <placeholder>) 5
+apply (clarsimp <placeholder> del: if_<placeholder>) 5
+apply (case_tac aa, simp_all) 5
+using step.hyps 5
+apply (simp add: <placeholder> Let_def <placeholder> del: if_<placeholder> cong: <placeholder>) 5
+apply presburger 5
+by (cases n) simp_all 5
+apply (simp add:<placeholder> bind_assoc <placeholder>) 5
+by (drule <placeholder>, simp add: <placeholder>) 5
+apply (case_tac n) 5
+apply (clarsimp simp:)+ 5
+prefer 5 5
+apply (case_tac syscall) 5
+apply (case_tac v) 5
+apply (drule(1) <placeholder>[OF <placeholder>,rotated]) 5
+apply (clarsimp elim!: <placeholder> [rotated]) 5
+apply (rule <placeholder>[OF <placeholder>], rule <placeholder>) 5
+apply (rule <placeholder>, assumption, simp) 5
+apply (metis (no_types) <placeholder>) 5
+apply (rule hoare_seq_ext, assumption) 5
+apply (fastforce simp: <placeholder> dest!: <placeholder> split: <placeholder>) 5
+apply (wp updateObject_default_inv|simp)+ 5
+apply (rule hoare_post_imp_R[OF <placeholder>]) 5
+apply (simp add: from_bool_0 <placeholder>) 5
+apply (clarsimp simp: <placeholder> split:sum.splits) 5
+apply (auto intro: <placeholder> dest: <placeholder>)[1] 5
+apply (fastforce dest: <placeholder>)+ 5
+apply (subgoal_tac "P" for P) 5
+apply (insert prems) 5
+apply (erule (1) <placeholder>, rule <placeholder>) 5
+apply (cut_tac <placeholder>[where x=x]) 5
+apply (simp add: <placeholder> split: option.splits) 5
+apply (subgoal_tac "src \<noteq> 0") 5
+apply (subgoal_tac "dest \<noteq> 0") 5
+apply (wp getObject_tcb_wp | clarsimp simp: threadGet_def)+ 5
+apply (clarsimp+)[2] 5
+apply (rule_tac x=1 in <placeholder>) 5
+apply (<placeholder>(asm) <placeholder>(4)[symmetric]) 5
+apply (case_tac "m p", simp) 5
+apply (rule <placeholder> [where p=p], assumption, clarsimp) 5
+apply (case_tac aa) 5
+supply <placeholder>[simp del] is_aligned_neg_mask_weaken[simp del] 5
+apply (erule <placeholder>[OF cover]) 5
+apply (wpc | simp | wp <placeholder>)+ 5
+apply (clarsimp simp: <placeholder> thread_<placeholder> split: <placeholder>) 5
+apply (case_tac "p'=src",simp) 5
+apply (clarsimp simp: option.splits) 5
+thus False 5
+assume szv: "sz < LENGTH('a)" 5
+assume "\<not> sz < LENGTH('a)" 5
+apply (rule <placeholder>[OF cover]) 5
+apply (clarsimp simp:<placeholder> node) 5
+apply (rule_tac x=ko in <placeholder>) 5
+apply (rule <placeholder>[OF <placeholder>[where sz = "APIType_capBits ty us"]]) 5
+apply (frule <placeholder>, drule <placeholder>) 5
+apply (drule_tac t="cteCap ctea" in <placeholder>, simp) 5
+apply (rule <placeholder>, fastforce <placeholder>: <placeholder>) 5
+apply (erule nf) 5
+apply (erule_tac x=x in <placeholder>, clarsimp) 5
+apply(rule_tac x=xa in <placeholder>) 5
+apply (force intro: <placeholder> simp: <placeholder>) 5
+by (fastforce simp add: <placeholder> split: <placeholder>) 5
+apply (rule <placeholder>[where r'=dc, OF _ <placeholder>[OF <placeholder>]]) 5
+apply (erule <placeholder>, erule <placeholder>[rotated]) 5
+apply ((simp add:<placeholder>)+) 5
+apply (case_tac "cdt s (a,b)") 5
+by (rule thread_set_silc_inv; simp add: <placeholder>) 5
+apply (drule (2) <placeholder>, fastforce, simp only: <placeholder>, assumption) 5
+apply (force simp:<placeholder> dest: <placeholder>) 5
+have "\<dots> = ?RHS" 5
+apply (cases args, simp_all) 5
+by (rule <placeholder>) fact 5
+apply (metis (full_types) <placeholder>) 5
+apply (case_tac t) 5
+apply(simp add: finite_depth_insert_child) 5
+apply (vcg exspec=isHighestPrio_modifies) 5
+apply (simp cong: <placeholder> add: <placeholder>) 5
+apply (fastforce elim!: <placeholder> simp: <placeholder>) 5
+apply (simp add: zero) 5
+apply (simp add: blah <placeholder>) 5
+apply(case_tac "next_sib slot t m") 5
+apply (frule <placeholder>(16)[where cap'=cap_b], assumption, simp add: <placeholder>) 5
+apply (rule <placeholder>, rule <placeholder>[rotated], simp) 5
+apply (case_tac v, case_tac v') 5
+apply (fastforce dest: <placeholder>[OF _ _ cond_hoarep, rotated]) 5
+apply (drule <placeholder>, frule <placeholder>, erule <placeholder>, assumption) 5
+apply (drule_tac x="snd pt" in <placeholder>) 5
+apply (rule_tac xf'=ret__unsigned_' in <placeholder>, ceqv) 5
+apply (simp_all add: field_simps <placeholder> getObjectSize_def <placeholder>)[6] 5
+apply (simp add: <placeholder> getObjectSize_def <placeholder> append) 5
+apply (simp add: Decode_D.<placeholder> del: <placeholder>) 5
+apply (frule (1) <placeholder>[OF mod], fastforce) 5
+apply (clarsimp simp:<placeholder>[symmetric] <placeholder> split:<placeholder>) 5
+using <placeholder>[simplified,symmetric] 5
+apply (case_tac a; simp) 5
+apply (ctac add: <placeholder>[where args=args and n=4 and buffer=buffer]) 5
+apply (rule) 5
+apply (thin_tac " \<forall>x\<in>set excaps. P x \<and> Q x" for P Q)+ 5
+apply (rule_tac P=\<top> and P'=UNIV in <placeholder>, simp) 5
+apply(case_tac "ca=src") 5
+apply(subgoal_tac "cte_at ca a") 5
+apply (case_tac buffer) 5
+apply (frule_tac f=f' in <placeholder>) 5
+with Some cover ct 5
+apply (clarsimp simp: Arch_<placeholder>) 5
+apply (simp_all add: <placeholder> fromIntegral_def toInteger_nat fromInteger_nat <placeholder> split: <placeholder>) 5
+apply (erule <placeholder> [where x=slot]) 5
+apply (clarsimp simp: sep_conj_exists <placeholder>) 5
+apply (intro <placeholder> iffI; clarsimp) 5
+apply (rename_tac cap) 5
+apply (drule <placeholder> [where xs=free_slots], simp) 5
+apply (drule <placeholder> [where xs=untyped_slots], simp) 5
+apply (frule <placeholder> [where obj_id=obj_id]) 5
+by (cases <placeholder>) (clarsimp dest!: <placeholder>) 4
+apply (clarsimp simp: <placeholder> word_sless_def word_sle_def) 4
+by (simp add: <placeholder> split: option.splits) 4
+by (set_simple_ko_method wp_thm: <placeholder>[THEN <placeholder>]) 4
+apply (cases "is_subject aag thread") 4
+apply (frule (1) <placeholder> [OF _ v1]) 4
+apply (rule <placeholder> [OF bd]) 4
+apply (ctac add: <placeholder>[unfolded <placeholder>]) 4
+apply(clarsimp, drule <placeholder>) 4
+apply (wpsimp wp: <placeholder> valid_ioports_lift) 4
+apply (auto <placeholder>:<placeholder>)[1] 4
+apply (fastforce dest: domains_distinct[THEN <placeholder>]) 4
+apply (erule_tac x="Max {prio. ready_queues s (cur_domain s) prio \<noteq> []}" in <placeholder>) 4
+by (wpsimp wp: prefix_closed_terminal split: <placeholder>) 4
+by - (rule <placeholder>, auto simp: <placeholder>) 4
+apply (drule x) 4
+apply (rule <placeholder>, erule ctcb_relation_null_queue_ptrs) 4
+by (simp add: <placeholder> hoare_post_impErr [OF <placeholder>]) 4
+fix q 4
+apply (rule <placeholder>[where f="arch_state", OF _ arch_state]) 4
+apply (rule <placeholder>[where f="\<lambda>s rs p rs' p'. obj_at (P' p rs rs' p') p s" for P']) 4
+apply (erule <placeholder>, rule obj_at, simp) 4
+apply (case_tac "tcb_state tcb", simp_all) 4
+apply (rule <placeholder>, assumption)+ 4
+apply (drule_tac x=irq in <placeholder>) 4
+apply (rule <placeholder>[where P="\<top>" and P'="\<top>"]) 4
+apply (fastforce intro: <placeholder>[OF cul ist] <placeholder> elim: <placeholder>) 4
+apply (case_tac "ptr = fst slot") 4
+by (<placeholder> xs; simp add: <placeholder>) 4
+by (fastforce simp: <placeholder> empty_fail_term) 4
+apply (frule <placeholder>[OF <placeholder>,OF <placeholder>],rotate_tac) 4
+apply (frule_tac x=p in <placeholder>) 4
+apply (clarsimp simp: from_bool_0 <placeholder>) 4
+apply (clarsimp simp: typ_heap_simps) 4
+apply (clarsimp simp: <placeholder> split_def) 4
+apply (rule table) 4
+apply (intro <placeholder>,rule <placeholder>) 4
+by (clarsimp simp: <placeholder> all_rights_def) 4
+fix rv' 4
+apply (rule <placeholder>[OF pos neg]) 4
+case 1 4
+using objat 4
+apply (vcg strip_guards=true) 4
+apply (rule <placeholder>[THEN <placeholder>], rule <placeholder>)+ 4
+apply (rule <placeholder>, wp <placeholder>, simp) 4
+apply (ctac pre: <placeholder>) 4
+apply (cases ai, simp_all add: <placeholder>) 4
+apply (drule <placeholder>2, drule <placeholder>, drule(1) <placeholder>) 4
+apply (cases "t = t'", simp_all add: <placeholder> split del: if_split) 4
+by (fastforce elim!: <placeholder> simp:<placeholder>) 4
+apply(rule f) 4
+apply (simp add: <placeholder> cong: <placeholder> del: <placeholder>) 4
+apply (erule_tac x=b in <placeholder>) 4
+apply (cases ident) 4
+apply (erule hoare_post_imp_R) 4
+apply (auto elim: <placeholder>)[3] 4
+apply(erule subjectReads.induct; auto) 4
+using le 4
+by (metis <placeholder>(2)) 4
+apply (clarsimp split:<placeholder> | rule <placeholder> | wp)+ 4
+by (rule <placeholder>) wp+ 4
+by (clarsimp elim!: <placeholder>) 4
+by (simp add: empty_fail_term) 4
+apply (wp <placeholder>[where ptr = p]) 4
+apply (rename_tac pd) 4
+apply (clarsimp simp: Collect_const_mem <placeholder>) 4
+apply (erule <placeholder> [OF <placeholder>, rotated -1], simp_all)[1] 4
+by (auto simp: <placeholder> split: <placeholder> intro!: <placeholder>) 4
+by (clarsimp simp: <placeholder> word_bw_assocs) 4
+apply (erule <placeholder>[unfolded <placeholder>]) 4
+apply (clarsimp simp: <placeholder> sep_any_All) 4
+using Cons.hyps 4
+apply (simp add:<placeholder> not_less <placeholder>) 4
+apply (clarsimp simp: <placeholder> length_set_helper) 4
+apply (case_tac rva) 4
+apply (rule <placeholder>[where P'="\<top>", simplified]) 4
+apply (rule_tac x=ts in <placeholder>) 4
+apply (rule_tac x=ntfnptr in <placeholder>) 4
+apply (auto simp: <placeholder> cap_master_cap_def <placeholder> split: arch_cap.split) 4
+apply (frule_tac x=a in <placeholder>) 4
+apply (fastforce dest: <placeholder> split: <placeholder>) 4
+fix i 4
+apply (drule_tac s=s and t=t and u=u and s'="(aa,ba)" in <placeholder>, simp+) 4
+apply (rule <placeholder>[where check = True and Perror = \<top>,simplified]) 4
+using misc sz 4
+apply (clarsimp simp: <placeholder> split: sum.split) 4
+by (clarsimp simp: <placeholder> split: if_split_asm) 4
+apply (<placeholder> xs; simp) 4
+apply (drule <placeholder>, erule(1) <placeholder>) 4
+by (unfold <placeholder>, fast) 4
+apply (auto simp: <placeholder>)[2] 4
+apply (rule <placeholder>[OF dom misc]) 4
+apply (frule <placeholder>[OF _ a]) 4
+apply (simp add: states_<placeholder>) 4
+by (wpsimp wp: <placeholder> simp: <placeholder>)+ 4
+apply (case_tac mdbnode) 4
+show "?thesis" 4
+apply (insert <placeholder> [symmetric])[1] 4
+apply (frule_tac s1=s in <placeholder>[THEN <placeholder>,rotated 2], assumption, simp add: <placeholder>) 4
+apply (frule_tac s1=s' in <placeholder>[THEN <placeholder>,rotated 2], assumption, simp add: <placeholder>) 4
+by (simp add:<placeholder> | wp | wpc)+ 4
+apply (ctac(no_vcg) add: <placeholder>[simplified]) 4
+using lt 4
+apply (simp add: <placeholder>[symmetric] injection_handler_throwError invocationCatch_use_injection_handler <placeholder>) 4
+apply (wp | simp | wpc | wp (once) <placeholder>)+ 4
+apply (safe, simp_all)[1] 4
+apply (erule <placeholder>, fastforce simp: <placeholder>, clarsimp) 4
+apply (drule <placeholder>, clarsimp, assumption) 4
+apply (fastforce dest!: <placeholder> elim!: <placeholder>) 4
+apply (simp add: <placeholder> split_def <placeholder>) 4
+by (cases xs) auto 4
+apply (wp <placeholder> | simp add: if_apply_def2)+ 4
+apply ((clarsimp simp add: <placeholder> | drule <placeholder>[OF _ <placeholder>])+)[1] 4
+apply (insert e) 4
+by(auto) 4
+from page 4
+apply (clarsimp simp: <placeholder> intro!: <placeholder> [symmetric]) 4
+apply (<placeholder> hrs_mem) 4
+using page 4
+apply (clarsimp simp:CSpace_D.<placeholder>) 4
+apply (rule hoare_vcg_precond_impE) 4
+apply (cases p, cases p') 4
+apply (case_tac "a = fst slot") 4
+by (simp add: <placeholder> flip: <placeholder>) 4
+apply (clarsimp simp: fold_double_trace_imp double_trace_imp_def <placeholder>) 4
+assume "(l::word32) < 4" 4
+hence less: "l<2^2" 4
+apply (drule <placeholder>[where x=p]) 4
+apply (clarsimp simp:mask_twice) 4
+apply (rule <placeholder>[where pd=pd]) 4
+apply (clarsimp simp: ptr_def) 4
+apply (clarsimp simp: <placeholder> word_sle_def word_sless_def) 4
+by (metis <placeholder>)+ 4
+apply (rule <placeholder>[OF <placeholder> _ assms]) 4
+apply (rule <placeholder>[OF ac]) 4
+proof(<placeholder> ls) 4
+apply (simp add: storeHWASID_def) 4
+apply (auto dest!:<placeholder> simp:<placeholder>) 4
+apply (force simp: assms) 4
+apply (clarsimp simp:assms) 4
+apply (elim <placeholder>, rename_tac cap') 4
+apply (clarsimp simp:<placeholder> blah) 4
+supply <placeholder>[symmetric, simp] 4
+apply(fastforce simp: <placeholder>[symmetric] equiv_for_or or_comp_dist elim: <placeholder>) 4
+apply (simp only: <placeholder>[where a="a"]) 4
+apply (subst <placeholder>, (simp add: <placeholder>)+) 4
+apply (simp add: word_bits_def)+ 4
+apply (rule_tac x=slot in <placeholder>) 4
+by (case_tac cap,simp_all add: <placeholder>) 4
+from cm ht 4
+apply (simp only: ran' <placeholder>) 4
+using ks 4
+hence "?oran \<inter> ?ran = {}" 4
+proof (rule <placeholder>[where p = ptr and bits = bits,simplified]) 4
+have "valid_pspace' s" 4
+with vu al 4
+show "pspace_no_overlap' ptr bits ?s" 4
+hence "?oran' \<inter> ?ran' = {}" 4
+apply (induct_tac n) 4
+apply (erule(5) <placeholder>[simplified]) 4
+apply (case_tac k) 4
+apply (simp add: <placeholder> ac_simps) 4
+apply (<placeholder> cte) 4
+by (force dest:<placeholder>) 4
+by (simp add: <placeholder> prefix_closed_terminal) 4
+apply (simp add:liftE_bindE <placeholder>) 4
+apply (clarsimp simp add: <placeholder> split del: <placeholder>) 4
+apply (thin_tac "\<forall>x. Q x" for Q) 4
+by (induct n; simp add: <placeholder>) 4
+apply (cut_tac <placeholder>[of 32 vptr]) 4
+apply (cut_tac <placeholder>, simp+) 4
+apply (clarsimp simp: <placeholder> initMDBNode_def split: <placeholder>) 4
+by (force intro: <placeholder> dest: <placeholder>) 4
+apply (cases i, simp_all add: <placeholder>) 4
+using p 4
+apply ((wp (once) <placeholder>)+)[1] 4
+apply (frule(1) <placeholder>,simp+) 4
+apply (frule <placeholder>[where buf = obuf],simp+) 4
+apply (rule <placeholder>[where f=the]) 4
+apply (rule <placeholder>[where n =0,simplified]) 4
+apply (rule_tac x=bb in <placeholder>) 4
+by (word_eqI_solve dest: <placeholder>) 4
+apply (rule prefix_refinement_weaken_pre) 4
+by (fastforce intro: <placeholder>[OF <placeholder>]) 4
+using <placeholder> [of w] 4
+by (force intro!: <placeholder>) 4
+apply (fastforce simp:valid_cap'_def) 4
+apply (drule(1) subsetD[rotated]) 4
+apply (clarsimp simp:<placeholder> simp del:upt.simps) 4
+apply (erule(2) <placeholder>, simp) 4
+by (cases ko) (auto simp: <placeholder>) 4
+by (wp seq_ext <placeholder>) 4
+apply(fastforce split: if_split_asm) 4
+apply (rule_tac x="Suc i" in <placeholder>) 4
+apply (simp del: <placeholder> add: <placeholder>) 4
+apply (rule_tac C'="{s. target = curThread}" and Q="\<lambda>s. ksCurThread s = curThread" and Q'=UNIV in <placeholder>) 4
+apply (rule ccorres_Cond_rhs; clarsimp) 4
+apply (rule <placeholder>, rule <placeholder>, simp+)[1] 4
+show ?P 4
+apply (clarsimp simp: <placeholder> elim!: <placeholder>[rotated, where P=P]) 4
+apply (case_tac ep, simp_all add: <placeholder>)[1] 4
+apply (simp add: <placeholder>) \<comment> \<open>ntfn relation\<close> 4
+apply (clarsimp simp: <placeholder>) \<comment> \<open>queue relation\<close> 4
+apply (cut_tac m=k in <placeholder>[where td="typ_uinfo_t TYPE('a)"]) 4
+apply (wp+)[2] 4
+apply (rule_tac Q="\<lambda>rv s. invs' s \<and> (\<forall>x. rv = Some x \<longrightarrow> x \<le> ARM.maxIRQ) \<and> rv \<noteq> Some 0x3FF" in <placeholder>) 4
+by (rule <placeholder>, (wp <placeholder>)+) 4
+apply (wp <placeholder>, fastforce elim!: <placeholder>) 4
+apply (erule_tac x="(Q \<longrightarrow>* R)" in <placeholder>) 4
+apply (clarsimp simp:<placeholder> bind_assoc <placeholder>) 4
+using d 4
+apply (clarsimp simp: <placeholder> the_<placeholder>) 4
+apply (elim <placeholder>, insert <placeholder>, simp_all)[1] 4
+apply (erule r1) 4
+apply (drule(5) <placeholder>)+ 4
+apply (intro <placeholder>, simp_all add: <placeholder>) 4
+apply (clarsimp simp: <placeholder>[symmetric] <placeholder>[symmetric] <placeholder>) 4
+apply ((clarsimp simp:<placeholder>)+)[3] 4
+by (force intro: <placeholder>) 4
+by (wp | wpc | simp)+ 4
+apply (rename_tac uc i_s mode) 4
+apply (rule_tac ko = ba in <placeholder>) 4
+apply (intro <placeholder>, simp_all)[1] 4
+apply (rule_tac x=ba in <placeholder>) 4
+apply (clarsimp simp: <placeholder> kernel_data_refs_domain_eq_rotate <placeholder>) 4
+apply (drule <placeholder>, auto simp: <placeholder>)[1] 4
+apply (subst(asm) <placeholder>[OF <placeholder>]) 4
+apply (erule_tac x="(a, b)" in <placeholder>) 4
+by (fastforce elim: <placeholder> intro: <placeholder>) 4
+apply (drule_tac p=p in <placeholder>) 4
+by (unfold <placeholder>) (fact <placeholder>) 4
+by (rule <placeholder>, cases P, simp_all) 4
+apply (force simp: <placeholder> states_<placeholder>) 4
+apply (simp add: blah) 4
+apply (force simp add:<placeholder>) 4
+apply (rule <placeholder>[THEN <placeholder>,THEN <placeholder>]) 4
+by (cases xs; simp) 4
+using corres 4
+apply (simp_all add: <placeholder>[symmetric]) 4
+by - (drule (1) <placeholder>, simp) 4
+apply (case_tac arch_capability) 4
+apply (drule_tac x = word1 in <placeholder>) 4
+apply (case_tac n, simp_all) 4
+apply (simp add:ucast_nat_def <placeholder>) 4
+apply (subst <placeholder>[where n = 2,simplified field_simps,simplified,symmetric]) 4
+apply (simp add: <placeholder>)[1] 4
+have "valid_nullcaps m" 4
+apply (cinit' lift: cap_' length___unsigned_long_' current_extra_caps_' buffer_' simp: <placeholder>) 4
+apply (clarsimp simp:<placeholder> bind_assoc) 4
+apply (rule <placeholder>, ctac add: <placeholder>[where args=args and n=1 and buffer=buffer]) 4
+apply (rule <placeholder>[where vals=extraCaps and n=1]) 4
+apply (clarsimp simp add: if_1_0_0 <placeholder> simp del: <placeholder>) 4
+apply (simp add: <placeholder>[OF <placeholder>] <placeholder> del: <placeholder>) 4
+apply (vcg exspec=slotCapLongRunningDelete_modifies) 4
+apply (frule <placeholder>[rule_format, where n=1], simp) 4
+<placeholder> (Cons x xs) 4
+by (simp add: clas_no_asid <placeholder>) 4
+apply (clarsimp simp: <placeholder> | safe)+ 4
+apply (induct x rule:<placeholder>) 4
+apply (wp <placeholder> | wpc | simp add: <placeholder> del: if_<placeholder>)+ 4
+apply (rule_tac r'="(=)" in <placeholder>[OF <placeholder>]) 4
+apply (case_tac syscall, simp_all add: <placeholder>) 4
+apply (rule <placeholder>[where f=caps_of_state]) 4
+apply (simp add: assms)+ 4
+apply (simp add: <placeholder> Collect_True <placeholder> del: <placeholder>) 4
+apply (simp add: Cons assms)+ 4
+apply (simp add:copyGlobalMappings_def) 4
+apply (clarsimp simp:<placeholder> word_bits_def) 4
+by (simp add: <placeholder> empty_fail_term) 4
+by (simp add: <placeholder>) word_bitwise 4
+using misc 4
+apply (frule <placeholder>[where p = "ptrFromPAddr p" for p, rotated,unfolded <placeholder>,simplified], simp) 4
+apply (simp add: <placeholder> lookup_pd_slot_def Let_def pd_shifting pd_shifting_dual <placeholder>) 4
+apply (rule_tac x="VSRef (x>>20) (Some APageDirectory)" in <placeholder>) 4
+apply (drule_tac x="(ucast ((x >> 12) && mask 8))" in <placeholder>) 4
+by (simp add: states_<placeholder>) 4
+apply (drule <placeholder>, erule <placeholder>, simp) 4
+apply (<placeholder> i) 4
+by (auto elim: <placeholder> simp: mask_def) 4
+apply (clarsimp simp:<placeholder> split:<placeholder>, safe) 4
+apply (subst (asm) <placeholder>(4)[symmetric]) 4
+apply (drule <placeholder>, rule <placeholder>, assumption) 4
+by (cases ko) auto 4
+apply (rename_tac src_cap src_node) 4
+apply (simp split: option.split) 4
+apply (metis <placeholder>(2)) 4
+by (simp add: <placeholder>, metis) 4
+defer 4 4
+apply (simp_all add: <placeholder> globals_list_valid_def <placeholder> del: distinct_prop.simps split del: if_split) 4
+apply (rule <placeholder>[where n=6]) 4
+apply (clarsimp simp: <placeholder>,simp) 4
+apply (rule conjI; clarsimp simp: queue_in_range) 4
+apply (rule <placeholder>, solves \<open>clarsimp simp: le_maxDomain_eq_less_numDomains unat_trans_ucast_helper\<close>) 4
+by (rule <placeholder>) (clarsimp simp add: <placeholder>) 4
+apply (rule <placeholder>, assumption, clarsimp) 4
+apply (rename_tac endpoint) 4
+fix p cte 4
+assume peq: "p = ptr" 4
+hence mdb: "cteMDBNode cte = cteMDBNode ptrcte" 4
+using cp Some 4
+by (clarsimp simp: inv) 4
+using nxt Some n0 peq 4
+assume pne: "p \<noteq> ptr" 4
+using cp Some nxt n0 4
+by (cases "p = ptr") auto 4
+by (simp add: <placeholder>[OF <placeholder>]) 4
+by (force elim: <placeholder>) 4
+apply (clarsimp simp:<placeholder> Let_def) 4
+apply (frule <placeholder>[where m = m'],drule <placeholder>[OF dom],erule <placeholder>) 4
+apply (fastforce simp: <placeholder> | intro <placeholder>)+ 4
+using nl 4
+<placeholder> (step y z) 4
+by (clarsimp simp:<placeholder>[symmetric] <placeholder>) 4
+apply(case_tac "next_not_child src t m") 4
+apply(drule(2) <placeholder>, rule <placeholder>) 4
+apply (cases buffer) 4
+apply (erule <placeholder>[rotated -1]) 4
+apply (case_tac pde',simp_all split:<placeholder>) 4
+apply (insert x) 4
+apply (rule <placeholder> [OF _ <placeholder>], simp) 4
+apply (clarsimp simp: <placeholder> split: option.split) 4
+apply (simp add: <placeholder> split del: if_split cong: <placeholder>) 4
+apply (drule_tac x=xb in <placeholder>) 4
+apply (simp_all only: <placeholder>) 4
+by (rule <placeholder>) (auto simp add: bit_simps <placeholder>) 4
+apply (clarsimp simp:cte_wp_at_ctes_of) 4
+apply (wpsimp)+ 4
+apply (wp whenE_wp|wpc)+ 4
+by safe 4
+apply (clarsimp simp:<placeholder> dom_def) 4
+apply (rename_tac acap) 4
+apply (case_tac acap) 4
+apply (cases "p = mdbPrev s_node") 4
+apply (rule <placeholder> [OF cc]) 4
+apply (rule_tac t="partition_label SC" in <placeholder>) 4
+apply fact 4
+apply (rule corres_guard_imp) 4
+apply (clarsimp simp: <placeholder>[symmetric] <placeholder> field_simps) 4
+apply (simp del: <placeholder> split del: <placeholder>) 4
+apply (clarsimp simp: <placeholder> intro!: <placeholder>[OF <placeholder>]) 4
+apply (strengthen <placeholder>[simplified,THEN <placeholder>]) 4
+apply (rule <placeholder>[where Q="\<top>", simplified]) 4
+using ac rl 4
+apply (rule hoare_seq_ext)+ 4
+using r 4
+apply (erule (2) s) 4
+apply (simp add: split_def <placeholder>) 4
+apply (solves\<open>simp add: <placeholder>\<close>) 4
+by (cases tcb, simp add: <placeholder>) 4
+apply (drule <placeholder>, drule <placeholder>) 4
+apply(drule_tac x=x in <placeholder>, simp) 4
+apply (rule <placeholder>, rule hoare_post_impErr) 4
+apply (fastforce simp: <placeholder> split: <placeholder> elim: <placeholder>) 4
+apply (clarsimp simp: <placeholder>: Structures_H.ntfn.<placeholder>s) 4
+apply (rule_tac P="invs' and ko_at' ntfn ntfnptr" and P'=UNIV in <placeholder>) 4
+apply (rule_tac R = "(root_tcb_id, tcb_pending_op_slot) \<mapsto>c RestartCap \<and>* R" for R in <placeholder>) 4
+apply (simp add:<placeholder> cong: <placeholder>)+ 4
+apply (clarsimp simp: <placeholder> del: if_<placeholder>) 4
+apply (clarsimp simp:<placeholder>, fastforce) 4
+apply (rule <placeholder>[OF <placeholder>,OF <placeholder> ]) 4
+apply (wp <placeholder> [where n =0 and sz = sz,simplified]) 4
+apply (monadic_rewrite_l <placeholder> \<open>wpsimp simp: <placeholder> wp: <placeholder>\<close>) 4
+apply (auto intro: <placeholder>[OF <placeholder>]) 4
+case base 4
+note n_less = <placeholder>[OF cover] 4
+apply (simp add:unat_of_nat_m1 less_imp_le) 4
+apply (clarsimp simp:unat_of_nat_m1) 4
+apply (erule range_cover.<placeholder>) 4
+apply (clarsimp simp:copyGlobalMappings_def) 4
+apply (rule ctes) 4
+apply (frule <placeholder>, rule <placeholder> [where P="(=) s"]) 4
+apply (<placeholder> s, clarsimp) 4
+apply (cut_tac <placeholder>[OF al]) 4
+apply (clarsimp <placeholder>: <placeholder>_asm <placeholder>) 4
+apply (rename_tac pte) 4
+apply (rule <placeholder> [where P = False]) 4
+apply (subst <placeholder>[symmetric], assumption+) 4
+apply (subst <placeholder>[symmetric], simp+) 4
+apply (cases xs, simp_all) 4
+apply(induct slot rule: <placeholder>[where s=s and p=p]) 4
+apply(case_tac "next_slot slot (cdt_list s) (cdt s)") 4
+apply(erule_tac x=q in <placeholder>) 4
+apply(fastforce intro: <placeholder> simp: <placeholder>) 4
+by (auto intro!: <placeholder> simp: cs_closed <placeholder>) 4
+apply (simp add: <placeholder>) \<comment> \<open>queue relation\<close> 4
+by (simp add: objBits_simps) 4
+apply (erule (1) <placeholder>) \<comment> \<open>ntfn relation\<close> 4
+using * 4
+apply (rule_tac s=s in <placeholder>) 4
+apply (rule <placeholder> [where f=gsMaxObjectSize], wp) 4
+apply (rule_tac auth = SyncSend and ep = "partition_label x" and l' = "partition_label RM" in <placeholder>) 4
+by (<placeholder> xs) (auto simp: <placeholder>) 4
+apply (erule_tac x=obj in <placeholder>) 4
+apply (simp add: <placeholder>[symmetric] split del: <placeholder>) 4
+apply (simp add: <placeholder>[unfolded <placeholder>] split del: <placeholder>) 4
+apply (simp add: init_arch_objects_APIType_map2_noop split del: <placeholder>) 4
+apply (rule <placeholder>, simp_all add: <placeholder>, simp_all add: <placeholder>)[1] 4
+apply (rule hoare_vcg_R_conj) 4
+unfolding <placeholder> Let_def <placeholder> 4
+apply (clarsimp simp:<placeholder> generates_pending_def <placeholder> dest!:<placeholder>) 4
+apply (drule <placeholder>[where n = 14]) 4
+apply (simp cong: <placeholder> split del: <placeholder>) 4
+apply (frule <placeholder>(2), simp) 4
+apply (subst(asm) <placeholder>[symmetric, where 'b=32]) 4
+apply (rule <placeholder>[where m=10, simplified]) 4
+apply (monad_eq simp: <placeholder>) 4
+apply (clarsimp simp: <placeholder> cong: <placeholder> split: <placeholder>) 4
+apply(frule_tac a=a in <placeholder>) 4
+apply (erule disjE; clarsimp) 4
+apply (sep_select_asm 2, erule <placeholder>) 4
+by (cases x) auto 4
+apply (clarsimp simp: <placeholder> simp del: split_paired_All split_paired_Ex) 4
+by (<placeholder> ms; wpsimp wp: no_trace_terminal) 4
+apply (<placeholder> xs arbitrary: s; clarsimp) 4
+apply (drule(1) <placeholder>[rotated])+ 4
+apply (simp add: <placeholder> [OF szo] ht_rl) 4
+using rf empty kdr rzo 4
+apply (wp|clarsimp|rule <placeholder>)+ 4
+apply (case_tac "cdt s src") 4
+apply (<placeholder> cap, simp_all add: <placeholder>) 4
+apply (simp add:<placeholder>,erule <placeholder>) 4
+apply (case_tac "p' = cref") 4
+apply (<placeholder> b<placeholder>) 4
+apply (drule_tac p' = y in <placeholder>) 4
+apply (auto simp: <placeholder> intro: <placeholder>) 4
+apply (clarsimp simp add: <placeholder> dest!: <placeholder>') 4
+apply (simp add: P) 4
+using y 4
+by (wpsimp wp: no_trace_terminal split: <placeholder>) 4
+with m 4
+apply (rule_tac s=s' in <placeholder>[where P=\<top>]) 4
+apply (auto simp: <placeholder> dest: <placeholder> elim!: <placeholder>)[1] 4
+apply (ctac(no_vcg) add: <placeholder>[OF <placeholder>]) 4
+hence ?case 4
+apply (subst(asm) <placeholder>, simp) 4
+apply (fastforce intro: <placeholder>Fault <placeholder>) 4
+by (case_tac ko, simp_all add: <placeholder> split: <placeholder>) 4
+case (1 slot) 4
+apply(induct p rule: <placeholder>[where t=t and m=m]) 4
+apply (clarsimp simp:<placeholder> split:<placeholder> option.splits) 4
+apply (elim <placeholder>, (clarsimp simp: <placeholder> split: <placeholder>)+)[1] 4
+apply (simp add:cdl_<placeholder>) 4
+apply (clarsimp simp:<placeholder>[symmetric] split: <placeholder>) 4
+apply (rule <placeholder>,simp)+ 4
+apply (ctac add: <placeholder>[OF <placeholder>, OF <placeholder>]) 4
+apply (vcg exspec=findPDForASID_modifies) 4
+apply (frule <placeholder>(15)) 4
+apply (clarsimp simp: <placeholder> cap_lift_page_table_cap <placeholder> cap_page_table_cap_lift_def <placeholder> shiftl_t2n[where n=2] field_simps elim!: <placeholder>) 4
+apply (case_tac arch_kernel_obj,simp_all) 4
+using xin 4
+apply (rule_tac t=t in <placeholder>) 4
+proof (induct rule: <placeholder>, simp_all only: <placeholder>) 4
+apply (drule (4) <placeholder>, elim <placeholder>) 4
+apply (drule <placeholder>, elim <placeholder>, erule(1) <placeholder>) 4
+apply (thin_tac "ksIdleThread t = p" for t p)+ 4
+apply (thin_tac "ksCurDomain t = p" for t p)+ 4
+apply (thin_tac "ksDomScheduleIdx t = p" for t p)+ 4
+apply (thin_tac "ksDomainTime t = p" for t p)+ 4
+apply (thin_tac "ksDomSchedule t = p" for t p)+ 4
+apply (cases ui) 4
+apply(erule disjE) 4
+apply (wp gts_wp| wpc | simp)+ 4
+apply (case_tac "kheap s a") 4
+by (<placeholder> ms; wpsimp wp: prefix_closed_terminal) 4
+apply(rule_tac b=a in <placeholder>) 4
+apply (wp, wpc) 4
+apply(case_tac "cdt s p") 4
+apply (rule Q) 4
+apply (clarsimp simp: <placeholder> objBitsKO_def) 4
+apply (cases "t = t'", simp_all) 4
+apply (frule <placeholder>, assumption+) 4
+using mr 4
+by (induct n) auto 4
+apply (subgoal_tac "(4 :: nat) = 2 ^ 2") 4
+apply (drule <placeholder>, rule assms, rule <placeholder>) 4
+have "\<not> m \<turnstile> 0 \<leadsto>\<^sup>* <placeholder>" 4
+by (auto elim!: next_rtrancl_tranclE dest!: no_0_lhs_trancl) 4
+apply (drule_tac x = cte in <placeholder>) 4
+using invs 4
+apply (erule_tac x=as in <placeholder>) 4
+apply (clarsimp simp: <placeholder> dest!: P) 4
+apply (subgoal_tac "y \<noteq> idle_thread s'") 4
+apply (simp add: <placeholder>, wp get_object_wp) 4
+apply (rule_tac x="Suc n" in <placeholder>) 4
+apply(case_tac "q=src") 4
+apply(case_tac "q=dest") 4
+apply(case_tac "t slot") 4
+apply (rule <placeholder> [OF c1]) 4
+apply(auto simp add: <placeholder> dest!: <placeholder>)[1] 4
+apply (induct list srca rule: <placeholder>) 4
+by (auto simp add: <placeholder> word_bw_assocs) 4
+apply (case_tac sz) 4
+apply (simp add: bit_simps ac_simps) 4
+apply (subst(asm) <placeholder>, simp_all) 4
+apply (clarsimp simp: <placeholder> mask_cap_def cap_rights_update_def) 4
+apply (rule_tac P = "thread_ptr = root_tcb_id" in <placeholder>) 4
+apply (clarsimp simp: abs [rule_format, OF <placeholder>]) 4
+by (simp add: <placeholder> ac_simps) 4
+by presburger 4
+apply (simp add: word_bits_conv <placeholder>)+ 4
+apply (metis <placeholder>(1)) 4
+apply (rename_tac xa) 4
+apply (case_tac xs, simp_all) 4
+by get_simple_ko_method 4
+from tcb 4
+apply (simp add: valid) 4
+by (cases gs, auto simp add: <placeholder>) 4
+apply (clarsimp split:<placeholder> dest!:<placeholder>) 4
+apply (rename_tac l1) 4
+apply (auto intro!: <placeholder>) 4
+apply (fastforce simp: symreftype_inverse' <placeholder>) 4
+apply (rule <placeholder>[OF _ <placeholder>], simp_all) 4
+apply (erule_tac x="ucast x" in <placeholder>) 4
+apply (simp add: <placeholder> states_<placeholder>) 4
+apply (simp, wp <placeholder> validE_R_validE) 4
+apply (frule (1) <placeholder> [OF be [rule_format]]) 4
+hence "\<Gamma>\<turnstile> \<langle>While b' a',t\<rangle> \<Rightarrow> u" 4
+proof (rule WhileTrue.hyps(5)) 4
+apply (subst (2) <placeholder>) 4
+using vp 4
+using not_0 4
+apply (wp <placeholder> a) 4
+apply (clarsimp simp: <placeholder> elim!: <placeholder>[where P=P, OF _ <placeholder>]) 4
+apply (intro <placeholder> | simp)+ 4
+using 1 ko 4
+apply (rule_tac x=p' in <placeholder>) 4
+hence ?goal 4
+apply auto[2] 4
+apply(erule subjectAffects.cases; fastforce) 4
+apply (frule(3) <placeholder>, simp) 4
+apply (simp add: <placeholder>[THEN <placeholder>] <placeholder>) 4
+apply (subst <placeholder>[folded <placeholder>]) 4
+apply (<placeholder> l, simp_all add: <placeholder>) 4
+by (erule <placeholder>) auto 4
+apply (case_tac tinv) 4
+apply (rule_tac x="High_cnode_ptr + 0x10" in <placeholder>) 4
+apply (rule_tac x="Low_cnode_ptr + 0x10" in <placeholder>) 4
+apply (rule_tac x=2 in <placeholder>) 4
+apply (case_tac "mdbPrev src_node = p") 4
+have False 4
+apply linarith 4
+apply ((fastforce simp:<placeholder>)+)[5] 4
+using m 4
+apply (wpc | simp | wp <placeholder>[OF <placeholder>] <placeholder>)+ 4
+apply (rule ethreadget_corres) 4
+apply (simp add: etcb_relation_def) 4
+apply simp \<comment> \<open>ntfn relation\<close> 4
+apply (rule_tac Q="\<lambda>_. ?PRE" in hoare_post_imp, clarsimp) 4
+apply (subgoal_tac "is_aligned word pt_bits") 4
+proof (induct n) 4
+apply (thin_tac "x = y" for x y) 4
+apply (drule <placeholder>[where m = sz]) 4
+have [simp]: "ups_of_heap ?ps = ups_of_heap (kheap s)" 4
+have [simp]: "cns_of_heap ?ps = cns_of_heap (kheap s)" 4
+from gr 4
+using qv 4
+apply (rule ext, simp split: if_split) 4
+apply (drule <placeholder>[where sbit' = "objBitsKO ko "]) 4
+apply (simp add:<placeholder>[OF cover]) 4
+apply (rule <placeholder>, erule <placeholder>[rotated]) 4
+apply (clarsimp simp: ct_<placeholder>) 4
+apply (frule <placeholder>[OF dom,OF <placeholder>]) 4
+apply (simp add: decodeARMMMUInvocation_def <placeholder>_def <placeholder> cong: <placeholder> del: <placeholder>) 4
+apply (drule <placeholder>, fastforce)+ 4
+apply (case_tac ep, simp_all add: <placeholder>) 4
+apply (drule_tac ad = aa in <placeholder>) 4
+apply (auto split: <placeholder>)[1] 4
+apply (wp <placeholder> hoare_vcg_all_lift <placeholder>) 4
+using valid_objs[simplified <placeholder>] 4
+apply (erule_tac x=offs in <placeholder>) 4
+using src 4
+apply (simp add: storePDE_def <placeholder>) 4
+apply (rule <placeholder>[where n = <placeholder>]) 4
+apply (simp add:<placeholder>, blast?)+ 4
+apply (drule <placeholder>, fastforce simp: <placeholder>)+ 4
+apply (drule_tac x="(s,s')" in <placeholder>,clarsimp+) 4
+by (rule <placeholder>)(clarsimp simp: <placeholder>) 4
+by (rule <placeholder>, rule <placeholder>, simp+) 4
+apply (clarsimp simp: <placeholder>[where P=\<top>, simplified]) 4
+apply (clarsimp simp: <placeholder>[OF _ <placeholder>] <placeholder>) 4
+apply (simp(no_asm) add: <placeholder> cong: <placeholder>, simp) 4
+by (simp add: empty_fail_term empty_fail_cond) 4
+apply (case_tac is_blocking; simp) 4
+apply (case_tac arch_cap, simp_all) 4
+unfolding bitmap_fun_defs <placeholder> 4
+apply (rename_tac word option nat) 4
+apply (clarsimp simp:<placeholder> del: subsetI) 4
+apply (simp add:<placeholder>:Structures_H.kernel_object.<placeholder>s arch_kernel_object.<placeholder>s) 4
+apply (erule <placeholder> [where P=P], rule <placeholder>) 4
+obtain z where h': "h' = h + z" and hzd: "h ## z" 4
+by induct (auto simp: <placeholder>) 4
+apply (subst <placeholder>,rule <placeholder>,subst <placeholder>) 4
+apply (subst <placeholder>,rule <placeholder>,subst <placeholder>,rule <placeholder>,rule <placeholder>[where f=lift],rule <placeholder>) 4
+apply (clarsimp simp: <placeholder>[symmetric] cong:<placeholder>) 4
+apply (rule <placeholder>[OF <placeholder>[where P =\<top> ]]) 4
+apply (erule <placeholder>[rotated], simp add: <placeholder>) 4
+apply (elim <placeholder> TrueE, simp only:) 4
+apply (fastforce dest: <placeholder>[rotated]) 4
+apply(fastforce simp add: <placeholder> dest!: <placeholder>) 4
+apply (drule_tac auth=Write in <placeholder>) 4
+apply (rule <placeholder>[where x=0]) 4
+apply (fastforce simp add: <placeholder>[THEN <placeholder>, symmetric]) 4
+apply (frule_tac p=pd and p'=rv in <placeholder>, erule <placeholder>) 4
+apply (simp add: <placeholder>[where vaddr=vaddr] <placeholder>2[where vaddr=vaddr]) 4
+apply (simp, drule <placeholder>, fastforce) 4
+apply (drule <placeholder>[OF <placeholder>,rotated]) 4
+apply (cases "is_subject aag (fst slot)") 4
+apply (rule hoare_post_impErr,rule <placeholder>) 4
+apply (frule(4) <placeholder>[OF <placeholder>]) 4
+apply (rule <placeholder>[where r=dc]) 4
+apply (frule(2) <placeholder>[OF <placeholder>]) 4
+apply (rule_tac R="src_capa = cap.NullCap" in <placeholder> [where P=\<top> and P'=\<top>]) 4
+apply (simp add: defns split: <placeholder>) 4
+apply (simp add: mask_twice) 4
+apply (rule_tac P = "\<lambda>x. x = transform s'" and P' = "(=) s'" in <placeholder> [where f = dc and E = dc and E' =dc]) 4
+apply (rule_tac <placeholder>[OF <placeholder>,simplified]) 4
+apply (rename_tac obj_id) 4
+apply (wp|wpc|simp del: hoare_fail_any)+ 4
+apply (rename_tac d_cap d_node) 4
+apply (clarsimp simp:<placeholder> split:<placeholder> |wp)+ 4
+using chain 4
+apply (rule_tac R=\<top> in <placeholder>) 4
+apply (rule <placeholder>[where proj=id,simplified]) 4
+apply (fastforce intro!: <placeholder> simp: <placeholder>) 4
+apply (subgoal_tac "valid_idle s") 4
+apply (fastforce simp add: <placeholder>)+ 4
+by (cases F, auto elim: <placeholder> simp: <placeholder>) 4
+apply fact+ 4
+apply (rule <placeholder>[where R=\<top>], blast) 4
+apply (clarsimp simp:<placeholder> invs_queues <placeholder>) 4
+by (clarsimp simp: <placeholder> split:<placeholder> if_split_asm) 4
+apply ((fastforce simp: <placeholder> vspace_cap_rights_to_auth_def <placeholder>)+)[4] 4
+apply (frule <placeholder>, simp+)[1] 4
+apply (rule <placeholder>, simp, rule <placeholder>) 4
+apply (rule <placeholder>, ctac(no_vcg) add: <placeholder>) 4
+apply (rule <placeholder>, rule <placeholder>, rule <placeholder>, rule <placeholder>, rule <placeholder>) 4
+apply (erule <placeholder>[rotated], clarsimp) 4
+by (cases Q) simp+ 4
+apply (rule <placeholder>[OF <placeholder>],simp add:<placeholder>) 4
+apply (case_tac "x = 0") 4
+apply (<placeholder>[THEN <placeholder>]) 4
+apply (case_tac isBlocking; simp) 4
+apply (rule_tac lift_func = id in <placeholder>) 4
+apply (frule_tac epptr=epptr in <placeholder>,simp add:<placeholder>) 4
+apply (rule <placeholder>, erule <placeholder>, simp) 4
+apply (wp hoare_drop_imps) 4
+apply(subst(asm)(2) <placeholder>) 4
+apply (ctac add: <placeholder>[where args=args and n=3 and buffer=buffer]) 4
+apply (simp+)[4] 4
+apply (wp | simp add: <placeholder>[symmetric])+ 4
+apply (drule(2) <placeholder>[rotated]) 4
+apply (rule <placeholder>[where P = "_ \<inter> _ = {}"]) 4
+apply (frule (1) <placeholder>[where u = u]) 4
+apply (frule <placeholder>[where u = u]) 4
+apply (frule (1) <placeholder>[where u = u, simplified <placeholder>]) 4
+apply (cases capb; simp add: <placeholder>) \<comment> \<open>capb is PageCap\<close> 4
+proof (rule <placeholder>, rule <placeholder>) 4
+apply (subst <placeholder> [symmetric], simp add: <placeholder>)+ 4
+apply(rule <placeholder>[OF reads_res], simp+, wp) 4
+apply (auto simp: <placeholder> elim!: <placeholder> dest!: st_tcb_at_idle_thread')[1] 4
+apply (drule <placeholder>[OF <placeholder>], simp) 4
+apply (rule <placeholder>[where f = <placeholder>]) 4
+apply (clarsimp simp: <placeholder>: kernel_object.<placeholder>_asm) 4
+apply (simp add: <placeholder>: list.<placeholder>) 4
+apply(clarsimp simp: <placeholder> const_def) 4
+apply (rule hoare_seq_ext[OF _ y[unfolded <placeholder>]]) 4
+apply (rule_tac a=ab and b=ac and c=b in <placeholder>, simp+) 4
+apply (<placeholder> [OF szv]) 4
+apply (<placeholder> uq) 4
+apply (erule (1) <placeholder>[OF _ _ <placeholder>], clarsimp) 4
+apply (rule hoare_pre_imp) 4
+apply (clarsimp simp:<placeholder> if_1_0_0 <placeholder> del:<placeholder>) 4
+apply (drule_tac auth="Receive" and t="pasObjectAbs aag t" in <placeholder>) 4
+apply (rule <placeholder>[where P'=\<top>]) 4
+apply (drule_tac x=rv in <placeholder>) 4
+apply (rule <placeholder> ccorres_move_const_guard)+ 4
+apply (rule <placeholder>, erule cready_queues_relation_not_queue_ptrs) 4
+apply (rule <placeholder>[THEN <placeholder>],simp+) 4
+apply (clarsimp elim!: <placeholder>(2) [OF <placeholder>]) 4
+apply ((<placeholder> gsUserPages_update gsCNodes_update <placeholder> | simp add: <placeholder>)+)[1] 4
+apply (simp only: <placeholder>, (wp <placeholder>)+, clarsimp) 4
+from d 4
+apply (clarsimp simp:<placeholder> simp del:usableUntypedRange.simps untypedRange.simps) 4
+apply (drule <placeholder>[rotated, where A' = "{ptr..(ptr && ~~ mask sz) + 2 ^ sz - 1}"]) 4
+apply (clarsimp simp: rl' cterl <placeholder> [folded <placeholder>]) 4
+apply (simp add:szo <placeholder> cte_level_bits_def) 4
+using <placeholder>[unfolded <placeholder>,simplified] 4
+apply (clarsimp simp: simp: <placeholder>) 4
+apply (simp add:Cons)+ 4
+apply (blast intro!: <placeholder>[rule_format] <placeholder>) 4
+apply (simp add: if_1_0_0 del: <placeholder>) 4
+apply (clarsimp simp: <placeholder> if_1_0_0 <placeholder>) 4
+apply (frule cdt_has_caps) 4
+apply (rule_tac x=obj in <placeholder>) 4
+using om 4
+by - (rule <placeholder>) 4
+apply (rule_tac Q="\<lambda>_ s. invs' s \<and> cur_tcb' s" in <placeholder>) 4
+apply (drule(1) <placeholder>,clarify) 4
+apply (simp add: cap'_def) 4
+apply (rule_tac r'=dc in <placeholder>) 4
+apply (simp add: objBits_simps kotcb_def) 4
+using cgp 4
+apply (subgoal_tac "isPageCap cp \<longrightarrow> \<not> isPageDirectoryCap cp \<and> \<not> isASIDPoolCap cp \<and> \<not> isPageTableCap cp") 4
+apply (subgoal_tac "capVPMappedAddress cp = None") 4
+apply (clarsimp simp: <placeholder> word_less_sub_1) 4
+apply (frule <placeholder>, simp, simp) 4
+by (clarsimp simp: <placeholder>) blast 4
+using <placeholder>[OF <placeholder>[where n = 2 and w = n]] 4
+<placeholder> 4
+apply (simp <placeholder>:<placeholder> add:<placeholder>) 4
+apply (subst <placeholder>(8)[symmetric]) 4
+apply (case_tac "pool_ptr=a") 4
+apply (frule assms) 4
+apply (wp <placeholder> | wpcw | simp)+ 4
+apply (clarsimp simp: superSectionPDEOffsets_def <placeholder>) 4
+apply (subst <placeholder>[where c="2^4" and b="2^28", simplified]) 4
+apply (cut_tac x=irqa and 'a=32 in <placeholder>) 4
+apply (clarsimp simp: <placeholder> arch_<placeholder>) 4
+apply (clarsimp simp:<placeholder> size_of_def) 4
+apply (simp add: <placeholder> archObjSize_def split: arch_kernel_object.split_asm) 4
+apply (frule <placeholder> [OF _ a], fastforce) 4
+apply (frule <placeholder> [OF _ b], fastforce) 4
+apply (simp add: <placeholder> ARMLargePageBits_def ARMSmallPageBits_def ARMSectionBits_def ARMSuperSectionBits_def <placeholder> sle_positive <placeholder> shiftL_nat <placeholder> archObjSize_def <placeholder> word_sle_def word_sless_def <placeholder>) 4
+apply (clarsimp simp: <placeholder> archObjSize_def <placeholder> cond_second_eq_seq_ccorres <placeholder> intro!: <placeholder>) 4
+by (fastforce simp add: <placeholder> not_le) 4
+apply (auto simp: <placeholder> elim!: <placeholder>) 4
+apply (case_tac "rv = Running"; simp) 4
+apply (rule validI_repeat_interference; simp) 4
+apply (subst <placeholder>[symmetric], rule <placeholder>, simp) 4
+apply (frule(1) <placeholder>[simplified]) 4
+apply (erule_tac a=x in <placeholder>, rule <placeholder>, rule <placeholder>, simp, simp) 4
+apply (erule_tac a=x in <placeholder>, simp only:, rule <placeholder>, simp) 4
+apply (rule beq) 4
+apply (rule <placeholder> [OF <placeholder> [OF ra]]) 4
+apply (erule (1) <placeholder> [OF _ ra]) 4
+apply (simp add:<placeholder>[symmetric,where n =2,simplified field_simps,simplified]) 4
+apply (clarsimp <placeholder>: list.<placeholder> simp: <placeholder>) 4
+note blah[simp del] = untyped_range.simps usable_untyped_range.simps atLeastAtMost_iff atLeastatMost_subset_iff atLeastLessThan_iff Int_atLeastAtMost atLeastatMost_empty_iff split_paired_Ex 4
+apply (erule_tac a = xa in <placeholder>, simp) 4
+apply (wp <placeholder>[OF not_0 ,simplified] <placeholder>[OF _ not_0] | simp add: <placeholder> ptr <placeholder>)+ 4
+apply (clarsimp simp: pred_tcb_at') 4
+apply (erule order_less_le_trans; simp) 4
+apply (rule "2.hyps"[simplified], fastforce+) 4
+apply (vcg exspec=updateCapData_spec2) 4
+apply (rule <placeholder>, erule <placeholder>, simp+)[1] 4
+apply (sep_simp <placeholder>) 4
+apply (sep_drule (direct) <placeholder>, assumption+) 4
+apply (rule_tac x=untyped_capsa in <placeholder>) 4
+apply (subst <placeholder>, (simp add: <placeholder>)+)+ 4
+apply (frule_tac obj_id=dest_id in <placeholder>, clarsimp) 4
+apply (cut_tac slot=slot in <placeholder>, assumption, simp, simp) 4
+apply(case_tac "ca = <placeholder>") 4
+apply(erule_tac x=src in <placeholder>)+ 4
+apply (case_tac ipc_buffer',simp) 4
+apply (case_tac "snd a",simp) 4
+apply (subst field_simps, simp add: <placeholder>) 4
+apply (erule <placeholder>[OF <placeholder>, where P="\<lambda>x. ccorres _ _ _ _ _ x _"]) 4
+apply (wpsimp simp: performPageInvocation_def) 4
+apply (elim <placeholder>, simp_all add: <placeholder> ARM_H.<placeholder>)[1] 4
+apply (clarsimp simp add: <placeholder> irq_opt_relation_def) 4
+apply (simp add: <placeholder> ccorres_cond_empty_iff ccorres_cond_univ_iff) 4
+apply (wp <placeholder> u) 4
+apply (rule <placeholder>, ceqv, ceqv) 3
+apply (rule_tac P="is_thread_state_cap cap" in <placeholder>) 3
+apply (rule_tac P="is_bound_ntfn_cap cap" in <placeholder>) 3
+apply (intro <placeholder> conjI) 3
+apply (elim states_<placeholder>) 3
+apply (rule <placeholder>[OF <placeholder>[unfolded <placeholder>]]) 3
+apply (drule <placeholder> [where x=y]) 3
+apply (rule_tac f="\<lambda>s. ksCurDomain s" in <placeholder>) 3
+apply (erule(1) <placeholder> [unfolded <placeholder>]) 3
+apply (wp hoare_drop_imps <placeholder>) 3
+using ac 3
+fix t 3
+apply (erule <placeholder>, rename_tac cap') 3
+by (simp add: <placeholder>) (wpsimp wp: <placeholder>) 3
+by (simp add: <placeholder> wf_empty_bits dom_empty_cnode ex_with_length <placeholder> split: <placeholder>) 3
+by (rule <placeholder>[OF domains_distinct]) 3
+by (rule valid_global_refs_lift'; wp) 3
+apply (frule(1) <placeholder>, (clarsimp simp: <placeholder>)+) 3
+apply (drule(1) <placeholder> [OF _ x]) 3
+apply (frule(2) <placeholder> ,simp) 3
+apply (clarsimp simp: other_obj_relation_def) 3
+apply (erule_tac x="hd (max_non_empty_queue (ready_queues s (cur_domain s)))" in <placeholder>) 3
+by (wp <placeholder> | wpc | clarsimp)+ 3
+apply (drule <placeholder>, drule <placeholder>, assumption) 3
+apply (drule(1) <placeholder>, simp split: <placeholder>) 3
+apply (rule <placeholder>, simp add: tcb_null_queue_ptrs_def split: <placeholder>) 3
+apply (erule cready_queues_relation_null_queue_ptrs) 3
+apply (simp only: <placeholder>, simp only: <placeholder>[symmetric]) 3
+apply (cases i) 3
+apply (erule <placeholder> [where k = 2, simplified]) 3
+apply (clarsimp simp:<placeholder> split:<placeholder> simp:<placeholder>) 3
+apply (subst <placeholder>, rule <placeholder>, fastforce) 3
+apply (rule P) 3
+apply (subst <placeholder>, clarsimp simp: cap_lift_thread_cap <placeholder> word_bw_assocs)+ 3
+apply (drule <placeholder>[OF _ <placeholder>], simp) 3
+apply (clarsimp simp:not_less <placeholder>) 3
+by (drule <placeholder>, erule <placeholder>) 3
+fix z 3
+using pal 3
+apply (rule <placeholder>, rule <placeholder>, rule <placeholder>[rule_format]; simp) 3
+apply (rule <placeholder>, rule <placeholder>, vcg exspec=setRegister_modifies exspec=getRegister_modifies) 3
+apply (clarsimp simp: <placeholder>[unfolded <placeholder>]) 3
+by uint_arith 3
+apply (drule_tac x=cap in <placeholder>) 3
+apply (subgoal_tac "\<And>p p'. (m \<turnstile> p \<leadsto> p') = (m' \<turnstile> p \<leadsto> p')") 3
+apply (rule_tac xf'="ret__int_'" in <placeholder>) 3
+apply (case_tac "tcbState ko", simp_all add: "StrictC'_thread_state_defs")[1] 3
+apply (simp add: isRunnable_def isStopped_def) 3
+apply (erule ko) 3
+apply (clarsimp simp add: xfxfu) 3
+by (auto simp: rel) 3
+by (simp add:Types_D.<placeholder>) 3
+using lall 3
+proof (rule consr) 3
+from "2.prems" 3
+apply (rule <placeholder>(1)) 3
+from True 3
+by (case_tac c,simp_all add:<placeholder>) 3
+apply (subst <placeholder>[symmetric], subst <placeholder>) 3
+apply (clarsimp simp: <placeholder> cap_simps) 3
+apply (rename_tac page_table_invocation) 3
+apply (drule_tac s'=s' in <placeholder>, assumption) 3
+apply (strengthen <placeholder>[mk_strg I _ E], simp) 3
+apply (fastforce elim: <placeholder>[rotated]) 3
+apply (simp add:<placeholder> seL4_GetIPCBuffer'_def) 3
+apply (clarsimp simp: <placeholder> partial_inv_def <placeholder>) 3
+by (fastforce simp: <placeholder> simp del: split_paired_Ex) 3
+using xv 3
+apply(rule <placeholder>[where p=slot]) 3
+apply (simp add: xfg) 3
+apply (cinit lift: capptr_' root_' depth_') 3
+apply (erule(1) <placeholder>, simp_all split: <placeholder>) 3
+apply (cinit simp: <placeholder>) 3
+have "ut_revocable' m" 3
+apply (simp add: <placeholder> mask_twice) 3
+by ((clarsimp simp: <placeholder>s | rule <placeholder>[THEN <placeholder>] <placeholder> | rev_drule <placeholder>[THEN <placeholder>])+) 3
+apply (drule idx_compare'') 3
+<placeholder> (1 z cap cref s') 3
+defer 6 3
+apply (wp | simp | rule <placeholder>)+ 3
+apply(case_tac "a=aa") 3
+apply (frule <placeholder>[simplified <placeholder>]) 3
+apply (auto simp: <placeholder> dest!: <placeholder>) 3
+apply (rename_tac mdbnode) 3
+apply (fold <placeholder>, rule <placeholder>) 3
+apply (clarsimp simp: <placeholder>: xstate.<placeholder>s) 3
+apply (clarsimp simp: <placeholder> xf) 3
+by (fastforce simp: <placeholder> elim!: <placeholder>[rotated, where P=P]) 3
+apply (elim <placeholder>, assumption) 3
+apply (fastforce simp: <placeholder>[where P=P, OF _ <placeholder>]) 3
+apply (case_tac "excaps ! 0") 3
+apply (erule <placeholder>[rotated 3],simp+)+ 3
+apply (frule <placeholder>[where p = "Suc n"]) 3
+by (simp add: <placeholder>, fast) 3
+apply (wpsimp wp: <placeholder> | wp (once) <placeholder>)+ 3
+fix s s' 3
+apply (case_tac v,simp_all) 3
+apply (wps prq prqL1 prqL2) 3
+apply (case_tac arch_cap; simp add:<placeholder>) 3
+apply (cases pdi) 3
+apply (subst <placeholder>, auto) 3
+apply (subst(asm) <placeholder>, subst(asm) <placeholder>) 3
+apply (subst(asm) <placeholder>, simp add: <placeholder>) 3
+apply (clarsimp simp: <placeholder>[symmetric] <placeholder> simp del: <placeholder>) 3
+apply (rule ccorres_Guard_Seq <placeholder>)+ 3
+apply (rule <placeholder>[where F=ArrayBounds]) 3
+apply (wp <placeholder>[sep_wandise]) 3
+apply (induct q rule: <placeholder>) 3
+by (fastforce dest!: <placeholder> simp: <placeholder>) 3
+apply (rule_tac x=sa in <placeholder>) 3
+by (auto simp add: <placeholder>'_def <placeholder>ew_<placeholder>_def <placeholder>ew_<placeholder>_def <placeholder> split: <placeholder>) 3
+by (clarsimp simp: <placeholder> split:option.splits) 3
+subgoal for s 3
+apply(erule subjectAffects.cases; auto) 3
+apply (drule <placeholder>, simp add: <placeholder>, simp+) 3
+apply (rename_tac a0 as) 3
+apply (case_tac as, simp) 3
+apply (rename_tac a1 as') 3
+apply (rule <placeholder>[where P="\<top>"]) 3
+apply (fastforce simp: <placeholder>[simplified]) 3
+apply (clarsimp simp: <placeholder> cap_rights_update_def acap_rights_update_def) 3
+apply (wp hoare_drop_imps|wpc|simp)+ 3
+apply hypsubst 3
+apply (csymbr, csymbr, csymbr) 3
+apply (fastforce simp: sch_act_wf_weak) 3
+apply (simp add: <placeholder> split del: <placeholder> split: <placeholder>_asm) 3
+by auto[1] 3
+using emptyad emptybc 3
+apply (rule <placeholder>[unfolded <placeholder>,where p = 1,simplified]) 3
+apply (simp add: <placeholder> minUntypedSizeBits_def) 3
+apply (wpsimp simp: <placeholder> wp: <placeholder>)+ 3
+by (induct rule: <placeholder>, simp_all) 3
+by wpsimp auto 3
+apply (auto simp: <placeholder> dest!: <placeholder>)[1] 3
+apply (erule_tac x="(\<lambda>s. (Q \<longrightarrow>* R) s)" in <placeholder>) 3
+apply (elim <placeholder>)+ 3
+apply (rule <placeholder>[where r = root_size and cap' = "PageDirectoryCap pd_ptr real_type None"]) 3
+apply (wp <placeholder>[where r = root_size and cap' = "FrameCap dev frame_ptr rights n Real None"])[1] 3
+apply (erule_tac Q="cdl_current_domain sa = minBound" in <placeholder>, assumption) 3
+apply (rule_tac x = "PageDirectoryCap pd_ptr real_type None" in <placeholder>) 3
+by (rule <placeholder>[OF pos _ neg], simp) 3
+apply (cases opt) 3
+apply (rule <placeholder>[OF <placeholder>[OF domains_distinct]], assumption+) 3
+apply (rule_tac P="\<top>" in <placeholder>) 3
+apply (case_tac "isActive ntfn", simp_all) 3
+apply (rule <placeholder> [where f="idle_thread"]) 3
+apply (cinit lift: slot_') 3
+by (induct rule: <placeholder>) auto 3
+apply (wps c) 3
+apply (<placeholder>, assumption, fastforce) 3
+by (wpsimp wp: prefix_closed_terminal) 3
+apply (cases node) 3
+apply (cases "m p") 3
+apply (wp <placeholder> | wpc | simp | wp (once) <placeholder>)+ 3
+using <placeholder> [of \<open>UCAST(32 \<rightarrow> 8) x\<close> for x] 3
+apply (rule_tac x="ucast x" in <placeholder>) 3
+apply (simp add: <placeholder> x<placeholder>) 3
+apply (sep_select 4,assumption) 3
+apply (auto <placeholder>: <placeholder>) 3
+apply (simp add: <placeholder> [OF <placeholder>, symmetric]) 3
+apply (simp add: getHWASID_def) 3
+apply (drule_tac x=p in <placeholder>, simp) 3
+by (wpsimp wp: <placeholder> | rule <placeholder>)+ 3
+by (cases B; simp add: <placeholder>) 3
+apply (drule_tac x = ms in <placeholder>) 3
+apply (erule(1) <placeholder>, simp+) 3
+apply (vcg exspec=invokeTCB_NotificationControl_modifies) 3
+apply (clarsimp simp: y) 3
+apply (drule <placeholder>[where f="\<lambda>x. x - 1"]) 3
+apply (rule <placeholder>) \<comment> \<open>Name initial state\<close> 3
+apply (simp add: <placeholder>) \<comment> \<open>no imp rule?\<close> 3
+apply (strengthen <placeholder>)+ 3
+apply (clarsimp simp add: Let_def split_def <placeholder>: if_<placeholder> list.case_<placeholder> split del: <placeholder>) 3
+apply (wp x <placeholder>)+ 3
+using <placeholder>[where 'a='a] 3
+apply (rule <placeholder>[where P=P], assumption) 3
+apply (erule (1) <placeholder> [OF _ t]) 3
+apply (drule (1) <placeholder> [OF _ f]) 3
+apply (simp add: <placeholder> objBits_defs) 3
+apply (<placeholder> | clarsimp)+ 3
+apply (simp add:al <placeholder>) 3
+apply (rule pal) 3
+apply (subgoal_tac "ex_cte_cap_to' cref s") 3
+apply (erule <placeholder> [OF _ x]) 3
+by (clarsimp simp: <placeholder> archObjSize_def <placeholder> objBits_simps) 3
+by (drule <placeholder>, auto) 3
+by (force split:<placeholder>) 3
+by (drule <placeholder>) simp 3
+apply (subgoal_tac "is_aligned (ptrFromPAddr x) 10") 3
+apply (rule_tac P=\<top> in <placeholder>) 3
+show "?LHS x = ?RHS x" 3
+apply (wp hoare_Ball_helper <placeholder> | simp)+ 3
+apply (wpsimp simp: unless_def)+ 3
+from eq 3
+apply (rule_tac cap=cap' in <placeholder>) 3
+apply (<placeholder>[symmetric])+ 3
+apply (case_tac "i = 0") 3
+apply (drule_tac x=n in <placeholder>)+ 3
+by (case_tac sz,simp_all) 3
+by (rule <placeholder>[simplified <placeholder>, THEN <placeholder>, THEN <placeholder>, where n=2, OF al less le]) 3
+apply (cases ko, simp_all) 3
+apply (clarsimp simp add: cap_lifts <placeholder> cap_to_H_def) 3
+apply (simp add: <placeholder> isCap_simps) 3
+apply (erule <placeholder>(1)) 3
+apply (<placeholder> "idx = 0") 3
+apply (erule tcb_in_fault_reply.cases; clarsimp dest!: <placeholder>) 3
+apply (fastforce simp: <placeholder> intro: <placeholder> dest: <placeholder>) 3
+apply (corres_cases; clarsimp) 3
+apply (frule <placeholder>[OF <placeholder>], simp+, simp add: <placeholder>) 3
+apply (erule(1) y) 3
+apply (rule_tac R="case_sum QE Q" and R'="\<lambda>rv. {s. s \<in> case_sum QE' QR' rv (xf' s)}" for QE' QR' in <placeholder>) 3
+apply (case_tac rv, simp_all add: <placeholder>) 3
+apply (erule(1) bd) 3
+apply (simp <placeholder>: sum.<placeholder>_asm) 3
+apply (simp add: <placeholder>[OF _ <placeholder>]) 3
+apply corresKsimp 3
+apply (clarsimp simp: <placeholder> elim!: <placeholder>(2)) 3
+using <placeholder> [where a="sint a" and b="sint b"] 3
+apply (simp add: <placeholder>[simplified <placeholder>]) 3
+apply (simp add:<placeholder> split:<placeholder> option.splits) 3
+apply(simp_all add: <placeholder>)[5] 3
+apply (intro <placeholder> impI; wp) 3
+apply (fastforce simp: <placeholder>[symmetric] <placeholder> elim: <placeholder>) 3
+using ccorres ret pre 3
+apply (clarsimp simp add: <placeholder>[symmetric] <placeholder>) 3
+<placeholder> None 3
+unfolding maxPriority_def numPriorities_def <placeholder> 3
+using <placeholder>[where x=p] 3
+apply (case_tac p, clarsimp) 3
+apply (rule <placeholder>[simplified field_simps]) 3
+apply (clarsimp simp:<placeholder> liftE_bindE <placeholder>[symmetric]) 3
+apply (drule_tac p="(a,b)" in <placeholder>) 3
+by (wpsimp wp: x) 3
+apply (hypsubst) 3
+apply (erule_tac t = s'a in <placeholder>) 3
+apply (frule_tac x=x in <placeholder>) 3
+apply ((wp <placeholder> | clarsimp simp: inQ_def)+)[2] 3
+apply (clarsimp simp: a_type_def <placeholder>: kernel_object.<placeholder>s arch_kernel_obj.<placeholder>s if_<placeholder>_asm) 3
+apply (simp add: <placeholder> del: <placeholder> split_paired_Ex) 3
+by (wpsimp wp: assms <placeholder> | fold <placeholder>)+ 3
+apply (case_tac x2) 3
+apply (wp hoare_vcg_ball_lift) 3
+by (clarsimp simp: valid_state_def <placeholder>) 3
+apply(insert dest) 3
+have "pspace_aligned' s" 3
+with ks 3
+have "ptr_val x \<in> (- ?ran)" 3
+proof (rule <placeholder> [rotated]) 3

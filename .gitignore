@@ -1,0 +1,31 @@
+# IDE / editor
+.vscode/
+.idea/
+.metals/
+.bsp/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+build/
+dist/
+
+# Environment
+.env
+.env.local
+
+# Scala / sbt
+target/
+project/target/
+project/project/

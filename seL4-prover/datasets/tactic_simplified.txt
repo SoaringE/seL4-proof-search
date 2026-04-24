@@ -1,0 +1,11 @@
+apply(rule <placeholder>) 15009
+apply(clarsimp simp:<placeholder>) 10241
+apply clarsimp 5987
+unfolding <placeholder> 2434
+apply wp 1608
+apply(wp <placeholder>) 1534
+apply(drule <placeholder>) 1504
+apply fastforce 1303
+apply assumption 1020
+apply(frule <placeholder>) 952
+apply(elim <placeholder>) 529
