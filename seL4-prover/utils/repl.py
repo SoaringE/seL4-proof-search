@@ -7,9 +7,9 @@ from typing import Dict, List, Tuple
 
 from py4j.java_gateway import GatewayParameters, JavaGateway
 
-import utils.config as config
+from eval import config
 from utils.isar_utils import delete_comments, delete_texts, replaced_by_sorry
-from utils.parser import parse_java_object, parse_tactic
+from utils.parser import parse_java_object, parse_tactic, parse_hammer_facts
 
 
 class SafeIsaRepl:
@@ -69,7 +69,7 @@ class IsaRepl:
         self._log_file = open(log_path, "w")
         jar_path = config.ISA_REPL_PATH
         env = os.environ.copy()
-        env["ISABELLE_HOME"] = os.path.expanduser("~/verification/isabelle/")
+        # env["ISABELLE_HOME"] = os.path.expanduser("~/verification/isabelle/")
 
         process = subprocess.Popen([
             "java", "-jar", jar_path, str(self.port)
@@ -173,6 +173,11 @@ class IsaRepl:
     def hammer(self):
         res = self.isa_repl._prove_by_hammer()
         return parse_java_object(res)
+    
+    def hammer_facts(self):
+        res = self.isa_repl._extract_hammer_facts()
+        # True<\SEP>Selected 126 mepo facts: semiring_norm(86)
+        return parse_hammer_facts(res)
     
     def try_close(self):
         res = self.isa_repl._try_close()
