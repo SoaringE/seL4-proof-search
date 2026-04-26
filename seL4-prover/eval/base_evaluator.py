@@ -33,9 +33,15 @@ class BaseEvaluator(ABC):
         self.log_dir: str = args.log_dir
         
         # Data source configuration
-        if args.all_lemmas:
+        if self.test_path:
+            with Path(self.test_path).open("r") as f:
+                self._custom_split: Optional[Dict[str, List[Dict[str, Any]]]] = json.load(f)
+            self.data_sources = list(self._custom_split.keys())
+        elif args.all_lemmas:
+            self._custom_split = None
             self.data_sources = ["train", "val", "test", "test_hard"]
         else:
+            self._custom_split = None
             self.data_sources = ["val", "test", "test_hard"]
         
         # Create output directories
@@ -94,9 +100,12 @@ class BaseEvaluator(ABC):
 
     def _load_dataset(self) -> None:
         """Load dataset from JSON file"""
-        with self.dataset_lemma_split_path.open("r") as f:
-            dataset_lemma_split: Dict[str, List[Dict[str, Any]]] = json.load(f)
-        
+        if self._custom_split is not None:
+            dataset_lemma_split = self._custom_split
+        else:
+            with self.dataset_lemma_split_path.open("r") as f:
+                dataset_lemma_split: Dict[str, List[Dict[str, Any]]] = json.load(f)
+
         for source in self.data_sources:
             self.lemmas[source] = dataset_lemma_split[source]
 
