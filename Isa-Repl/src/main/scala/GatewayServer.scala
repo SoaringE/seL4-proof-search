@@ -474,15 +474,6 @@ object IsaReplGatewayServer {
             println(s"Error during shutdown: ${e.getMessage}")
             e.printStackTrace()
         }
-        try {
-          app._exit()
-          gateway.shutdown()
-          println("Server shutdown complete")
-        } catch {
-          case e: Exception =>
-            println(s"Error during shutdown: ${e.getMessage}")
-            e.printStackTrace()
-        }
       }
     })
 
@@ -500,8 +491,6 @@ object IsaReplGatewayServer {
       case e: Exception =>
         println(s"Server error: ${e.getMessage}")
         e.printStackTrace()
-        app._exit()
-        gateway.shutdown()
         app._exit()
         gateway.shutdown()
         System.exit(1)

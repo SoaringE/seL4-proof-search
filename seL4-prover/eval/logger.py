@@ -10,8 +10,10 @@ def get_proof_logger(log_dir: str = "logs", proof_name: str = "proof") -> loggin
     # avoid duplicate handler
     if not logger.handlers:
         handler = logging.FileHandler(log_path, mode='w')
-        # formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
-        formatter = logging.Formatter("%(message)s")
+        formatter = logging.Formatter(
+            "%(asctime)s - %(levelname)s - %(message)s",
+            datefmt="%Y-%m-%d %H:%M:%S",
+        )
         handler.setFormatter(formatter)
         logger.addHandler(handler)
     return logger

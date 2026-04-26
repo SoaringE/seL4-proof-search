@@ -16,6 +16,7 @@ __all__ = [
     "ISABELLE_BIN_PATH",
     "FVEL_EXTRACTION_PATH",
     "ISA_REPL_PATH",
+    "DATASET_LEMMA_SPLIT_PATH",
     "STEP_LIMIT",
 ]
 
@@ -62,6 +63,16 @@ ISABELLE_BIN_PATH: str = resolveAbsPath(os.getenv("ISABELLE_BIN_PATH", ""))
 FVEL_EXTRACTION_PATH: str = resolveAbsPath(os.getenv("FVEL_EXTRACTION_PATH", ""))
 ISA_REPL_PATH: str = resolveAbsPath(os.getenv("ISA_REPL_PATH", ""))
 L4V_PATH: Path = Path(os.path.expandvars(os.getenv("L4V_PATH", "l4v")))
+
+# Dataset config: defaults to <FVEL_EXTRACTION_PATH>/dataset_lemma_split.json
+# unless DATASET_LEMMA_SPLIT_PATH is explicitly set.
+_dataset_lemma_split_env = os.getenv("DATASET_LEMMA_SPLIT_PATH", "")
+if _dataset_lemma_split_env:
+    DATASET_LEMMA_SPLIT_PATH: str = resolveAbsPath(_dataset_lemma_split_env)
+elif FVEL_EXTRACTION_PATH:
+    DATASET_LEMMA_SPLIT_PATH = str(Path(FVEL_EXTRACTION_PATH) / "dataset_lemma_split.json")
+else:
+    DATASET_LEMMA_SPLIT_PATH = ""
 
 def update_environ():
     if ISABELLE_PATH == "":

@@ -1,5 +1,7 @@
 # seL4 Theorem Prover
 
+This is the official repository for our OSDI'26 paper [*Neuro-Symbolic Proof Generation for Scaling Systems Software Verification*](https://arxiv.org/abs/2603.19715).
+
 A theorem proving system for seL4 verification built on top of Isa-Repl, providing automated proof generation and verification capabilities for seL4 lemmas.
 
 ## Overview

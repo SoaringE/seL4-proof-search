@@ -1,6 +1,5 @@
 import traceback
 from dataclasses import dataclass
-from datetime import datetime
 from enum import Enum, auto
 from typing import List
 from collections import defaultdict
@@ -181,11 +180,9 @@ class TreeSearcher:
                 desc=f"Tree Search {lemma['name']} with port {isa_port}",
             ):
                 logger.info(
-                        f"====== [{datetime.now()}] Round {current_attempt + 1} / {self.MAX_ATTEMPTS} ======"
+                        f"====== Round {current_attempt + 1} / {self.MAX_ATTEMPTS} ======"
                     )
-                logger.info(
-                    f"{datetime.now()} Start selecting states..."
-                )
+                logger.info("Start selecting states...")
                 states = self.select_state()
                 if len(states) == 0:
                     break
@@ -208,7 +205,7 @@ class TreeSearcher:
                     print("input: ", self.generate_request_body)
                     logger.error(f"Failed to get the results from the prover: {e}")
                     return []
-                logger.info(f"{datetime.now()} Generated {len(results)} states")
+                logger.info(f"Generated {len(results)} states")
                 for current_state, (try_res, state) in enumerate(zip(results, states)):
                     # set the state
                     self.set_state(state)
@@ -242,15 +239,14 @@ class TreeSearcher:
                             logger.error(f"Failed to get the results from the repl: {e}")
                             logger.error(f"The current proof:\n\t{self.focus_proof}")
                             return []
-                        timestamp = datetime.now()
                         if nitpick_success:
                             logger.info(
-                                f"{timestamp} ⏸️ Quickcheck: Proof State contains a counterexample: {nitpick_state}"
+                                f"⏸️ Quickcheck: Proof State contains a counterexample: {nitpick_state}"
                             )
                             continue
                         else:
                             logger.info(
-                                f"{timestamp} ▶️ Quickcheck: Proof State Pass the check! {nitpick_state}"
+                                f"▶️ Quickcheck: Proof State Pass the check! {nitpick_state}"
                             )
 
                     failed_tactics, duped_path, duped_tactics, duped_states, passed_tactics = (
@@ -263,8 +259,7 @@ class TreeSearcher:
 
                     failed_steps = []
                     for step_num, (tactic, logprob) in enumerate(try_res, 1):
-                        msg = f"{datetime.now()} "
-                        msg += f"Step {step_num:2d} | "
+                        msg = f"Step {step_num:2d} | "
                         msg += f"Tactic : {shorten_text(tactic, 35):<40} | "
                         try:
                             result = self.get_next_state(tactic, logprob, isa_repl)
@@ -325,7 +320,7 @@ class TreeSearcher:
                     logger.info(summary_msg)
 
                     if self.use_crafted_steps:
-                        logger.info(f"{datetime.now()} Trying crafted steps...")
+                        logger.info("Trying crafted steps...")
                         scored_premises = {}
                         for failed_step, logprob, _ in failed_steps:
                             for premise in extract_premises(failed_step):
@@ -387,8 +382,7 @@ class TreeSearcher:
                                 logger.error(f"The current proof:\n\t{self.focus_proof}")
                                 return []
                             # log the focused state id
-                            msg = f"{datetime.now()} "
-                            msg += f"Step {step_num:2d} | "
+                            msg = f"Step {step_num:2d} | "
                             msg += f"Tactic : {shorten_text(tactic, 60):<60} | "
                             try:
                                 result = self.get_next_state(tactic, logprob, isa_repl)
@@ -468,9 +462,7 @@ class TreeSearcher:
                 desc=f"Hammering {lemma['name']} with port {isa_port}",
             ):
                 if node.is_leaf():
-                    timestamp = datetime.now()
-                    msg = f"{timestamp} "
-                    msg += f"Leaf node with score: {score}: \n{node.data['state']}"
+                    msg = f"Leaf node with score: {score}: \n{node.data['state']}"
                     msg += f"\nCurrent leaf node: {node.data['proof']}"
                     logger.info(msg)
                     self.set_state(node.data["state"])
@@ -488,8 +480,7 @@ class TreeSearcher:
                         logger.error(f"Failed to get the results from the repl: {e}")
                         logger.error(f"The current proof:\n\t{self.focus_proof}")
                         return []
-                    timestamp = datetime.now()
-                    msg = f"{timestamp} "
+                    msg = ""
                     if steps != []:
                         msg += f"Successfully hammered: {res}"
                         logger.info(msg)
@@ -520,18 +511,6 @@ class TreeSearcher:
         """
         path = lemma["path"]
         try:
-            # if lemma["session"] == "X86_Semantics":
-            #     isa_repl.initialize(
-            #         path, "/sel4-project/afp-2024/thys/X86_Semantics", lemma["session"], ["/sel4-project/afp-2024/thys/X86_Semantics"]
-            #     )
-            # elif lemma["session"] == "IEEE_Floating_Point":
-            #     isa_repl.initialize(
-            #         path, "/sel4-project/afp-2024/thys/IEEE_Floating_Point", lemma["session"], ["/sel4-project/afp-2024/thys/IEEE_Floating_Point"]
-            #     )
-            # elif lemma["session"] == "SATSolverVerification":
-            #     isa_repl.initialize(
-            #         path, "/sel4-project/afp-2024/thys/SATSolverVerification", lemma["session"], ["/sel4-project/afp-2024/thys/SATSolverVerification"]
-            #     )
             isa_repl.initialize(path, session_root, lemma["session"], [session_root])
             step_success, msg = isa_repl.step_to_target(
                 lemma["path"], lemma["statement"], exclude_list

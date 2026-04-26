@@ -1,8 +1,10 @@
 # This file is used to wrap the Isa_REPL to start and end the REPL
 
+import logging
 import os
 import subprocess
 import time
+import traceback
 from typing import Dict, List, Tuple
 
 from py4j.java_gateway import GatewayParameters, JavaGateway
@@ -10,6 +12,8 @@ from py4j.java_gateway import GatewayParameters, JavaGateway
 from eval import config
 from utils.isar_utils import delete_comments, delete_texts, replaced_by_sorry
 from utils.parser import parse_java_object, parse_tactic, parse_hammer_facts
+
+logger = logging.getLogger(__name__)
 
 
 class SafeIsaRepl:
@@ -24,8 +28,14 @@ class SafeIsaRepl:
                 try:
                     return attr(*args, **kwargs)
                 except Exception as e:
-                    print(f"repl execution error: {e}")
-                    return False, str(e) 
+                    # Preserve full traceback in the logs; callers see the
+                    # exception type and message in the returned tuple.
+                    logger.exception(
+                        "SafeIsaRepl: %s(*%r, **%r) raised %s",
+                        name, args, kwargs, type(e).__name__,
+                    )
+                    tb = traceback.format_exc()
+                    return False, f"{type(e).__name__}: {e}\n{tb}"
             return wrapper
         return attr
 

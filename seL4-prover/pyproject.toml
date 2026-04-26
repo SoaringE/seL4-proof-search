@@ -14,8 +14,6 @@ dependencies = [
     "rustworkx",
     "tqdm",
     "ray",
-    "py4j",
-    "dotenv",
     "treelib",
 ]
 

@@ -4,12 +4,13 @@ import time
 from py4j.java_gateway import JavaGateway, GatewayParameters
 
 
-# code2inv_path = "./datasets/code2inv"
-# newcode2inv_path = "./datasets/examples/newcode2inv_divide"
-# code2inv_path = os.path.abspath(code2inv_path)
-# newcode2inv_path = os.path.abspath(newcode2inv_path)
-# from https://github.com/SoftWiser-group/LaM4Inv/blob/main/Result/GPT4TurboFull.txt
-ground_truth_path = "/sel4-project/seL4-prover/datasets/GPT4TurboFull.txt"
+# Ground-truth dataset from
+# https://github.com/SoftWiser-group/LaM4Inv/blob/main/Result/GPT4TurboFull.txt
+# Override with the GROUND_TRUTH_PATH env var.
+ground_truth_path = os.environ.get(
+    "GROUND_TRUTH_PATH",
+    os.path.join(os.path.dirname(__file__), "..", "datasets", "GPT4TurboFull.txt"),
+)
 
 port = 25551
 

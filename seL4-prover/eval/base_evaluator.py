@@ -76,8 +76,13 @@ class BaseEvaluator(ABC):
 
     def _init_paths(self) -> None:
         """Initialize file paths"""
-        self.dataset_lemma_split_path = Path("/sel4-project/seL4-prover/datasets/dataset_lemma_split.json")
-        
+        if not config.DATASET_LEMMA_SPLIT_PATH:
+            raise ValueError(
+                "DATASET_LEMMA_SPLIT_PATH is not configured. Set DATASET_LEMMA_SPLIT_PATH "
+                "or FVEL_EXTRACTION_PATH in your .env file."
+            )
+        self.dataset_lemma_split_path = Path(config.DATASET_LEMMA_SPLIT_PATH)
+
         self.sel4_session_info_path = Path(config.FVEL_EXTRACTION_PATH) / Path(
             "sel4_session_info.json"
         )
@@ -103,6 +108,11 @@ class BaseEvaluator(ABC):
         if self._custom_split is not None:
             dataset_lemma_split = self._custom_split
         else:
+            if not self.dataset_lemma_split_path.is_file():
+                raise FileNotFoundError(
+                    f"Dataset lemma split file not found: {self.dataset_lemma_split_path}. "
+                    f"Set DATASET_LEMMA_SPLIT_PATH in your .env, or pass --test_path."
+                )
             with self.dataset_lemma_split_path.open("r") as f:
                 dataset_lemma_split: Dict[str, List[Dict[str, Any]]] = json.load(f)
 
