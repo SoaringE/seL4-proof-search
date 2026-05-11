@@ -93,6 +93,7 @@ def clear_proxy_env():
     for var in ["http_proxy", "https_proxy", "HTTP_PROXY", "HTTPS_PROXY", "ALL_PROXY"]:
         os.environ.pop(var, None)
 
+# this line is not mandatory. Modify it according to your environment.
 clear_proxy_env()
 
 # tree search config

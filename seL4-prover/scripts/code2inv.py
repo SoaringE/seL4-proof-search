@@ -185,7 +185,7 @@ def test1():
     with open(thy_path, "r") as f:
         content = f.read()
 
-    with IsaRepl(port=port, create_port=True) as isa_repl:
+    with IsaRepl(port=port) as isa_repl:
         # Initialize REPL with a theory file
         isa_repl.initialize(thy_path, l4v_path, logic, [l4v_path])
         # Compile the theory file
@@ -240,7 +240,7 @@ def test1():
 def test2():
     malform = []
 
-    with IsaRepl(port=port, create_port=True) as isa_repl:
+    with IsaRepl(port=port) as isa_repl:
         for entry in os.listdir(newcode2inv_path):
             # print(entry)
             filepath = os.path.join(newcode2inv_path, entry)

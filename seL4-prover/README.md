@@ -1,8 +1,19 @@
 # seL4-prover
 
-## Installation
-#### 1. Dataset
-Download `FVELer.zip` from [FVELER/FVELerExtraction](https://github.com/FVELER/FVELerExtraction/blob/main/FVELer.zip) into `./datasets/` and unzip it:
+## Environment Setup
+
+### System Requirements
+- Python >=3.12
+- [Isabelle2024](https://isabelle.in.tum.de/website-Isabelle2024/index.html)
+- Java >= 17 (for IsaREPL)
+
+### 1. Dataset
+
+The dataset is FVELer, available in two compatible variants depending on which evaluation workflow you use:
+
+**Original FVELer** — for the V1 workflow (`eval/tree_search_eval.py`)
+
+Three separate JSON files (`small_test.json`, `medium_test.json`, `medium_train.json`). Download `FVELer.zip` from [FVELER/FVELerExtraction](https://github.com/FVELER/FVELerExtraction/blob/main/FVELer.zip) into `./datasets/` and unzip it:
 
 ```shell
 cd datasets
@@ -10,14 +21,29 @@ cd datasets
 unzip FVELer.zip
 ```
 
-#### 2. Isabelle REPL
-Isa-Repl lives in the sibling directory [../Isa-Repl](../Isa-Repl/). Follow [../Isa-Repl/README.md](../Isa-Repl/README.md) to build the JAR — `sbt assembly` produces `target/IsaREPL.jar`, which must be pointed to by the `ISA_REPL_PATH` environment variable.
+**Enhanced FVELer** — for the V2 workflow (`main.py`)
 
-#### 3. Build l4v
+A single JSON file (`dataset_lemma_split.json`) that includes each lemma's path and its split classification (train / test / other). All data needed for evaluation lives in one file instead of three. Download it from [the release page](../../releases) of this repository.
+
+The script that produces the enhanced dataset from the original is [utils/retrofitFVEL.py](utils/retrofitFVEL.py). For example, it fills the `path` field of each lemma so that the evaluator can locate the theory file directly.
+
+### 2. Isabelle REPL
+
+You have two options:
+
+**Option A — use the pre-compiled JAR.** Download `IsaREPL.jar` from [the releases](../../releases) and point `ISA_REPL_PATH` at it in your `.env` file:
+
+```env
+ISA_REPL_PATH=/path/to/IsaREPL.jar
+```
+
+**Option B — build from source.** Isa-Repl lives in the sibling directory [../Isa-Repl](../Isa-Repl/). Follow [../Isa-Repl/README.md](../Isa-Repl/README.md) — `sbt assembly` produces `target/IsaREPL.jar`. Then set `ISA_REPL_PATH` to its absolute path.
+
+### 3. l4v
 
 Follow the instructions in the [seL4 l4v repository](https://github.com/seL4/l4v) to install the required packages.
 
-- Install pip package 
+- Install pip package
    ```
    pip install --user sel4-deps
    ```
@@ -52,13 +78,63 @@ Follow the instructions in the [seL4 l4v repository](https://github.com/seL4/l4v
       chmod a+x ~/bin/repo
       export PATH=~/bin:$PATH
       ```
-   2. We have bump to sel4-13.0.0, please checkout to `seL4-13.0.0` for the best compability.
-   3. For the error `No such file: "/path/to/verification/l4v/Main.thy"`, remove the symbolic link of Isabelle in l4v folder.
+   2. We have bumped to sel4-13.0.0, please checkout to `seL4-13.0.0` for the best compatibility.
+   3. For the error `No such file: "/path/to/verification/l4v/Main.thy"`, remove the symbolic link of Isabelle in the l4v folder.
+
+### 4. Python Environment
+
+Set up the Python environment as specified in [pyproject.toml](pyproject.toml).
+
+## Evaluation
+
+The repository ships two evaluation workflows: a V1 path driven by command-line arguments, and a V2 path driven by Pydantic-typed config classes.
+
+### V1 Workflow — `eval/tree_search_eval.py`
+
+Run on the small test set:
+
+```shell
+python -u eval/tree_search_eval.py \
+    --test \
+    --test_path datasets/small_test.json \
+    --server_num 9 \
+    --save_path output/tree_search_eval/small_test.json \
+    --llm_address [LLM_SERVER_ADDRESS]:8080 \
+    --log_dir logs/temp
+```
+
+Drop `--test` to evaluate the full dataset (`datasets/medium_test.json`).
+
+Common arguments:
+- `--server_num`: number of Isabelle server instances
+- `--start_port`: starting port for servers (default: 25555)
+- `--llm_address`: LLM server address (`host:port`)
+- `--timeout`: per-proof timeout in seconds (default: 600)
+- `--crafted_steps`, `--nitpick`: optional features
+
+Run `python eval/tree_search_eval.py --help` for the full argument list.
+
+### V2 Workflow — `main.py`
+
+Update the configuration section in [main.py](main.py) for parameters like dataset and output file paths. Critical configurations to pay attention to:
+- `DATASET_PATH`: path to the enhanced FVELer `dataset_lemma_split.json`
+- `PROVER_CONFIG.llm_address`: address of the LLM inference server
+- `EVALUATION_CONFIG.session_root`: path to the l4v code base
+
+Then just run:
+
+```shell
+python main.py
+```
+
+For details on the parameters, see:
+- [`eval.lib.BaseEvalConfig`](eval/lib.py) for the evaluator configuration
+- [`provers.treesearch_prover.TreeSearchProverConfig`](provers/treesearch_prover.py) for the prover configuration
 
 ## Run in Docker
 #### 1. Start the docker
 ```shell
-sudo sudo docker run --shm-size=10.24gb --network host -it lizenan1995/sel4-test:latest
+sudo docker run --shm-size=10.24gb --network host -it soaringe/sel4-test:latest
 ```
 #### 2. Start Ray in docker
 ```shell
@@ -75,4 +151,3 @@ python -u eval/tree_search_eval.py \
     --llm_address [LLM_SERVER_ADDRESS]:8080 \
     > output/output.txt 2>&1
 ```
-

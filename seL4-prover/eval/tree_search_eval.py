@@ -5,6 +5,7 @@ from eval.tree_searcher import TreeSearcher
 from eval.config import parse_args
 import ray
 
+
 class TreeSearchEvaluator(BaseEvaluator):
     """
     A theorem prover that uses a random tree search strategy.
@@ -18,7 +19,9 @@ class TreeSearchEvaluator(BaseEvaluator):
         super().__init__(args)
         ray.init()
         print(ray.cluster_resources())
-        self.max_repl_memory = ray.cluster_resources()["memory"] * 0.95 / self.server_num
+        self.max_repl_memory = (
+            ray.cluster_resources()["memory"] * 0.95 / self.server_num
+        )
         print(f"max_repl_memory: {self.max_repl_memory}")
 
     def build_generate_method(self) -> None:
@@ -28,11 +31,14 @@ class TreeSearchEvaluator(BaseEvaluator):
             port: int,
             address: str = self.llm_address,
             session_root: str = self.session_root,
-            exclude_list: List[str] = self.exclude_list
+            exclude_list: List[str] = self.exclude_list,
         ) -> List[str]:
-            searcher = TreeSearcher(self.use_crafted_steps, self.use_nitpick, self.log_dir)
+            searcher = TreeSearcher(
+                self.use_crafted_steps, self.use_nitpick, self.log_dir
+            )
             proof = searcher.search(lemma, port, address, session_root, exclude_list)
             return proof
+
         self._generate_single_proof = _generate_single_proof
 
 

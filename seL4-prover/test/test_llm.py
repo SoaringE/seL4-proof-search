@@ -39,7 +39,6 @@ if response.status_code == 200:
             print(f"[Example {j}] {completion}")
 else:
     print("Request failed: ", response.status_code, response.text)
-    
 
 
 # data = {

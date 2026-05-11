@@ -154,9 +154,11 @@ def build_postcond(lines):
     # print(lines)
     lines = [remove_abundant_paraphases(line) for line in lines]
     lines = [line for line in lines if line.strip() != ""]
-    
+
     if has_if:
-        return "( " + lines[0] + " \\<longrightarrow> (" + "\\<and>".join(lines[1:])  + "))"
+        return (
+            "( " + lines[0] + " \\<longrightarrow> (" + "\\<and>".join(lines[1:]) + "))"
+        )
     return "\\<and>".join(lines)
 
 
@@ -338,4 +340,3 @@ def translate_all_files(code2inv_path, newcode2inv_path):
                 + "\n\n"
                 + c,
             )
-

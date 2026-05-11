@@ -5,7 +5,8 @@ output/*
 logs.txt
 sel4_prover.egg-info/*
 .idea/*
-.vscode/
+**/.vscode/
+**/*.code-workspace
 /tmp/
 /saves/
 .env
@@ -15,4 +16,5 @@ datasets/FVELer.zip
 FVELer_data/dataset_lemma_split.json
 FVELer_data/sel4_thy_info.json
 __pycache__/
-
+.venv
+.metals/

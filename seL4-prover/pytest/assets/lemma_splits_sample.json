@@ -1,0 +1,55 @@
+{
+  "test": [
+    {
+      "theory": "More_Arithmetic",
+      "session": "Word_Lib",
+      "path": "/lib/Word_Lib/More_Arithmetic.thy",
+      "base_dir": null,
+      "tag": "lemma",
+      "name": "unnamed_thy_1",
+      "statement": "lemma n_less_equal_power_2:\n  \"n < 2 ^ n\"",
+      "proof": [
+        {
+          "step": "by (fact less_exp)",
+          "state": ""
+        }
+      ],
+      "num_steps": 1,
+      "source": "test"
+    },
+    {
+      "theory": "More_Arithmetic",
+      "session": "Word_Lib",
+      "path": "/lib/Word_Lib/More_Arithmetic.thy",
+      "base_dir": null,
+      "tag": "lemma",
+      "name": "unnamed_thy_2",
+      "statement": "lemma min_pm [simp]: \"min a b + (a - b) = a\"\n  for a b :: nat",
+      "proof": [
+        {
+          "step": "by arith",
+          "state": ""
+        }
+      ],
+      "num_steps": 1,
+      "source": "test"
+    },
+    {
+      "theory": "More_Arithmetic",
+      "session": "Word_Lib",
+      "path": "/lib/Word_Lib/More_Arithmetic.thy",
+      "base_dir": null,
+      "tag": "lemma",
+      "name": "unnamed_thy_3",
+      "statement": "lemma min_pm1 [simp]: \"a - b + min a b = a\"\n  for a b :: nat",
+      "proof": [
+        {
+          "step": "by arith",
+          "state": ""
+        }
+      ],
+      "num_steps": 1,
+      "source": "test"
+    }
+  ]
+}

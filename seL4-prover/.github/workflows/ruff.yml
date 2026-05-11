@@ -1,0 +1,101 @@
+name: Ruff
+
+on: 
+  push:
+    branches:
+    - main
+    - tree_search
+  workflow_dispatch:
+
+jobs:
+  ruff:
+    runs-on: ubuntu-22.04
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push the
+      # added or changed files to the repository.
+      contents: write
+    steps:
+    - uses: actions/checkout@v5
+    - name: Setup uv
+      uses: astral-sh/setup-uv@v7
+      with:
+        # The version of uv to install (default: searches for version in config files, then latest)
+        # version: ""
+    
+        # Path to a file containing the version of uv to install (default: searches uv.toml then pyproject.toml)
+        # version-file: ""
+    
+        # Resolution strategy when resolving version ranges: 'highest' or 'lowest'
+        # resolution-strategy: "highest"
+    
+        # The version of Python to set UV_PYTHON to
+        python-version: ""
+    
+        # Use uv venv to activate a venv ready to be used by later steps
+        activate-environment: "true"
+    
+        # The directory to execute all commands in and look for files such as pyproject.toml
+        # working-directory: ""
+    
+        # The checksum of the uv version to install
+        # checksum: ""
+    
+        # Used to increase the rate limit when retrieving versions and downloading uv
+        github-token: ${{ github.token }}
+    
+        # Enable uploading of the uv cache: true, false, or auto (enabled on GitHub-hosted runners, disabled on self-hosted runners)
+        enable-cache: "auto"
+    
+        # Glob pattern to match files relative to the repository root to control the cache
+        # cache-dependency-glob: |
+        #   **/*requirements*.txt
+        #   **/*requirements*.in
+        #   **/*constraints*.txt
+        #   **/*constraints*.in
+        #   **/pyproject.toml
+        #   **/uv.lock
+        #   **/*.py.lock
+    
+        # Whether to restore the cache if found
+        restore-cache: "true"
+    
+        # Whether to save the cache after the run
+        save-cache: "true"
+    
+        # Suffix for the cache key
+        # cache-suffix: ""
+    
+        # Local path to store the cache (default: "" - uses system temp directory)
+        # cache-local-path: ""
+    
+        # Prune cache before saving
+        prune-cache: "true"
+    
+        # Upload managed Python installations to the GitHub Actions cache
+        cache-python: "true"
+    
+        # Ignore when nothing is found to cache
+        ignore-nothing-to-cache: "true"
+    
+        # Ignore when the working directory is empty
+        ignore-empty-workdir: "false"
+    
+        # Custom path to set UV_TOOL_DIR to
+        # tool-dir: ""
+    
+        # Custom path to set UV_TOOL_BIN_DIR to
+        # tool-bin-dir: ""
+    
+        # URL to the manifest file containing available versions and download URLs
+        # manifest-file: ""
+    
+        # Add problem matchers
+        add-problem-matchers: "true"
+    - name: Ruff formatting
+      uses: astral-sh/ruff-action@v3.5.1
+      with:
+        args: format
+    # Commit all changed files back to the repository
+    - uses: stefanzweifel/git-auto-commit-action@v7
+      with:
+        commit_message: "ci: formatted with Ruff."

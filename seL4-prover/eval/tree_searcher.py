@@ -17,6 +17,7 @@ from utils.repl import IsaRepl
 
 import Levenshtein
 
+
 @dataclass(frozen=True)
 class ProofState:
     proof_steps: List[str]
@@ -88,7 +89,6 @@ class ProofTree(Tree):
 
 
 class TreeSearcher:
-
     MAX_ATTEMPTS = config.TREE_SEARCH_MAX_ATTEMPTS
     SELECTED_STATES_NUM = config.TREE_SEARCH_SELECTED_STATES_NUM
     SELECTED_HAMMER_NUM = config.TREE_SEARCH_SELECTED_HAMMER_NUM
@@ -169,7 +169,7 @@ class TreeSearcher:
             f"{lemma['name']} with isa_port {isa_port}: Applying tree search to generate proof..."
         )
         self.tree = ProofTree()
-        with IsaRepl(port=isa_port, create_port=True) as isa_repl:
+        with IsaRepl(port=isa_port) as isa_repl:
             if not self.start_state(lemma, isa_repl, session_root, exclude_list):
                 logger.error(f"{lemma['name']}: Failed to initialize the start state.")
                 return []
@@ -180,8 +180,8 @@ class TreeSearcher:
                 desc=f"Tree Search {lemma['name']} with port {isa_port}",
             ):
                 logger.info(
-                        f"====== Round {current_attempt + 1} / {self.MAX_ATTEMPTS} ======"
-                    )
+                    f"====== Round {current_attempt + 1} / {self.MAX_ATTEMPTS} ======"
+                )
                 logger.info("Start selecting states...")
                 states = self.select_state()
                 if len(states) == 0:
@@ -227,16 +227,20 @@ class TreeSearcher:
                     logger.info(f"The current proof:\n\t{self.focus_proof}")
 
                     hammer_fact_ok, hammer_facts = False, []
-                    
+
                     if self.use_crafted_steps:
                         hammer_fact_ok, hammer_facts = isa_repl.hammer_facts()
                     # print(hammer_fact_ok, hammer_facts)
                     if self.use_nitpick:
                         try:
-                            nitpick_success, nitpick_state = isa_repl.check_by_quickcheck()
+                            nitpick_success, nitpick_state = (
+                                isa_repl.check_by_quickcheck()
+                            )
                         except Exception as e:
                             traceback.print_exc()
-                            logger.error(f"Failed to get the results from the repl: {e}")
+                            logger.error(
+                                f"Failed to get the results from the repl: {e}"
+                            )
                             logger.error(f"The current proof:\n\t{self.focus_proof}")
                             return []
                         if nitpick_success:
@@ -249,7 +253,13 @@ class TreeSearcher:
                                 f"▶️ Quickcheck: Proof State Pass the check! {nitpick_state}"
                             )
 
-                    failed_tactics, duped_path, duped_tactics, duped_states, passed_tactics = (
+                    (
+                        failed_tactics,
+                        duped_path,
+                        duped_tactics,
+                        duped_states,
+                        passed_tactics,
+                    ) = (
                         0.0,
                         0.0,
                         0.0,
@@ -265,7 +275,9 @@ class TreeSearcher:
                             result = self.get_next_state(tactic, logprob, isa_repl)
                         except Exception as e:
                             traceback.print_exc()
-                            logger.error(f"Failed to get the results from the repl: {e}")
+                            logger.error(
+                                f"Failed to get the results from the repl: {e}"
+                            )
                             logger.error(f"The current proof:\n\t{self.focus_proof}")
                             return []
                         status, result = result.status, result.result
@@ -330,40 +342,68 @@ class TreeSearcher:
                         scored_premises = list(scored_premises.items())
                         scored_premises.sort(key=lambda x: x[1], reverse=True)
                         selected_premises = scored_premises[: config.PREMISE_LIMIT]
-                        
+
                         crafted_steps_for_state = {}
-                        
+
                         for failed_step, logprob, _ in failed_steps:
                             if failed_step.startswith("by"):
-                                crafted_steps_for_state["apply" + failed_step[2:]] = logprob
-                        
-                        for combined_step, log_prob in combine_premises(selected_premises):
+                                crafted_steps_for_state["apply" + failed_step[2:]] = (
+                                    logprob
+                                )
+
+                        for combined_step, log_prob in combine_premises(
+                            selected_premises
+                        ):
                             if combined_step not in crafted_steps_for_state:
                                 crafted_steps_for_state[combined_step] = log_prob
                             elif crafted_steps_for_state[combined_step] < log_prob:
                                 crafted_steps_for_state[combined_step] = log_prob
-                        
-                        undefined_fact_steps = [t for t in failed_steps if "Undefined fact" in t[2]]
+
+                        undefined_fact_steps = [
+                            t for t in failed_steps if "Undefined fact" in t[2]
+                        ]
                         undefined_fact_steps.sort(key=lambda x: x[1], reverse=True)
-                        undefined_fact_steps = undefined_fact_steps[: config.PREMISE_LIMIT]
-                        
+                        undefined_fact_steps = undefined_fact_steps[
+                            : config.PREMISE_LIMIT
+                        ]
+
                         for failed_step, logprob, fail_msg in undefined_fact_steps:
-                            fact = (fail_msg.split("Undefined fact: ")[1].split(" ")[0])[1: -1]
+                            fact = (
+                                fail_msg.split("Undefined fact: ")[1].split(" ")[0]
+                            )[1:-1]
                             if hammer_fact_ok:
                                 # print(fact, failed_step)
-                                similarities = [(hammer_fact, Levenshtein.distance(fact, hammer_fact)) for hammer_fact in hammer_facts]
+                                similarities = [
+                                    (
+                                        hammer_fact,
+                                        Levenshtein.distance(fact, hammer_fact),
+                                    )
+                                    for hammer_fact in hammer_facts
+                                ]
                                 similarities.sort(key=lambda x: x[1])
-                                similarities = similarities[: 7]
+                                similarities = similarities[:7]
                                 # print(similarities)
                                 for hammer_fact, _ in similarities:
-                                    replaced_step = failed_step.replace(fact, hammer_fact)
-                                    if replaced_step not in crafted_steps_for_state or crafted_steps_for_state[replaced_step] < logprob:
+                                    replaced_step = failed_step.replace(
+                                        fact, hammer_fact
+                                    )
+                                    if (
+                                        replaced_step not in crafted_steps_for_state
+                                        or crafted_steps_for_state[replaced_step]
+                                        < logprob
+                                    ):
                                         crafted_steps_for_state[replaced_step] = logprob
                         # print(crafted_steps_for_state)
                         total_crafted_steps = len(crafted_steps_for_state)
                         crafted_steps_for_state = list(crafted_steps_for_state.items())
 
-                        failed_tactics, duped_path, duped_tactics, duped_states, passed_tactics = (
+                        (
+                            failed_tactics,
+                            duped_path,
+                            duped_tactics,
+                            duped_states,
+                            passed_tactics,
+                        ) = (
                             0.0,
                             0.0,
                             0.0,
@@ -378,8 +418,12 @@ class TreeSearcher:
                                 isa_repl.focus_tls(str(self.focus_id))
                             except Exception as e:
                                 traceback.print_exc()
-                                logger.error(f"Failed to get the results from the repl: {e}")
-                                logger.error(f"The current proof:\n\t{self.focus_proof}")
+                                logger.error(
+                                    f"Failed to get the results from the repl: {e}"
+                                )
+                                logger.error(
+                                    f"The current proof:\n\t{self.focus_proof}"
+                                )
                                 return []
                             # log the focused state id
                             msg = f"Step {step_num:2d} | "
@@ -388,8 +432,12 @@ class TreeSearcher:
                                 result = self.get_next_state(tactic, logprob, isa_repl)
                             except Exception as e:
                                 traceback.print_exc()
-                                logger.error(f"Failed to get the results from the repl: {e}")
-                                logger.error(f"The current proof:\n\t{self.focus_proof}")
+                                logger.error(
+                                    f"Failed to get the results from the repl: {e}"
+                                )
+                                logger.error(
+                                    f"The current proof:\n\t{self.focus_proof}"
+                                )
                                 return []
                             status, result = result.status, result.result
 
@@ -513,7 +561,7 @@ class TreeSearcher:
         try:
             isa_repl.initialize(path, session_root, lemma["session"], [session_root])
             step_success, msg = isa_repl.step_to_target(
-                lemma["path"], lemma["statement"], exclude_list
+                lemma["statement"], exclude_list
             )
             if not step_success:
                 print(f"{lemma['name']}: Failed to step to target lemma: {msg}")

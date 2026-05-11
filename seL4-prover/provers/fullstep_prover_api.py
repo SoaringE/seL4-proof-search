@@ -33,7 +33,6 @@ class FullStepProverAPI:
         )
         self.tokenizer = AutoTokenizer.from_pretrained(model_path)
 
-
     def build_prompt(self, input_text):
         """
         Build the prompt for the model based on the input data and optional example.
@@ -71,7 +70,15 @@ class FullStepProverAPI:
 
         # print("Example of model prompt: ", model_inputs[0])
         # print("max_model_len: ", self.model.llm_engine.model_config.max_model_len)
-        filtered_model_inputs = list(filter(lambda text: len(self.tokenizer.encode(text)) <= (self.model.llm_engine.model_config.max_model_len // 2), model_inputs))
+        filtered_model_inputs = list(
+            filter(
+                lambda text: (
+                    len(self.tokenizer.encode(text))
+                    <= (self.model.llm_engine.model_config.max_model_len // 2)
+                ),
+                model_inputs,
+            )
+        )
 
         for i in range(retry):
             prover_outputs = self.model.generate(
@@ -88,14 +95,18 @@ class FullStepProverAPI:
         total_results = []
         available_results = {}
         for i in range(len(prover_outputs)):
-            available_results[prover_outputs[i].prompt] = self.postprocess(model_inputs[i], prover_outputs[i])
-        
-        total_results = [available_results.get(model_input, []) for model_input in model_inputs]       
-         
+            available_results[prover_outputs[i].prompt] = self.postprocess(
+                model_inputs[i], prover_outputs[i]
+            )
+
+        total_results = [
+            available_results.get(model_input, []) for model_input in model_inputs
+        ]
+
         assert len(total_results) == len(model_inputs)
-        
+
         return total_results
-    
+
     def compute_logprob(
         self,
         state,
@@ -107,15 +118,23 @@ class FullStepProverAPI:
             top_p=0.95,
             logprobs=1,
             n=1,
-            prompt_logprobs=0
+            prompt_logprobs=0,
         ),
         retry=10,
         use_tqdm: bool = True,
     ):
         prompt = self.build_prompt(state)
         full_texts = [prompt + " " + step + "</s>" for step in possible_steps]
-        
-        filtered_full_texts = list(filter(lambda text: len(self.tokenizer.encode(text)) <= self.model.llm_engine.model_config.max_model_len // 4, full_texts))
+
+        filtered_full_texts = list(
+            filter(
+                lambda text: (
+                    len(self.tokenizer.encode(text))
+                    <= self.model.llm_engine.model_config.max_model_len // 4
+                ),
+                full_texts,
+            )
+        )
 
         for i in range(retry):
             prover_outputs = self.model.generate(
@@ -134,23 +153,29 @@ class FullStepProverAPI:
             # if full_texts[i] == prover_outputs[i].prompt:
             prefix_len = len(self.tokenizer.encode(prompt))
             all_input_ids = self.tokenizer.encode(full_texts[i])
-            logprob = sum(output.prompt_logprobs[j][all_input_ids[j]].logprob for j in range(prefix_len, len(all_input_ids)))
+            logprob = sum(
+                output.prompt_logprobs[j][all_input_ids[j]].logprob
+                for j in range(prefix_len, len(all_input_ids))
+            )
             # for j in range(prefix_len, len(all_input_ids)):
             #     logprob += output.prompt_logprobs[j][all_input_ids[j]].logprob
             available_logprobs[prover_outputs[i].prompt] = logprob
             # else:
             #     logprobs.append(-1000.0)
-        logprobs = [available_logprobs.get(full_text, -1000.0) for full_text in full_texts]
-        
+        logprobs = [
+            available_logprobs.get(full_text, -1000.0) for full_text in full_texts
+        ]
+
         assert len(logprobs) == len(full_texts)
-            
+
         # for t, lp in zip(possible_steps, logprobs):
         #     print(f"Target: {t}, Logprob: {lp}")
-        
+
         results = list(zip(possible_steps, logprobs))
         results.sort(key=lambda p: p[1], reverse=True)
         return results[:limit]
-    
+
+
 # 1. Define the request body
 class SamplingParamsModel(BaseModel):
     temperature: float = 1.0
@@ -159,10 +184,12 @@ class SamplingParamsModel(BaseModel):
     n: int = 128
     logprobs: int = 1
 
+
 class InferenceBatchRequest(BaseModel):
     items: List[str]
     sampling_params: SamplingParamsModel
     use_tqdm: bool = False
+
 
 class LogprobSamplingParamsModel(BaseModel):
     temperature: float = 0.0
@@ -172,12 +199,14 @@ class LogprobSamplingParamsModel(BaseModel):
     logprobs: int = 1
     prompt_logprobs: int = 1
 
+
 class ComputeLogprobRequest(BaseModel):
     state: str
     possible_steps: List[str]
     limit: int
     sampling_params: LogprobSamplingParamsModel
     use_tqdm: bool = False
+
 
 # 2. Create FastAPI app
 app = FastAPI()
@@ -188,6 +217,7 @@ lock = threading.Lock()
 sft_path = os.environ.get("SFT_MODEL_PATH", "")
 assert sft_path, "SFT_MODEL_PATH environment variable is not set"
 prover = FullStepProverAPI(sft_path, gpu=2)
+
 
 # 4. Interface
 @app.post("/generate_batch")
@@ -201,6 +231,7 @@ def generate(request: InferenceBatchRequest):
         )
     return {"outputs": outputs}
 
+
 @app.post("/compute_logprob")
 def compute_logprob(request: ComputeLogprobRequest):
     sampling_params = SamplingParams(**request.sampling_params.model_dump())
@@ -213,6 +244,7 @@ def compute_logprob(request: ComputeLogprobRequest):
             use_tqdm=request.use_tqdm,
         )
     return {"outputs": outputs}
+
 
 # request_body = {
 #   "items": [],
