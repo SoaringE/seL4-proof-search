@@ -12,12 +12,13 @@ from collections.abc import Iterable, Mapping, MutableMapping
 from copy import deepcopy
 from io import TextIOWrapper
 from pathlib import Path
-from typing import Literal, Self, TypeAlias
+from typing import Literal
+from typing_extensions import Self, TypeAlias
 
 from py4j.java_gateway import GatewayParameters, JavaGateway, JavaObject
 from pydantic import BaseModel, Field, model_validator
 
-from config import ISA_REPL_PATH
+from eval.config import ISA_REPL_PATH
 from utils.isar_utils import (
     NormalizedStep,
     delete_comments,
