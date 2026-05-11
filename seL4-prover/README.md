@@ -23,7 +23,7 @@ unzip FVELer.zip
 
 **Enhanced FVELer** — for the V2 workflow (`main.py`)
 
-A single JSON file (`dataset_lemma_split.json`) that includes each lemma's path and its split classification (train / test / other). All data needed for evaluation lives in one file instead of three. Download it from [the release page](../../releases) of this repository.
+A single JSON file (`dataset_lemma_split.json`) that includes each lemma's path and its split classification (train / test / other). All data needed for evaluation lives in one file instead of three. Download `FVELer_EX.zip` from the [v1.0.0 release](https://github.com/SoaringE/seL4-proof-search/releases/tag/v1.0.0) and extract `dataset_lemma_split.json` from it.
 
 The script that produces the enhanced dataset from the original is [utils/retrofitFVEL.py](utils/retrofitFVEL.py). For example, it fills the `path` field of each lemma so that the evaluator can locate the theory file directly.
 
@@ -31,7 +31,7 @@ The script that produces the enhanced dataset from the original is [utils/retrof
 
 You have two options:
 
-**Option A — use the pre-compiled JAR.** Download `IsaREPL.jar` from [the releases](../../releases) and point `ISA_REPL_PATH` at it in your `.env` file:
+**Option A — use the pre-compiled JAR.** Download `IsaREPL.jar` from the [v1.0.0 release](https://github.com/SoaringE/seL4-proof-search/releases/tag/v1.0.0) and point `ISA_REPL_PATH` at it in your `.env` file:
 
 ```env
 ISA_REPL_PATH=/path/to/IsaREPL.jar
