@@ -24,6 +24,3 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 include = ["data*", "eval*", "eval_v2*", "provers*", "utils*"]
-
-[tool.setuptools]
-py-modules = ["config", "main"]

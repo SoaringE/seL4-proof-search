@@ -2,7 +2,11 @@ from logging import Logger
 from typing import Any, Protocol, TypeVar, runtime_checkable
 
 from pydantic import BaseModel, ConfigDict
-from vllm.inputs import PromptType
+
+try:
+    from vllm.inputs import PromptType
+except ImportError:
+    PromptType = Any
 
 from data.lemma import LemmaProtocol
 
