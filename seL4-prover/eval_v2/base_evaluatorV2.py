@@ -9,10 +9,11 @@ from logging import Logger
 from pathlib import Path
 from typing import Any, Callable, Generic, Literal
 
+import ray
 import yaml
 
 from data.lemma import Lemma, LemmaProtocol
-from eval.lib import BaseEvalConfig, LemmaBuffer, LoggingConfig, ProverCfgT
+from eval_v2.lib import BaseEvalConfig, LemmaBuffer, LoggingConfig, ProverCfgT
 from provers.lib import ProverProtocol
 from utils.repl import IsaRepl
 
@@ -232,62 +233,120 @@ class BaseEvaluator(Generic[ProverCfgT]):
             self.logger.info(f"Re-evaluate {len(reeval_tasks)} tasks.")
             self.tasks.extend(reeval_tasks)
 
-    def eval_task(
-        self, task: LemmaBuffer, isa_port: int, isa_repl: IsaRepl | None = None
-    ) -> LemmaBuffer:
-        """
-        Generate and check a single task, update the lemma buffer with the results in place. If a REPL instance is provided, it will be reused for the evaluation; otherwise, a new REPL together with the java process will be created for this task and closed after evaluation.
-        """
-
-        def do_eval_task(task: LemmaBuffer, isa_port: int, isa_repl: IsaRepl) -> None:
-            session_root = self.config.session_root
-            path = task.getAbsPath(Path(session_root))
-            if path is None or not path.exists():
-                task.success = False
-                task.message = f"Lemma path {path} does not exist."
-                return
-
-            isa_repl.initialize(
-                str(path), str(session_root), task.session, [str(session_root)]
-            )
-            isa_repl.step_to_target(task.statement, self.config.get_abs_excludes())
-            task.generated_proof = self.prover.prove(task, isa_port)
-            task.success, task.message = self._proof_checker(
-                task, task.generated_proof, self.config, isa_repl
-            )
-
-        self.logger.debug(
-            f"Starting evaluation of task: {task.name} with IsaREPL port: {isa_port}"
-        )
-        try:
-            if isa_repl is None:
-                with IsaRepl(port=isa_port, envs=self.config.repl_envs) as repl:
-                    do_eval_task(task, isa_port, repl)
-            else:
-                do_eval_task(task, isa_port, isa_repl)
-
-        except Exception as e:
-            task.success = False
-            task.message = str(e)
-
-        if task.success:
-            self.logger.debug(f"✓ Task {task.name} succeeded")
-        else:
-            self.logger.debug(f"✗ Task {task.name} failed: {task.message}")
-        return task
-
     def eval(self, do_save: bool = False, save_file: Path | None = None) -> None:
-        """Execute the complete evaluation pipeline (serial)."""
-        self.logger.info(f"There are {len(self.tasks)} lemmas to evaluate.")
-        port: int = self.config.start_port
-        with IsaRepl(port=port, envs=self.config.repl_envs) as isa_repl:
-            while self.tasks:
-                task: LemmaBuffer = self.tasks.pop(0)
-                res: LemmaBuffer = self.eval_task(task, port, isa_repl)
-                self.cache[task.name] = res
+        """Execute the complete evaluation pipeline in parallel via Ray.
+
+        Two phases, both Ray-parallel with at most `server_num` in-flight calls:
+          1. generate: prover owns its own JAR per task and produces proof steps.
+          2. check: a checker owns its own JAR per task and verifies the proof.
+        Each task gets a unique port `start_port + idx`; Ray's concurrency is
+        bounded by the in-flight window we maintain ourselves.
+        """
+        n_tasks = len(self.tasks)
+        self.logger.info(f"There are {n_tasks} lemmas to evaluate.")
+        if n_tasks == 0:
+            return
+
+        if not ray.is_initialized():
+            ray.init()
+
+        server_num = self.config.server_num
+        start_port = self.config.start_port
+
+        # Extract plain values up-front: Ray serializes closure captures with
+        # cloudpickle, and pydantic v2's parameterized generics (e.g.
+        # BaseEvalConfig[TreeSearchProverConfig]) don't have a stable
+        # module-attribute name, so pickling instances of them fails on the
+        # worker. Capturing primitives sidesteps that entirely.
+        prover = self.prover
+        session_root: Path = self.config.session_root
+        abs_excludes: list[str] = self.config.get_abs_excludes()
+        repl_envs: dict[str, str | None] = dict(self.config.repl_envs)
+
+        @ray.remote
+        def _generate_remote(task: LemmaBuffer, port: int) -> LemmaBuffer:
+            task.generated_proof = prover.prove(
+                task,
+                port,
+                session_root=session_root,
+                exclude_list=abs_excludes,
+                repl_envs=repl_envs,
+            )
+            return task
+
+        @ray.remote
+        def _check_remote(task: LemmaBuffer, port: int) -> LemmaBuffer:
+            if not task.generated_proof:
+                task.success = False
+                task.message = "No generated proof!"
+                return task
+            try:
+                with IsaRepl(port=port, envs=repl_envs) as isa_repl:
+                    path = task.getAbsPath(Path(session_root))
+                    if path is None or not path.exists():
+                        task.success = False
+                        task.message = f"Lemma path {path} does not exist."
+                        return task
+                    isa_repl.initialize(
+                        str(path),
+                        str(session_root),
+                        task.session,
+                        [str(session_root)],
+                    )
+                    isa_repl.step_to_target(task.statement, abs_excludes)
+                    ok, msg = isa_repl.execute_steps(task.generated_proof)
+                    task.success = bool(ok) and msg == ""
+                    task.message = msg
+            except Exception as e:
+                task.success = False
+                task.message = str(e)
+            return task
+
+        self.logger.info(f"Phase 1: generating proofs ({server_num} workers)…")
+        self.tasks = self._submit_with_concurrency(
+            _generate_remote, self.tasks, server_num, start_port
+        )
+
+        self.logger.info(f"Phase 2: checking proofs ({server_num} workers)…")
+        self.tasks = self._submit_with_concurrency(
+            _check_remote, self.tasks, server_num, start_port
+        )
+
+        for task in self.tasks:
+            self.cache[task.name] = task
+
         self.logger.info("Saving results...")
         if do_save:
             self.save_results(output_path=save_file)
+
+    def _submit_with_concurrency(
+        self,
+        remote_fn: Any,
+        tasks: list[LemmaBuffer],
+        server_num: int,
+        port_start: int,
+    ) -> list[LemmaBuffer]:
+        """Submit `remote_fn(task, port)` over `tasks`, keeping at most
+        `server_num` calls in flight. Returns results in task order.
+        """
+        n = len(tasks)
+        results: list[LemmaBuffer | None] = [None] * n
+        pending: dict[Any, int] = {}
+        next_idx = 0
+
+        while next_idx < n or pending:
+            while next_idx < n and len(pending) < server_num:
+                fut = remote_fn.remote(tasks[next_idx], port_start + next_idx)
+                pending[fut] = next_idx
+                next_idx += 1
+            if not pending:
+                break
+            done, _ = ray.wait(list(pending.keys()), num_returns=1)
+            for fut in done:
+                idx = pending.pop(fut)
+                results[idx] = ray.get(fut)
+
+        return [r for r in results if r is not None]
 
     def dispatch_port(self, offset: int) -> int:
         """Return a port number based on offset."""

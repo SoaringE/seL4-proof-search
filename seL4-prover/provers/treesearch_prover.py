@@ -1,7 +1,9 @@
 import os
 import re
+from collections.abc import Mapping
 from enum import Enum, StrEnum, auto
 from logging import Logger
+from pathlib import Path
 from typing import Any, override
 
 import Levenshtein
@@ -204,6 +206,16 @@ class TreeSearchProver(ProverProtocol[TreeSearchProverConfig]):
         self.focus_state: str = ""
         self.focus_proof: list[str] = []
 
+    def _llm_url(self, path: str) -> str:
+        """Return a fully-qualified URL for the LLM endpoint.
+
+        Accepts `llm_address` as either `host:port` or `scheme://host:port[/prefix]`.
+        """
+        addr = self.config.llm_address.rstrip("/")
+        if not addr.startswith(("http://", "https://")):
+            addr = "http://" + addr
+        return f"{addr}/{path.lstrip('/')}"
+
     @override
     def load_config(self, config: TreeSearchProverConfig) -> None:
         """Replace the current prover configuration and sync dependent values."""
@@ -216,17 +228,16 @@ class TreeSearchProver(ProverProtocol[TreeSearchProverConfig]):
         self,
         lemma: LemmaProtocol,
         isa_port: int,
+        session_root: Path,
+        exclude_list: list[str] = [],
+        repl_envs: Mapping[str, str | None] = {},
     ) -> list[str]:
         """
         Attempts to find a proof for `lemma` using tree search.
 
-        Args:
-            lemma: The lemma to prove (provides `.name`, `.statement`, etc.).
-            isa_port: The network port of the already-running Isabelle REPL.
-
-        Returns:
-            A list of tactic strings forming the proof, or an empty list on
-            failure.
+        Owns the Isabelle REPL JAR on `isa_port` for the duration of the call:
+        starts the JAR, initializes the theory and steps to the lemma, runs
+        tree search, then shuts the JAR down.
         """
         self.logger.info(
             f"{lemma.name} with isa_port {isa_port}: Applying tree search to generate proof..."
@@ -238,8 +249,29 @@ class TreeSearchProver(ProverProtocol[TreeSearchProverConfig]):
         self.selected_states = []
         self.total_attempts = 0
 
-        isa_repl = IsaRepl(port=isa_port, do_connect=True)
+        path = lemma.getAbsPath(Path(session_root))
+        if path is None or not path.exists():
+            self.logger.error(
+                f"{lemma.name}: Lemma path {path} does not exist (session_root={session_root})."
+            )
+            return []
 
+        try:
+            with IsaRepl(port=isa_port, envs=repl_envs) as isa_repl:
+                isa_repl.initialize(
+                    str(path), str(session_root), lemma.session, [str(session_root)]
+                )
+                isa_repl.step_to_target(lemma.statement, exclude_list)
+
+                return self._search(lemma, isa_port, isa_repl)
+        except Exception as e:
+            self.logger.exception(f"{lemma.name}: prove failed: {e}")
+            return []
+
+    def _search(
+        self, lemma: LemmaProtocol, isa_port: int, isa_repl: IsaRepl
+    ) -> list[str]:
+        """Run the tree-search loop against an already-initialized REPL."""
         if not self.start_state(isa_repl):
             self.logger.error(f"{lemma.name}: Failed to initialize the start state.")
             return []
@@ -260,7 +292,7 @@ class TreeSearchProver(ProverProtocol[TreeSearchProverConfig]):
             response = None
             try:
                 response = self.session.post(
-                    f"http://{self.config.llm_address}/generate_batch",
+                    self._llm_url("generate_batch"),
                     json=self.generate_request_body,
                     timeout=(30, 1200),
                 )
@@ -724,7 +756,7 @@ class TreeSearchProver(ProverProtocol[TreeSearchProverConfig]):
         response = None
         try:
             response = self.session.post(
-                f"http://{self.config.llm_address}/compute_logprob",
+                self._llm_url("compute_logprob"),
                 json=self.logprob_request_body,
                 timeout=(30, 1200),
             )

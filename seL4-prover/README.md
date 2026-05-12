@@ -21,7 +21,7 @@ cd datasets
 unzip FVELer.zip
 ```
 
-**Enhanced FVELer** — for the V2 workflow (`main.py`)
+**Enhanced FVELer** — for the V2 workflow (`eval_v2/main.py`)
 
 A single JSON file (`dataset_lemma_split.json`) that includes each lemma's path and its split classification (train / test / other). All data needed for evaluation lives in one file instead of three. Download `FVELer_EX.zip` from the [v1.0.0 release](https://github.com/SoaringE/seL4-proof-search/releases/tag/v1.0.0) and extract `dataset_lemma_split.json` from it.
 
@@ -114,21 +114,28 @@ Common arguments:
 
 Run `python eval/tree_search_eval.py --help` for the full argument list.
 
-### V2 Workflow — `main.py`
+### V2 Workflow — `eval_v2/main.py`
 
-Update the configuration section in [main.py](main.py) for parameters like dataset and output file paths. Critical configurations to pay attention to:
-- `DATASET_PATH`: path to the enhanced FVELer `dataset_lemma_split.json`
-- `PROVER_CONFIG.llm_address`: address of the LLM inference server
-- `EVALUATION_CONFIG.session_root`: path to the l4v code base
-
-Then just run:
+V2 runs on Ray, so start a Ray head first (same as V1):
 
 ```shell
-python main.py
+ray start --head --port=6379 --dashboard-host='0.0.0.0'
+```
+
+Update the configuration section in [eval_v2/main.py](eval_v2/main.py) for parameters like dataset and output file paths. Critical configurations to pay attention to:
+- `DATASET_PATH`: path to the enhanced FVELer dataset (file shipped as `dataset_lemma_split_EX.json` in `FVELer_EX.zip`; rename or point `DATASET_PATH` at the `_EX` file directly)
+- `PROVER_CONFIG.llm_address`: LLM inference server address. Accepts either `host:port` or `scheme://host:port[/prefix]`.
+- `EVALUATION_CONFIG.session_root`: absolute path to the l4v code base
+- `EVALUATION_CONFIG.server_num`: number of parallel Ray workers (each owns one Isabelle JAR on a port starting at `start_port`). Default `1`.
+
+Then run from the repo root:
+
+```shell
+python -m eval_v2.main
 ```
 
 For details on the parameters, see:
-- [`eval.lib.BaseEvalConfig`](eval/lib.py) for the evaluator configuration
+- [`eval_v2.lib.BaseEvalConfig`](eval_v2/lib.py) for the evaluator configuration
 - [`provers.treesearch_prover.TreeSearchProverConfig`](provers/treesearch_prover.py) for the prover configuration
 
 ## Run in Docker

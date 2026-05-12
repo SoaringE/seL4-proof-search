@@ -2,15 +2,15 @@ from pathlib import Path
 
 from data.FVELv2Data import FVELv2Data, load_FVELv2
 from data.lemma import Lemma
-from eval.base_evaluatorV2 import BaseEvaluator
-from eval.lib import BaseEvalConfig
+from eval_v2.base_evaluatorV2 import BaseEvaluator
+from eval_v2.lib import BaseEvalConfig
 from provers.treesearch_prover import TreeSearchProver, TreeSearchProverConfig
 
 ###########################################################################
 # Configurations for evaluation - adjust these as needed
 
 ## Step 1: Set path to your dataset.
-DATASET_PATH = Path("datasets/dataset_lemma_split.json")
+DATASET_PATH = Path("datasets/dataset_lemma_split_EX.json")
 
 ## Step 2: Configure the prover settings.
 PROVER_CONFIG = TreeSearchProverConfig(
@@ -23,15 +23,16 @@ PROVER_CONFIG = TreeSearchProverConfig(
     premise_limit = 5,
     use_crafted_steps = True,
     use_quickcheck = True,
-    llm_address = "http://localhost:8000/api/v1/llm/inference", #!NOTE: Update this with the actual address of your LLM inference server.
+    llm_address = "[LLM_ADDRESS]", #!NOTE: Update this with the actual address of your LLM inference server.
     log_dir = "logs"
 )
 
 ## Step 3: Configure the evaluation settings and pass the previously defined prover config.
 EVALUATION_CONFIG = BaseEvalConfig[TreeSearchProverConfig](
     start_port=25533,
+    server_num=3,
     timeout=120,
-    session_root=Path("l4v"),  #!NOTE: Update this to your actual l4v path.
+    session_root=Path("[l4v path]"),  #!NOTE: Update this to your actual l4v path.
     exclude_list=[
         "spec/take-grant/Example2.thy",
         "lib/EVTutorial/EquivValidTutorial.thy",

@@ -1,4 +1,6 @@
+from collections.abc import Mapping
 from logging import Logger
+from pathlib import Path
 from typing import Any, Protocol, TypeVar, runtime_checkable
 
 from pydantic import BaseModel, ConfigDict
@@ -72,14 +74,29 @@ class ProverProtocol(Protocol[ProverCfgT]):
         """Replace the current prover configuration."""
         ...
 
-    def prove(self, lemma: LemmaProtocol, isa_port: int) -> list[str]:
+    def prove(
+        self,
+        lemma: LemmaProtocol,
+        isa_port: int,
+        session_root: Path,
+        exclude_list: list[str] = [],
+        repl_envs: Mapping[str, str | None] = {},
+    ) -> list[str]:
         """
         Main interface for proving a lemma.
 
-        The prover focuses only on the proving logic and expects the lifecycle of the REPL session to be managed by outside code (e.g., the evaluator).
-        When `prove` is called, it expects a Java backend is already listening on
-        `isa_port` and the REPL has stepped to just after the
-        lemma statement. The prover should just connect to the gateway and start searching for a proof.
-        It should also leave the cleanup of repl to the caller.
+        The prover owns the Isabelle REPL JAR for the duration of this call:
+        it must start a JAR listening on `isa_port`, initialize the theory file
+        for `lemma`, step to just after the lemma statement, search for a proof,
+        and shut the JAR down before returning.
+
+        Args:
+            lemma: the lemma to prove.
+            isa_port: port on which the prover should bring up its own JAR.
+            session_root: absolute root directory of the Isabelle session
+                (e.g. the l4v checkout). Used to resolve `lemma.path`.
+            exclude_list: absolute paths of theory files that must NOT be
+                replaced by sorry during prefix execution.
+            repl_envs: environment variables to pass to the JAR subprocess.
         """
         ...

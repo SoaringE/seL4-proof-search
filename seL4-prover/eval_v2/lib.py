@@ -10,7 +10,7 @@ from pydantic import (
     PositiveInt,
 )
 
-import eval.config as config
+import eval_v2.config as config
 from data.lemma import Lemma
 from data.lib import OptionalRelPathField
 
@@ -59,6 +59,14 @@ class LoggingConfig(BaseModel):
 
 class BaseEvalConfig(BaseModel, Generic[ProverCfgT]):
     start_port: PositiveInt
+    server_num: PositiveInt = Field(
+        default=1,
+        description=(
+            "Number of parallel Ray workers / JAR processes. "
+            "Each worker owns one Isabelle REPL JAR on a port starting at "
+            "`start_port`. Set >1 to parallelize generate + check phases."
+        ),
+    )
     check_point: FilePath | None = Field(
         default=None, description="Path to the checkpoint file"
     )
